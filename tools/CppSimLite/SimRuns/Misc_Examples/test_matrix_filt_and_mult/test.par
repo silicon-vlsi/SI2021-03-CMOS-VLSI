@@ -1,0 +1,16 @@
+/////////////////////////////////////////////////////////////
+// CppSim Sim File: test.par
+// Cell: test_matrix_filt_and_mult
+// Library: Zinnia2_agc
+/////////////////////////////////////////////////////////////
+
+num_sim_steps: 100e3
+
+Ts: 1/10e6
+
+output: test 
+
+probe: in0 in1 in2 filt_in_vec filt_out_vec mul_out_vec
+
+global_param: num_sig_gl=3
+

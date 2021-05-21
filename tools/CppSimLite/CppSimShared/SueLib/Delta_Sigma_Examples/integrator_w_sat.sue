@@ -1,0 +1,27 @@
+proc SCHEMATIC_integrator_w_sat {} {
+make input -name in -origin {290 -650}
+make output -name out -origin {350 -650}
+}
+
+proc ICON_integrator_w_sat args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {k 1.0} {max_val 1.0} {min_val -1.0}}
+icon_term -type input -origin {-70 0} -name in
+icon_term -type output -origin {70 0} -name out
+  icon_property -origin {-60 140} -type user -name name -default x
+  icon_arc 0 -20 20 0 -start 50 -extent 133
+  icon_arc -20 0 0 20 -start 231 -extent 136
+  icon_line 0 -10 0 10
+icon_property -origin {-60 0} -label in
+icon_property -origin {60 0} -anchor e -label out
+  icon_line -70 -40 -70 40 70 40 70 -40 -70 -40
+icon_property -origin {0 30} -anchor center -label integrator_w_sat
+icon_property -origin {-70 -50} -label {$name}
+icon_property -origin {-10 -30} -label k/s
+  icon_property -origin {-60 120} -type user -name k -default 1.0
+icon_property -origin {-60 50} -label {k=$k}
+icon_property -origin {-60 70} -label {max_val=$max_val (V)}
+icon_property -origin {-60 90} -label {min_val=$min_val (V)}
+  icon_property -origin {-60 160} -type user -name max_val -default 1.0
+  icon_property -origin {-60 180} -type user -name min_val -default -1.0
+}
+

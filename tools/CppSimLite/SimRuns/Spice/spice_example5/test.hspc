@@ -1,0 +1,50 @@
+** NGspice Simulation of 'spice_example5' (Lib: Spice)
+
+***** Note:   to understand non-NGspice commands below,
+*****         look at HSPC manual at http://www.cppsim.com/manuals
+
+***** Parameters for Calculation of Diffusion Regions for CMOS Process
+> set_mode_diff geo
+> set_hdout .66u
+> set_hdin .74u
+> use_four_sided_perimeter
+
+***** Transistor Model File
+***** Specify appropriate CMOS and Bipolar model files below
+.include '../../../SpiceModels/cmos_013_bsim4.mod'
+.include '../../../SpiceModels/bipolar.mod'
+.include '../../../SpiceModels/discrete_devices.mod'
+***** Temperature
+.temp 25
+
+***** Parameters
+.param vsupply=5
+
+***** DC Voltage Sources
+Vsup vdd 0 'vsupply'
+
+***** Simulation Options
+.options post=1 delmax=5p relv=1e-6 reli=1e-6 relmos=1e-6 method=gear
+
+***** Simulation Parameters (.tran or .ac or .dc statements)
+.tran 1n 200u
+
+** .dc Vsup 0 'vsupply' 0.1
+
+** .ac lin 1000 100k 10Meg Vsup
+
+***** Have operating point information sent to output file
+.op
+
+****** Digital Input Stimulus (remove lines below if you don't want this)
+*** Timing Statement:  % timing delay rise/fall_time period vlow vhigh
+* > timing 0.0n .2n [1/1e9] 0 vsupply
+*** Digital Input:  % input nodename [set 0 1 1 0 1 ... R]
+* > input in [set 0 0 1 1 1 0 1 1 0 0 0 1 0 R]
+
+****** Analog Input Stimulus
+*** Simply add voltage or current sources as appropriate
+
+****** Selectively Probe Signals (uncomment below if you want this)
+*.probe in out @m1[gm] @m1[gds] @m1[gmbs] @m1[id] @m1[cgs] i(Vsup)
+.probe in out nd

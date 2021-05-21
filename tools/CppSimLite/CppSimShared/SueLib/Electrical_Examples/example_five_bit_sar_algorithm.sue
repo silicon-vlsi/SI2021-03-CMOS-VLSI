@@ -1,0 +1,33 @@
+proc SCHEMATIC_example_five_bit_sar_algorithm {} {
+make input -name comp_result -origin {-1060 680}
+make input -name clk -origin {-1060 760}
+make output -name out -origin {-860 920}
+make output -name sel_gnd<4:0> -origin {-860 680}
+make output -name sel_ref_in<4:0> -origin {-860 730}
+make output -name sel_in -origin {-860 780}
+make output -name sel_ref -origin {-860 860}
+}
+
+proc ICON_example_five_bit_sar_algorithm args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-120 -10} -name comp_result
+icon_term -type input -origin {-120 50} -name clk
+icon_term -type output -origin {100 70} -name out
+icon_term -type output -origin {100 -10} -name sel_gnd<4:0>
+icon_term -type output -origin {100 10} -name sel_ref_in<4:0>
+icon_term -type output -origin {100 30} -name sel_in
+icon_term -type output -origin {100 50} -name sel_ref
+icon_property -origin {-110 -10} -label comp_result
+icon_property -origin {-110 50} -label clk
+icon_property -origin {90 -10} -anchor e -label sel_gnd<4:0>
+icon_property -origin {90 30} -anchor e -label sel_in
+icon_property -origin {90 50} -anchor e -label sel_ref
+icon_property -origin {-110 -60} -label {$name}
+icon_property -origin {-110 -40} -label example_five_bit_sar_algorithm
+  icon_line -120 -50 100 -50 100 90 -120 90 -120 -50
+  icon_property -origin {-100 120} -type user -name name -default x
+  icon_line -120 40 -110 50 -120 60
+icon_property -origin {90 70} -anchor e -label out
+icon_property -origin {90 10} -anchor e -label sel_ref_in<4:0>
+}
+

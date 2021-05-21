@@ -1,0 +1,46 @@
+proc SCHEMATIC_test_electrical_sampler {} {
+make name_net -name input -origin {20 820}
+make global -name gnd -origin {300 960}
+make name_net -name ph1 -origin {110 1070}
+make name_net -name ph2 -origin {380 1090}
+make global -name gnd -origin {580 960}
+make name_net -name out_sampler -origin {550 820}
+make name_net -name out_raw -origin {290 820}
+make name_net -name phase -origin {-330 1070}
+make constant -name xi9 -consval 0 -origin {-760 1070}
+make gain -name xi11 -gain 0.001 -origin {-410 1070}
+make constant -name xi7 -consval 0.0 -origin {-320 820}
+make add2 -name xi0 -origin {-270 1070}
+make constant -name xi1 -consval 0.25 -origin {-410 1190}
+make signal_source -name xi8 -stype 1 -freq 1e6 -origin {-180 840}
+make signal_source_two_phase -name xi15 -origin {-110 1090}
+make signal_source -name xi10 -stype 1 -freq 1e3 -origin {-620 1090}
+make capacitor -name C7 -capacitance 10p -origin {300 890}
+make capacitor -name C8 -capacitance 10p -origin {580 890}
+make electrical_switch -orient RY -name s1 -on_resistance 1k -origin {180 820}
+make electrical_switch -orient RY -name s2 -on_resistance 1k -origin {460 820}
+  make_wire 420 820 300 820
+  make_wire 300 930 300 960
+  make_wire 290 820 300 820
+  make_wire 20 820 -50 820
+  make_wire 20 820 140 820
+  make_wire 220 820 290 820
+  make_wire 580 930 580 960
+  make_wire 300 820 300 850
+  make_wire 180 1070 180 850
+  make_wire 460 850 460 1090
+  make_wire -10 1090 380 1090
+  make_wire 380 1090 460 1090
+  make_wire -490 1070 -450 1070
+  make_wire -360 1070 -330 1070
+  make_wire -300 1070 -330 1070
+  make_wire -240 1070 -210 1070
+  make_wire -370 1190 -270 1190
+  make_wire -270 1190 -270 1100
+  make_wire 580 820 580 850
+  make_wire 500 820 550 820
+  make_wire 550 820 580 820
+  make_wire -10 1070 110 1070
+  make_wire 110 1070 180 1070
+}
+

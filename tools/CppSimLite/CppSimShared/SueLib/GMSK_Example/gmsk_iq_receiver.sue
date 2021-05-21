@@ -1,0 +1,64 @@
+proc SCHEMATIC_gmsk_iq_receiver {} {
+make add2 -orient RY -name xi1 -origin {-10 80}
+make input -name in -origin {-100 80}
+make mixer -name xi2 -origin {280 160}
+make mixer -orient RY -name xi3 -origin {280 0}
+make input -name irf -origin {160 -80}
+make input -name qrf -origin {160 240}
+make output -name ir -origin {930 0}
+make output -name qr -origin {930 160}
+make first_order_lowpass -name xi6 -fp fp -origin {440 0}
+make first_order_lowpass -name xi4 -fp fp -origin {440 160}
+make first_order_lowpass -name xi5 -fp fp -origin {630 0}
+make first_order_lowpass -name xi7 -fp fp -origin {630 160}
+make first_order_lowpass -name xi8 -fp fp -origin {820 0}
+make first_order_lowpass -name xi9 -fp fp -origin {820 160}
+make noise -name xi0 -var noisevar -origin {-10 -20}
+  make_wire -40 80 -100 80
+  make_wire 120 0 240 0
+  make_wire 120 160 240 160
+  make_wire 280 -80 280 -40
+  make_wire 280 200 280 240
+  make_wire 320 0 360 0
+  make_wire 320 160 360 160
+  make_wire 160 -80 280 -80
+  make_wire 160 240 280 240
+  make_wire 710 160 740 160
+  make_wire 710 0 740 0
+  make_wire 520 0 550 0
+  make_wire 520 160 550 160
+  make_wire 900 0 930 0
+  make_wire 900 160 930 160
+  make_wire 120 0 120 80
+  make_wire 120 80 120 160
+  make_wire 120 80 20 80
+  make_wire -10 10 -10 50
+  make_line 350 270 500 270
+  make_line 800 270 930 270
+  make_text -origin {530 270} -text {A Simple I/Q Receive Filter} -size large
+}
+
+proc ICON_gmsk_iq_receiver args {
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {fp 1.0} {noisevar 0.0}}
+icon_term -type output -origin {80 -30} -name ir
+icon_term -type output -origin {80 30} -name qr
+icon_term -type input -origin {-80 -30} -name in
+icon_term -type input -origin {-80 10} -name irf
+icon_term -type input -origin {-80 30} -name qrf
+icon_property -origin {-80 -70} -label {$name}
+  icon_property -origin {-90 130} -type user -name name -default x
+  icon_property -origin {-90 160} -type user -name fp -default 1.0
+  icon_line -80 -60 -80 50 80 50 80 -60 -80 -60
+icon_property -origin {60 -30} -label IR
+icon_property -origin {60 30} -label QR
+icon_property -origin {0 -50} -anchor center -label gmsk_iq_receiver
+icon_property -origin {-50 60} -label {fp=$fp Hz}
+icon_property -origin {-70 -30} -label in
+icon_property -origin {-70 10} -label irf
+icon_property -origin {-70 30} -label qrf
+  icon_property -origin {-90 180} -type user -name noisevar -default 0.0
+icon_property -origin {-50 80} -label {noisevar=$noisevar V^2/Hz}
+
+}
+

@@ -1,0 +1,22 @@
+proc SCHEMATIC_add2_int {} {
+make input -name in1 -origin {230 -700}
+make input -name in2 -origin {230 -630}
+make output -name out -origin {420 -660}
+}
+
+proc ICON_add2_int args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-30 0} -name in1
+icon_term -type input -origin {0 30} -orient R270 -name in2
+icon_term -type output -origin {30 0} -name out
+  icon_property -origin {-50 80} -type user -name name -default x
+  icon_arc -30 -30 30 30 -start 271 -extent 359
+icon_property -origin {30 0} -anchor e -label out
+icon_property -origin {-30 0} -label in1
+icon_property -origin {0 30} -anchor center -label in2
+icon_property -origin {0 -40} -anchor center -label add2_int
+  icon_line 0 -20 0 20
+  icon_line -20 0 20 0
+icon_property -origin {-10 -50} -label {$name}
+}
+

@@ -1,0 +1,86 @@
+proc SCHEMATIC_ds_dt_ord2_candy_1bit {} {
+make input -name in -origin {-590 150}
+make input -name clk -origin {-590 500}
+make sub2 -name xi1 -origin {-90 150}
+make sub2 -name xi3 -origin {370 150}
+make output -name out -origin {970 170}
+make name_net -name error -origin {-10 150}
+make gain -orient R270 -name xi4 -gain 2 -origin {370 330}
+make name_net -name in_sampled -origin {-310 150}
+make comparator_basic -name xi5 -origin {820 170}
+make constant -name xi8 -origin {630 340}
+make name_net -name x2 -origin {730 150}
+make name_net -name x1 -origin {290 150}
+make accum_w_delay_and_sat -name xi0 -psat 10.0*vref -msat -10.0*vref -origin {140 150}
+make accum_no_delay_and_sat -name xi9 -psat 10*vref -msat -10*vref -origin {580 150}
+make add2 -name xi7 -origin {-220 150}
+make name_net -name noise_in -origin {-310 300}
+make clocked_white_noise -name xi2 -en_noise en_noise -spectral_density therm_noise -clk_freq clk_freq -origin {-460 300}
+make sampler_w_delay -name xi6 -origin {-470 150}
+  make_wire 480 150 400 150
+  make_wire 900 170 930 170
+  make_wire 930 170 970 170
+  make_wire 770 150 730 150
+  make_wire -590 150 -550 150
+  make_wire -590 500 -580 500
+  make_wire -580 500 20 500
+  make_wire 20 500 460 500
+  make_wire 710 340 670 340
+  make_wire 460 500 820 500
+  make_wire -90 460 370 460
+  make_wire 370 460 930 460
+  make_wire -60 150 -10 150
+  make_wire -10 150 40 150
+  make_wire 290 150 240 150
+  make_wire 290 150 340 150
+  make_wire 680 150 730 150
+  make_wire 460 190 460 500
+  make_wire 710 190 770 190
+  make_wire -90 180 -90 460
+  make_wire 460 190 480 190
+  make_wire 20 190 40 190
+  make_wire 930 170 930 460
+  make_wire 820 210 820 500
+  make_wire -580 190 -550 190
+  make_wire 370 180 370 280
+  make_wire 370 370 370 460
+  make_wire 710 190 710 340
+  make_wire 20 190 20 500
+  make_wire -190 150 -120 150
+  make_wire -220 300 -220 180
+  make_wire -540 300 -580 300
+  make_wire -310 150 -390 150
+  make_wire -310 150 -250 150
+  make_wire -580 190 -580 300
+  make_wire -580 300 -580 500
+  make_wire -380 300 -310 300
+  make_wire -310 300 -220 300
+}
+
+proc ICON_ds_dt_ord2_candy_1bit args {
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {vref 1.0} {clk_freq 1e6} {en_noise 0} {therm_noise 10e-9}}
+icon_term -type input -origin {-130 -30} -name in
+icon_term -type input -origin {-130 50} -name clk
+icon_term -type output -origin {130 -30} -name out
+icon_property -origin {-120 -30} -label in
+icon_property -origin {-120 50} -label clk
+icon_property -origin {120 -30} -anchor e -label out
+icon_property -origin {-120 -80} -label {$name}
+icon_property -origin {-120 -60} -label ds_dt_ord2_candy_1bit
+  icon_line -130 -70 130 -70 130 70 -130 70 -130 -70
+  icon_property -origin {-120 180} -type user -name name -default x
+  icon_line -130 40 -120 50 -130 60
+icon_property -origin {-70 30} -label {in:  range is -vref to vref}
+icon_property -origin {-70 50} -label {out: -1 or 1}
+  icon_property -origin {-120 200} -type user -name vref -default 1.0
+icon_property -origin {-120 80} -label {vref=$vref (V)}
+icon_property -origin {-120 100} -label {clk_freq=$clk_freq (Hz)}
+  icon_property -origin {-120 220} -type user -name clk_freq -default 1e6
+  icon_property -origin {-120 240} -type user -name en_noise -default 0
+icon_property -origin {-120 120} -label {en_noise=$en_noise (0 or 1)}
+  icon_property -origin {-120 260} -type user -name therm_noise -default 10e-9
+icon_property -origin {-120 140} -label {therm_noise=$therm_noise (V/rHz)}
+
+}
+

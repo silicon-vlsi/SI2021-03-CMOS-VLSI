@@ -1,0 +1,65 @@
+proc SCHEMATIC_dco_rlc_with_neg_conduct {} {
+make input -name cur_in -origin {800 480}
+make input -name cap_val -origin {800 540}
+make output -name cap_vol -origin {950 520}
+make output -name squareout -origin {950 600}
+make output -name ind_cur -origin {950 480}
+make input -name cap_clk -origin {800 610}
+make output -name inst_freq -origin {950 630}
+}
+
+proc ICON_dco_rlc_with_neg_conduct args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {ind_val 1.0} {r_loss 1.0}}
+icon_term -type input -origin {-140 -150} -name cur_in
+icon_term -type input -origin {-140 -30} -name cap_val
+icon_term -type output -origin {230 -90} -name cap_vol
+icon_term -type output -origin {230 -30} -name squareout
+icon_term -type output -origin {230 -150} -name ind_cur
+icon_term -type input -origin {-140 10} -name cap_clk
+icon_term -type output -origin {230 10} -name inst_freq
+icon_property -origin {-130 -150} -label {cur_in (Amps)}
+icon_property -origin {-130 -30} -label {cap_val (Farads)}
+icon_property -origin {220 -90} -anchor e -label {cap_vol (V)}
+icon_property -origin {-130 -200} -label {$name}
+icon_property -origin {-130 -180} -label dco_rlc_with_neg_conduct
+  icon_line -140 -190 230 -190 230 30 -140 30 -140 -190
+icon_property -origin {-130 60} -label {ind_val=$ind_val Henries}
+  icon_property -origin {-90 150} -type user -name name -default x
+  icon_property -origin {-90 170} -type user -name ind_val -default 1.0
+icon_property -origin {-130 80} -label {r_loss=$r_loss Ohms}
+  icon_property -origin {-90 190} -type user -name r_loss -default 1.0
+  icon_line 110 -30 110 -90 90 -90 110 -90 120 -90 130 -90
+  icon_line 90 -100 130 -100
+  icon_line -50 -160 50 -160 50 -120
+  icon_arc 50 -120 70 -100 -start 219 -extent 359
+  icon_arc 50 -130 70 -110 -start 219 -extent 359
+  icon_arc 50 -110 70 -90 -start 219 -extent 359
+  icon_line 100 -30 120 -30 110 -20 100 -30
+  icon_line 50 -60 60 -50 60 -50 50 -40
+  icon_line 50 -60 60 -70
+  icon_line 60 -70 50 -80 50 -90 50 -100
+  icon_line -30 -150 -20 -140 -30 -130 -30 -150
+  icon_line 50 -30 50 -40 50 -40
+  icon_line 40 -30 60 -30 50 -20 40 -30
+  icon_line 50 -160 110 -160 110 -100
+  icon_line -10 -30 -10 -70 -10 -70
+  icon_line -20 -30 0 -30 -10 -20 -20 -30
+icon_property -origin {60 -140} -label ind_val
+icon_property -origin {60 -60} -label r_loss
+icon_property -origin {120 -110} -label cap_val
+  icon_line -30 -140 -70 -140
+  icon_line 130 -140 150 -140
+  icon_line 140 -150 140 -130
+  icon_line 130 -40 150 -40
+icon_property -origin {220 -30} -anchor e -label squareout
+icon_property -origin {220 -150} -anchor e -label ind_cur(A)
+icon_property -origin {-130 10} -label cap_clk
+icon_property -origin {220 10} -anchor e -label inst_freq
+  icon_line -40 -120 20 -120 20 -70 -40 -70 -40 -120
+  icon_line -10 -120 -10 -160 -10 -160
+  icon_line -30 -110 -20 -110 -10 -100 -10 -90 0 -80 10 -80
+  icon_line 40 -130 30 -120 20 -130 40 -130
+  icon_line 30 -150 30 -130
+icon_property -origin {0 -150} -label ind_cur
+}
+

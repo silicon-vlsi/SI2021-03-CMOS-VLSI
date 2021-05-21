@@ -1,0 +1,20 @@
+proc SCHEMATIC_enable_2or {} {
+make input -name in1 -origin {100 30}
+make input -name in2 -origin {100 120}
+make output -name out -origin {200 70}
+}
+
+proc ICON_enable_2or args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-60 0} -name in1
+icon_term -type input -origin {-60 20} -name in2
+icon_term -type output -origin {60 0} -name out
+icon_property -origin {-50 0} -label in1
+icon_property -origin {-50 20} -label in2
+icon_property -origin {50 0} -anchor e -label out
+icon_property -origin {-50 -50} -label {$name}
+icon_property -origin {-50 -30} -label enable_2or
+  icon_line -60 -40 60 -40 60 40 -60 40 -60 -40
+  icon_property -origin {-90 110} -type user -name name -default x
+}
+

@@ -1,0 +1,28 @@
+proc SCHEMATIC_trline_load {} {
+make input -name eil -origin {-120 80}
+make output -name out -origin {20 80}
+make output -orient RX -name erl -origin {-120 110}
+}
+
+proc ICON_trline_load args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {zol {}} {zor {}} {c {}} {sim_order {}}}
+icon_term -type input -origin {-80 -30} -name eil
+icon_term -type output -origin {80 -30} -name out
+icon_term -type output -origin {-80 -10} -orient RX -name erl
+icon_property -origin {60 -60} -label {$name}
+  icon_property -origin {-60 120} -type user -name name -default x
+  icon_property -origin {-60 130} -type user -name zol
+  icon_line -80 -50 -80 50 80 50 80 -50 -80 -50
+icon_property -origin {-40 -60} -label trline_load
+  icon_property -origin {-60 140} -type user -name zor
+  icon_property -origin {-60 150} -type user -name c
+  icon_property -origin {-60 160} -type user -name sim_order
+icon_property -origin {-30 60} -label {zol=$zol}
+icon_property -origin {-30 70} -label {zor=$zor}
+icon_property -origin {-30 80} -label {c=$c}
+icon_property -origin {-30 90} -label {sim_order=$sim_order}
+icon_property -origin {-70 -30} -label eil
+icon_property -origin {-70 -10} -label erl
+icon_property -origin {50 -30} -label out
+}
+

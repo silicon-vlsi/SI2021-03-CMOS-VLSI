@@ -1,0 +1,20 @@
+proc SCHEMATIC_scalar_to_vec_2elem {} {
+make input -name in0 -origin {-70 -20}
+make input -name in1 -origin {-70 50}
+make output -name out_vec -origin {70 10}
+}
+
+proc ICON_scalar_to_vec_2elem args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-100 0} -name in0
+icon_term -type input -origin {-100 20} -name in1
+icon_term -type output -origin {100 0} -name out_vec
+icon_property -origin {-90 0} -label in0
+icon_property -origin {-90 20} -label in1
+icon_property -origin {90 0} -anchor e -label out_vec
+icon_property -origin {-90 -50} -label {$name}
+icon_property -origin {-90 -30} -label scalar_to_vec_2elem
+  icon_line -100 -40 100 -40 100 40 -100 40 -100 -40
+  icon_property -origin {-90 110} -type user -name name -default x
+}
+

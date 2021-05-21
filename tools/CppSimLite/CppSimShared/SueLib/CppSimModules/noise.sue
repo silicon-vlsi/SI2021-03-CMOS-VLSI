@@ -1,0 +1,25 @@
+proc SCHEMATIC_noise {} {
+
+
+
+make output -name out -origin {430 -650}
+
+
+
+}
+
+proc ICON_noise args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {var {}}}
+icon_term -type output -origin {0 30} -orient R90 -name out
+  icon_property -origin {-50 100} -type user -name name -default x
+  icon_property -origin {-50 120} -type user -name var
+  icon_arc -20 -30 20 10 -start 356 -extent 359
+  icon_arc -10 -20 0 -10 -start 0 -extent 180
+  icon_arc 0 -20 10 -10 -start 0 -extent 180
+  icon_line 0 10 0 30
+icon_property -origin {20 -10} -label {var=$var}
+icon_property -origin {0 -60} -anchor center -label noise
+icon_property -origin {-20 20} -label out
+icon_property -origin {-10 -40} -label {$name}
+}
+

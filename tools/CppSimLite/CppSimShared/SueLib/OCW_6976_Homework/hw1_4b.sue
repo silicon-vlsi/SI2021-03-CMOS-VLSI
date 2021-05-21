@@ -1,0 +1,21 @@
+proc SCHEMATIC_hw1_4b {} {
+make name_net_s -name n0r -origin {920 100}
+make name_net_s -name n0 -origin {920 80}
+make name_net_s -name inr -origin {680 100}
+make name_net_s -name in -origin {680 80}
+make output -name out -origin {1200 80}
+make trline_vstep -name xi0 -zor 50 -zo 100 -tstep 100E-12 -vstart 0 -vend 1 -sim_order 0 -origin {580 110}
+make trline_section -name xi1 -delay 100e-12 -gain 1 -sim_order 1 -origin {800 110}
+make trline_load -name xi2 -zol 50 -zor 60 -c 2e-12 -sim_order 2 -origin {1040 110}
+  make_wire 680 80 640 80
+  make_wire 680 80 720 80
+  make_wire 680 100 720 100
+  make_wire 680 100 640 100
+  make_wire 920 80 880 80
+  make_wire 920 80 960 80
+  make_wire 920 100 960 100
+  make_wire 640 140 720 140
+  make_wire 880 100 920 100
+  make_wire 1120 80 1200 80
+}
+

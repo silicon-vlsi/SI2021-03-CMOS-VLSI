@@ -1,0 +1,67 @@
+proc SCHEMATIC_test_dco {} {
+make name_net -name noiseout -origin {900 1030}
+make dco_rlc_with_neg_conduct -name xi6 -ind_val 2e-9 -r_loss 4 -origin {1090 1180}
+make output -name out -origin {1370 1090}
+make output -name squareout -origin {1370 1150}
+make add2 -orient RY -name xi2 -origin {570 1120}
+make constant -name xi3 -consval 1 -origin {460 1010}
+make constant -name xi5 -consval 5e-12 -origin {680 1010}
+make add2 -orient RY -name xi7 -origin {760 1120}
+make name_net -name cap_val -origin {850 1120}
+make name_net -name cap_val_clk -origin {850 1260}
+make divider_ideal -name xi10 -origin {360 1150}
+make name_net -name int_val -origin {550 1460}
+make variable_delay -name xi9 -nom_delay 10e-12 -control_gain 5e-12 -origin {710 1280}
+make noise -name xi0 -var 1e-30 -origin {580 870}
+make integrator -name xi1 -origin {480 1460}
+make gain -name xi4 -gain 1/2*300e-15 -origin {660 1120}
+make constant -name xi8 -consval 1e6 -origin {350 1460}
+make constant -name xi11 -consval 5 -origin {210 1180}
+make output -name inst_freq -origin {1370 1190}
+make constant -name xi12 -consval 0 -origin {570 710}
+make vco -name xi14 -freq 1.33737e6 -kvco 1 -origin {680 710}
+make gain -name xi13 -gain 1e-3 -origin {820 730}
+  make_wire 850 1120 920 1120
+  make_wire 850 1120 790 1120
+  make_wire 310 1180 250 1180
+  make_wire 570 1010 570 1090
+  make_wire 280 1120 310 1120
+  make_wire 910 1190 950 1190
+  make_wire 550 1260 640 1260
+  make_wire 600 1290 640 1290
+  make_wire 550 1460 600 1460
+  make_wire 720 1010 760 1010
+  make_wire 620 1120 600 1120
+  make_wire 710 1120 730 1120
+  make_wire 600 1290 600 1460
+  make_wire 900 1030 950 1030
+  make_wire 390 1460 440 1460
+  make_wire 550 1460 520 1460
+  make_wire 1350 1150 1370 1150
+  make_wire 280 1120 280 1370
+  make_wire 910 1190 910 1260
+  make_wire 280 1370 550 1370
+  make_wire 550 1370 1350 1370
+  make_wire 780 1260 850 1260
+  make_wire 850 1260 910 1260
+  make_wire 920 1120 920 1150
+  make_wire 920 1150 950 1150
+  make_wire 1320 1090 1370 1090
+  make_wire 1320 1150 1350 1150
+  make_wire 1350 1150 1350 1370
+  make_wire 1320 1190 1370 1190
+  make_wire 550 1260 550 1370
+  make_wire 520 1120 540 1120
+  make_wire 520 1010 570 1010
+  make_wire 520 1010 500 1010
+  make_wire 580 900 580 920
+  make_wire 750 730 780 730
+  make_wire 760 1010 760 1090
+  make_wire 520 1010 520 1120
+  make_wire 870 730 890 730
+  make_wire 890 890 840 890
+  make_wire 840 890 840 1030
+  make_wire 840 1030 900 1030
+  make_wire 890 730 890 890
+}
+

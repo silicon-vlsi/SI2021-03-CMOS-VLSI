@@ -1,0 +1,44 @@
+***** Parameters for Calculation of Diffusion Regions for 0.13u Process
+> set_mode_diff geo
+> set_hdout .2u
+> set_hdin .3u
+> use_four_sided_perimeter
+
+***** Publically available BSIM4 0.13u CMOS and Bipolar models
+.include '../../../SpiceModels/cmos_013_bsim4.mod'
+.include '../../../SpiceModels/bipolar.mod'
+
+***** Temperature
+.temp 25
+
+***** Parameters
+.param vsupply=1.3
+
+***** DC Voltage Sources
+Vsup vdd 0 vsupply
+
+***** Simulation Options
+.options delmax=5p relv=1e-6 reli=1e-6 relmos=1e-6 method=gear
+
+***** Simulation Parameters (.tran or .ac or .dc statements) 
+.ac dec 100 100Meg 100G
+
+***** Have operating point information sent to log file (simrun.log)
+.op
+
+****** Digital Input Stimulus
+*** Timing Statement:  % timing delay rise/fall_time period vlow vhigh
+* > timing 0.0n .2n [1/1e9] 0 vsupply
+*** Digital Input:  % input nodename [set 0 1 1 0 1 ... R]
+* > input vin [set 0 0 1 1 1 0 1 1 0 0 0 1 0 R]
+
+*** Convert voltage input to current input to feed into circuit
+*Gin in 0 vin 0 1e-6
+
+****** Analog Input Stimulus
+*** Simply add voltage or current sources as appropriate
+Iin in 0 dc=0 ac=1
+
+****** Selectively Probe Signals
+*.probe tran v(in) v(out)
+

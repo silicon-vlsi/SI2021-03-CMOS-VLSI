@@ -1,0 +1,54 @@
+proc SCHEMATIC_comparator_basic {} {
+make input -name in_pos -origin {-330 360}
+make input -name in_neg -origin {-330 460}
+make output -name out -origin {200 360}
+make add2 -name xi1 -origin {-280 460}
+make sub2 -name xi2 -origin {-180 360}
+make constant -name xi3 -consval voffset -origin {-350 540}
+make inv -name xi5 -origin {-220 620}
+make input -name clk -origin {-330 620}
+make regen_latch -name xi0 -gain gain -f_bw f_bw -origin {-20 370}
+make regen_latch -name xi4 -gain gain -f_bw f_bw -origin {150 370}
+  make_wire -330 460 -310 460
+  make_wire -310 540 -280 540
+  make_wire -280 540 -280 490
+  make_wire -180 460 -180 390
+  make_wire -330 360 -210 360
+  make_wire -250 460 -180 460
+  make_wire -150 360 -50 360
+  make_wire 10 360 120 360
+  make_wire -100 390 -50 390
+  make_wire 70 390 120 390
+  make_wire 180 360 200 360
+  make_wire -160 620 -100 620
+  make_wire -100 390 -100 620
+  make_wire 70 390 70 680
+  make_wire -290 680 -290 620
+  make_wire -290 620 -250 620
+  make_wire -290 620 -330 620
+  make_wire -290 680 70 680
+}
+
+proc ICON_comparator_basic args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {voffset 0} {gain 1} {f_bw 100e6}}
+icon_term -type input -origin {-50 -20} -name in_pos
+icon_term -type input -origin {-50 20} -name in_neg
+icon_term -type output -origin {80 0} -name out
+icon_term -type input -origin {0 40} -orient R270 -name clk
+icon_property -origin {-40 -20} -label in_pos
+icon_property -origin {-40 20} -label in_neg
+icon_property -origin {60 0} -anchor e -label out
+icon_property -origin {-50 -70} -label {$name}
+icon_property -origin {-10 -50} -label comparator_basic
+  icon_line -50 -60 80 0 80 0 -50 60 -50 -60
+  icon_property -origin {-50 200} -type user -name name -default x
+  icon_property -origin {-50 220} -type user -name voffset -default 0
+  icon_property -origin {-50 110} -text {[if {$voffset != 0} {set x "voffset=$voffset (V)"}]}
+  icon_line -10 -30 10 -30 10 20 30 20 30 20
+  icon_property -origin {-50 130} -text {[if {$gain != 1} {set x "gain=$gain"}]}
+  icon_property -origin {-50 150} -text {[if {$f_bw != 100e6} {set x "f_bw=$f_bw (Hz)"}]}
+  icon_property -origin {-50 240} -type user -name gain -default 1
+  icon_property -origin {-50 260} -type user -name f_bw -default 100e6
+icon_property -origin {10 40} -label clk
+}
+

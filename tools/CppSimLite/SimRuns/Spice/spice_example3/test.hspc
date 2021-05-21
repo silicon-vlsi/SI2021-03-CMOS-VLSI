@@ -1,0 +1,32 @@
+***** Publically available BSIM4 0.13u CMOS and Bipolar models
+.include '../../../SpiceModels/cmos_013_bsim4.mod'
+.include '../../../SpiceModels/bipolar.mod'
+
+***** Temperature
+.temp 25
+
+***** Parameters
+.param vsupply=5.0
+.param dc_vol=0.0
+.param peak_vol = 0.01
+.param freq = 2Meg
+
+***** DC Voltage Sources
+Vsup vdd 0 vsupply
+
+***** Simulation Options
+.options delmax=5n relv=1e-6 reli=1e-6 relmos=1e-6 method=gear
+
+***** Simulation Parameters (.tran or .ac or .dc statements) 
+.tran 5n 5u
+
+***** Have operating point information sent to log file (simrun.log)
+.op
+
+****** Analog Input Stimulus
+*** Simply add voltage or current sources as appropriate
+Vin in 0 sin('dc_vol' 'peak_vol' 'freq')
+
+****** Selectively Probe Signals
+*.probe tran v(in) v(out)
+

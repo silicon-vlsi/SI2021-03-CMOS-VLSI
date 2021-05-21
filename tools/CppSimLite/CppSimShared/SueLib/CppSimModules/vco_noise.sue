@@ -1,0 +1,20 @@
+proc SCHEMATIC_vco_noise {} {
+make output -name out -origin {620 -160}
+}
+
+proc ICON_vco_noise args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {noise_at_foff -100} {foff 1e6} {Kv 30e6}}
+icon_term -type output -origin {60 0} -name out
+icon_property -origin {-60 -40} -label {$name}
+icon_property -origin {-60 40} -label {noise_at_foff = $noise_at_foff dBc/Hz}
+  icon_property -origin {-50 110} -type user -name name -default x
+  icon_property -origin {-50 130} -type user -name noise_at_foff -default -100
+  icon_line -60 -30 60 -30 60 30 -60 30 -60 -30
+icon_property -origin {-30 -20} -label vco_noise
+icon_property -origin {-60 60} -label {foff = $foff Hz}
+icon_property -origin {-60 80} -label {Kv = $Kv Hz/V}
+  icon_property -origin {-50 150} -type user -name foff -default 1e6
+  icon_property -origin {-50 170} -type user -name Kv -default 30e6
+icon_property -origin {50 0} -anchor e -label out
+}
+

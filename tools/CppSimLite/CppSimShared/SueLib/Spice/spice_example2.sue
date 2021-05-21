@@ -1,0 +1,38 @@
+proc SCHEMATIC_spice_example2 {} {
+make input -name in -origin {-100 30}
+make output -name out -origin {180 50}
+make global -orient RXY -name vdd -origin {40 -120}
+make global -name gnd -origin {40 180}
+make resistor -orient R270 -name R0 -origin {-20 40}
+make global -name gnd -origin {160 240}
+make inductor -name L0 -origin {160 200}
+make pmos4 -name M3 -origin {40 -60}
+make nmos4 -name M2 -origin {40 120}
+make capacitor -name C0 -origin {160 100}
+  make_wire -20 -60 -80 -60
+  make_wire -80 120 -20 120
+  make_wire -100 30 -80 30
+  make_wire 20 40 40 40
+  make_wire -60 40 -80 40
+  make_wire 160 50 160 60
+  make_wire -80 -60 -80 30
+  make_wire -80 30 -80 40
+  make_wire -80 40 -80 120
+  make_wire 160 140 160 160
+  make_wire 40 -60 50 -60
+  make_wire 50 -60 50 -110
+  make_wire 50 -110 40 -110
+  make_wire 40 120 50 120
+  make_wire 50 120 50 170
+  make_wire 50 170 40 170
+  make_wire 40 40 40 -20
+  make_wire 40 40 40 50
+  make_wire 40 50 40 80
+  make_wire 40 50 160 50
+  make_wire 160 50 180 50
+  make_wire 40 -120 40 -110
+  make_wire 40 -110 40 -100
+  make_wire 40 160 40 170
+  make_wire 40 170 40 180
+}
+

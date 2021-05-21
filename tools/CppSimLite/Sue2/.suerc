@@ -1,0 +1,378 @@
+# This file sets up the defaults for lots of SUE properties.
+# If you want to customize certain function for yourself only, copy
+# this file into ~/.suerc and make the appropriate changes.
+
+############################################################################
+############################################################################
+###################   Key Binding defaults #################################
+############################################################################
+############################################################################
+
+# Warning: if you go and change and of these hotkey definitions then
+# your system will be virtually unusable by other SUE users.  Do you 
+# really want to do that?
+
+# File menu
+set KEYS(new_schematic) Control-n
+set KEYS(load) Control-l
+set KEYS(save) Control-s
+set KEYS(modified_save_and_leaves) Control-w
+set KEYS(raise_windows) Control-r
+set KEYS(print) Control-p
+set KEYS(exit) Control-d
+
+# Window menu
+set KEYS(push) e
+set KEYS(pop) Control-e
+set KEYS(swap_views) k
+set KEYS(make_icon) K
+set KEYS(zoom_box) b
+set KEYS(zoom_in) z
+set KEYS(zoom_out) Z
+set KEYS(zoom_fit) f
+set KEYS(pan) Control-Button-1
+#set KEYS(center) space
+set KEYS(grid) g
+set KEYS(change_grid) G
+set KEYS(abort_wire) Escape
+
+# Edit menu
+set KEYS(undo) u
+set KEYS(add_wire) w
+set KEYS(add_text) t
+set KEYS(add_line) l
+set KEYS(add_arc) a
+set KEYS(move_selected) m
+set KEYS(rotate) r
+set KEYS(flip_horizontal) x
+set KEYS(flip_vertical) y
+set KEYS(duplicate_selected) c
+set KEYS(replace_instance) b
+set KEYS(duplicate_text) T
+set KEYS(show_anchors) Control-a
+set KEYS(show_term_names) Control-t
+set KEYS(lower_selected) i
+set KEYS(delete_selected) BackSpace
+set KEYS(copy_to_clipboard) Control-c
+set KEYS(paste) Control-v
+
+# Sim Menu
+set KEYS(netlist) N
+#set KEYS(spice_it) H		;# or verilog_it, etc.
+#set KEYS(init_probe) Control-i
+
+#set KEYS(plot_net) p
+#set KEYS(unplot_net) o
+#set KEYS(plot_net_remember) P
+#set KEYS(unplot_net_forget) O
+#set KEYS(plot_old_net) Control-p
+#set KEYS(unplot_old_net) Control-o
+
+#set KEYS(irsim_step) s
+#set KEYS(irsim_set_hi) 9
+#set KEYS(irsim_set_low) 0
+#set KEYS(irsim_set_x) X
+#set KEYS(irsim_query_net) q
+#set KEYS(irsim_step_update) S
+#set KEYS(enter_irsim_mode) E
+
+
+############################################################################
+############################################################################
+################   Windowing defaults  #####################################
+############################################################################
+############################################################################
+
+# all GLOBAL variables should be in upper case.
+
+# if ICON_MENU is set to hier then you get the "old-style" separate windows
+# for schematic and icon menus.  Geometry will use "icons".
+# set ICON_MENU hier
+set ICON_MENU ""
+
+if {$ICON_MENU == "flat" || $ICON_MENU == "hier"} {
+  # This window size is good if you don't have ICON_MENU set to include
+  set GEOMETRY(window) 960x850+50+2
+} else {
+  # Otherwise use this one
+  set GEOMETRY(window) 1096x700+50+2
+}
+# default window sizes for the main window, the schematic listbox and the
+# icon listbox.
+#set GEOMETRY(window) 900x750+50+50
+
+set GEOMETRY(schematics) 130x220-50+50
+
+# Width (in characters) of icons/schematics listboxes in "include" mode
+set GEOMETRY(listbox) 25
+
+set GEOMETRY(icons) 130x600-50-50
+
+# This will give you 2 icon windows
+set ICON_WINDOWS "icons1 icons2"
+set GEOMETRY(icons1) 130x290-5-359
+set GEOMETRY(icons2) 130x290-5-40
+
+# set up the default colors
+set COLORS(background) black
+set COLORS(wire) cyan
+set COLORS(icon) #00d000  ;# green
+set COLORS(icon_text) white
+set COLORS(icon_text_param) yellow
+set COLORS(icon_pinbox) red
+set COLORS(draw_item) white
+set COLORS(fore) violet
+set COLORS(selected) #ff0000
+set COLORS(active) yellow               ;# active has pointer on it, not sel.
+set COLORS(selected,active) yellow    ;# active and selected
+set COLORS(stroke_box) red
+set COLORS(anchor) red
+set COLORS(grid) #505050           ;# like ivory2
+
+# Default font size for menus, etc.
+option add *Font *-helvetica-normal-R-Normal-*-14-*
+
+# "standard" means SUE only uses the standard size fonts available on all 
+# X-servers (8,10,12,14,18,24).  "font_server" means SUE calls the
+# font server to generate some extra font sizes to fill in some
+# obvious holes (generates 1,4,45).  Note that not all machines have
+# the capability to generate these extra fonts and that doing so takes
+# a few seconds for each.  "extended" uses continuous font sizes from
+# 2 point to 80 point but requires these fonts to be generated on each
+# machine.  Here is one way to generate these fonts (note, this may
+# require root privileges):
+#
+#    xset q   (last line displayed should be font path)
+#    cd <font path>
+#    makeafb -2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40 Helvetica-Bold.f3b
+#    makeafb -42,44,46,48,50,52,54,56,60,62,64,66,68,70,72,74,76,78,80 Helvetica-Bold.f3b
+#    convertfont Helvetica-Bold*.afb
+#    bldfamily
+#    xset fp rehash
+
+set FONT_MODE standard
+#set FONT_MODE font_server
+#set FONT_MODE extended
+
+# font ratio of small to standard and large to standard size fonts
+set FONT(small) 0.6
+set FONT(large) 1.5
+
+if {$tcl_platform(os) == "Darwin"} {
+# need a fixed width font here or the modify flags looks weird
+set LISTBOX_FONT *-fixed-medium-r-normal--12-*
+
+# need a fixed width font here so the document looks right
+set HELP_FONT *-fixed-medium-r-normal--14-*
+} else {
+# need a fixed width font here or the modify flags looks weird
+set LISTBOX_FONT *-helvetica-normal-R-Normal-*-12-*
+
+# need a fixed width font here so the document looks right
+set HELP_FONT *-helvetica-normal-R-Normal-*-14-*
+}
+
+# How far apart to place grid lines
+set GRID_SPACING 8
+
+# This holds a list that includes which properties, if any, should be displayed
+# if they are non nil and where to display them and whether to include <prop>=.
+# Note that icons with property "primitive" never display properties.
+# The positions currently allowed are upper-left (ul), upper-right (ur), and origin.
+# disable this feature!  -MP
+#set DISPLAY_PROPS {{name ul} {M ur M=}}
+set DISPLAY_PROPS {{name_not ul} {M_not ur M=}}
+
+# Sets the size of the I/O names in terminals if you io devices are
+# set up to use this.
+set IO_PROP_SIZE standard
+
+############################################################################
+############################################################################
+####################   Miscellaneous  ######################################
+############################################################################
+############################################################################
+
+# Default suffix for schematic/icon files
+set SUFFIX(default) .sue
+# Suffixes for all files used by SUE (used in creating tclIndex)
+set SUFFIX(tclindex) "*$SUFFIX(default) *.tcl"
+# Default suffix for backups of schematic/icon files
+set SUFFIX(backup) .BAK
+# Default for postscript output files
+set SUFFIX(postscript) .ps
+# Default suffix for spice and verilog input decks
+set SUFFIX(spice) .sp
+set SUFFIX(spice_post) .spi
+set SUFFIX(verilog) .v
+set SUFFIX(flat_spice) .fsp
+set SUFFIX(sim) .sim
+set SUFFIX(tr0) .tr0
+set SUFFIX(pa0) .pa0
+set SUFFIX(lis) .lis
+
+# auto mount prefix to be stripped
+set AUTO_MOUNT_PREFIX tmp_mnt
+
+# list of properties that shouldn't should be untouched by replace command.
+set DONT_REPLACE_PROPS {name M}
+
+# if set to 1, pops up an error window whenever there is a SUE error.
+# If 0, just displays the error message in the TCL window.
+set ERROR_POPUP 1
+
+# PRINT() controls various printing defaults
+# either "print" for printer or "file" for print to file.
+set PRINT(MODE) file
+# 1 is for landscape, 0 is for portrait
+set PRINT(ORIENT) 1
+# margin of white space around border of page (in inches)
+set PRINT(MARGIN) 0.2
+# number of pages a schematics gets printed across, either 1 (normal), 2, or 4.
+set PRINT(PAGES) 1
+# font scaling for printing
+set PRINT(font_scale) 1.5
+# line width of icons
+set PRINT(ICON_WIDTH) 0.6
+# standard solid lines
+set PRINT(ICON_COLOR) {0.0 0.0 0.0 setrgbcolor}
+# dashed lines in icons
+#set PRINT(ICON_COLOR) {[2] 1 setdash}
+# line width of wires (set to 0 sets wires to be min width for printer)
+set PRINT(WIRE_WIDTH) 0.4
+# standard solid lines for wires
+set PRINT(WIRE_COLOR) {0.0 0.0 0.0 setrgbcolor}
+# dashed lines for wires
+#set PRINT(WIRE_COLOR) {[2] 1 setdash}
+
+# Depth of undo stack (note that things don't work too well the further
+# you try to undo)
+set UNDO_LEVEL 10
+
+# This is the autorepeat delay for people who want to hold the space bar down.
+# The number (in ms) is the amount of time between allowed space keystrokes.
+# If people understand that they're not supposed to sit on the space key,
+# then set this to 0.
+#set IDIOT_DELAY 500
+set IDIOT_DELAY 0
+
+############################################################################
+############################################################################
+################   Netlisting/Simulation defaults  #########################
+############################################################################
+############################################################################
+
+
+# Spice post processor
+set defaultSpcPost [concat $SUE_DIR/postSpcNetlist ]
+set POST_SPICE_NETLIST [use_first env(SUE_POST_SPICE) defaultSpcPost]
+
+# Sim post processor
+set defaultSimPost [concat $SUE_DIR/postSimNetlist ]
+set POST_SIM_NETLIST [use_first env(SUE_POST_SIM) defaultSimPost]
+
+# Spice append a .END
+set SPICE_APPEND_END [use_first env(SUE_SPICE_END) 'no]
+set defaultHs2flat [concat $SUE_DIR/fasths2flat ]
+set HS2FLAT [use_first env(SUE_HS2FLAT) defaultHs2flat]
+
+# MODE is used for Sim menu, choice of default icons to load, and netlisting/
+# probing commands.  This can be overridden on the command line or with the
+# environmental variable SUE_MODE.
+set DEFAULT_MODE spice
+
+# The type of netlist to do.  If "", SUE will set to MODE.
+set NETLIST_TYPE ""
+
+# A string (or list if more than one) containing the properties that
+# SUE will use to netlist.  If "", SUE will set to MODE.
+set NETLIST_PROPS ""
+
+
+# in spice mode, SPICE_PROBE_TYPE will be the probe of choice
+set SPICE_PROBE_TYPE NST
+#set SPICE_PROBE_TYPE magellan
+
+set FLAT_SPICE_PROBE_TYPE NST
+
+# Note: magellan only works with a special version of the wd tool.
+
+# Directory for new spicetool and default window geometry/placement
+set NST_DIR $SUE_DIR/../nst
+set GEOMETRY(NST) 1000x450+0+388
+# Command to start up new spicetool (is evaluated later)
+set SPICE_PROBE_CMD(NST) \
+	{$NST_DIR/nst_wish -geometry $GEOMETRY(NST) $PROBE_DISPLAY}
+
+set SPICE_PROBE_CMD(magellan) {wdstdin $PROBE_DISPLAY -inputformat hspice}
+
+
+# There is no "sim" mode per say, however...
+set SIM_PROBE_TYPE analyzer
+
+# Command to start up new analyzer in irsim (is evaluated later)
+set SIM_PROBE_CMD(analyzer) {irsim scmos50.prm}
+
+# This line will be the first line of a SIM netlist
+set SIM_HEADER "| units: 100  tech: scmos  format: MIT"
+
+
+# in verilog mode, VERILOG_PROBE_TYPE will be the probe of choice
+
+# for signalscan3.x
+#set VERILOG_PROBE_TYPE signalscan
+# Command (is evaluated later) and geometry for verilog probe 
+set GEOMETRY(signalscan) 1000x800-0-0
+set VERILOG_PROBE_CMD(signalscan) \
+	{~cad/signalscan-3.0/signalscan -auto -geometry $GEOMETRY(signalscan) $PROBE_DISPLAY}
+
+# for signalscan4.x
+#set VERILOG_PROBE_TYPE signalscan4
+# Note, this geometry doesn't understand -x-y.  Must be pluses.
+set GEOMETRY(signalscan4) 1000x800+50+100
+set VERILOG_PROBE_CMD(signalscan4) \
+	{/home/tavrow/signalscan/bin/signalscan -stdio -auto $PROBE_DISPLAY}
+
+# Use magellan wave form viewer
+#set VERILOG_PROBE_TYPE magellan
+set VERILOG_PROBE_CMD(magellan) {wdstdin $PROBE_DISPLAY -inputformat vcd}
+
+# Run verilog in interactive mode, displaying values in "flags" in SUE
+# Note: to use this mode, the top level verilog module must contain the line:
+#   integer         tmp_channel;
+
+set VERILOG_PROBE_TYPE interactive
+set VERILOG_PROBE_CMD(interactive) {verilog -s}
+set DISPLAY_TERMS(verilog) "%h"
+
+# Command to run verilog for "verilog_it"
+#set VERILOG_CMD "~cad/verilog/bin/verilog"
+set VERILOG_CMD "verilog"
+
+# filename of default header (.h) file for spice and verilog
+set DEFAULT_SPICE_HEADER $SUE_DIR/schematics/spice/default_spice_header.h
+set DEFAULT_VERILOG_HEADER $SUE_DIR/schematics/verilog/default_verilog_header.h
+set DEFAULT_SIM_HEADER $SUE_DIR/schematics/spice/default_sim_header.h
+
+# List of possible spice hosts so we can kill a spice job if desired.
+set SPICEHOSTS "localhost"
+
+# prints netlist warnings of unconnected nets if set to 1.  Ignores if set to 0.
+set NETLIST(warning) 1
+
+# current netlist simulation level.  All cells with levels equal to or
+# above the current netlist level are NOT netlisted.  cells without
+# a netlist level defined will always be netlisted.
+# For example, to set the netlist level of an inverter (inv) to 1, insert:
+# set NETLIST_LEVEL(inv) 1
+set NETLIST_LEVEL(current) 0
+
+# For signalscan crossprobing, SUE needs to know the top most module name
+# to generate the full hierarchical signal name.  VERILOG_ROOT needs
+# to be defined to be that name.
+set VERILOG_ROOT test
+
+# The GLOBAL_TRANSLATIONS array can be used to remap the names of
+# globals during netlist.
+# This example (if uncommented) would turn "Vdd" in "test.vdd" in the netlist
+#set GLOBAL_TRANSLATIONS(verilog,Vdd) test.vdd

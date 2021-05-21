@@ -1,0 +1,23 @@
+proc SCHEMATIC_sqrt_raised_cosine_filter {} {
+make input -name in -origin {400 330}
+make output -name out -origin {540 330}
+}
+
+proc ICON_sqrt_raised_cosine_filter args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {rolloff_factor 1.0} {symbol_period 1} {num_filt_taps 1}}
+icon_term -type input -origin {-100 10} -name in
+icon_term -type output -origin {100 10} -name out
+icon_property -origin {-90 10} -label in
+icon_property -origin {90 10} -anchor e -label out
+icon_property -origin {-90 -40} -label {$name}
+icon_property -origin {-90 -20} -label sqrt_raised_cosine_filter
+  icon_line -100 -30 100 -30 100 30 -100 30 -100 -30
+icon_property -origin {-90 40} -label {rolloff_factor=$rolloff_factor  (range: 0 to 1)}
+  icon_property -origin {-90 120} -type user -name name -default x
+  icon_property -origin {-90 140} -type user -name rolloff_factor -default 1.0
+  icon_property -origin {-90 160} -type user -name symbol_period -default 1
+icon_property -origin {-90 60} -label {symbol_period=$symbol_period  (seconds)}
+icon_property -origin {-90 80} -label {num_filt_taps=$num_filt_taps}
+  icon_property -origin {-90 180} -type user -name num_filt_taps -default 1
+}
+

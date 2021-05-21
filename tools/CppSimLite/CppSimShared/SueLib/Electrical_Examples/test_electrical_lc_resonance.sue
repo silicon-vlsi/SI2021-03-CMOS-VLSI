@@ -1,0 +1,56 @@
+proc SCHEMATIC_test_electrical_lc_resonance {} {
+make name_net -name gnd -origin {40 340}
+make name_net -name vin -origin {170 140}
+make name_net -name gnd -origin {170 220}
+make constant -name xi1 -origin {-280 140}
+make constant -name xi3 -origin {-50 340}
+make resistor -name R0 -resistance 10 -noise_enable 1 -origin {500 420}
+make inductor -name L0 -inductance 4n -origin {500 310}
+make capacitor -name C0 -capacitance 1.583e-12 -origin {500 200}
+make name_net -name gnd -origin {460 610}
+make name_net -name gnd -origin {380 220}
+make name_net -name vin -origin {660 140}
+make name_net -name gnd -origin {660 220}
+make name_net -name gnd -origin {950 610}
+make name_net -name gnd -origin {870 220}
+make capacitor -name C1 -capacitance 1.583e-12 -origin {990 200}
+make gain -name xi2 -gain 0.1 -origin {70 140}
+make name_net -name v_res_uncorrected -origin {500 140}
+make name_net -name v_res_corrected -origin {990 140}
+make resistor -orient RX -name R1 -resistance -3.158 -origin {990 530}
+make resistor -orient RX -name R2 -resistance 10 -noise_enable 1 -origin {990 420}
+make inductor -name L1 -inductance 4n -origin {990 310}
+make signal_source -name xi0 -stype 1 -freq 2e9 -origin {-140 160}
+make vccs -name G0 -gain -1.0 -origin {270 160}
+make vccs -name G1 -gain -1.0 -origin {760 160}
+  make_wire -10 140 30 140
+  make_wire -10 340 40 340
+  make_wire 210 220 170 220
+  make_wire 170 140 120 140
+  make_wire 170 140 210 140
+  make_wire 500 610 460 610
+  make_wire 500 240 500 270
+  make_wire 500 350 500 380
+  make_wire 340 220 380 220
+  make_wire 340 140 500 140
+  make_wire 700 220 660 220
+  make_wire 660 140 700 140
+  make_wire 830 220 870 220
+  make_wire 830 140 990 140
+  make_wire 990 140 990 160
+  make_wire 990 570 990 610
+  make_wire 990 460 990 490
+  make_wire 950 610 990 610
+  make_wire 500 460 500 610
+  make_wire 990 350 990 380
+  make_wire 990 240 990 270
+  make_wire 500 140 500 160
+  make_text -origin {1040 500} -text {Correction for Backward Euler:}
+  make_text -origin {1040 520} -text {Negative resistance (with no noise)}
+  make_text -origin {1040 540} -text {whose value is a function of Ts and L and C values}
+  make_text -origin {1040 560} -text {computed in Python script lc_resonance_backward_euler_correction.py}
+  make_text -origin {1040 580} -text {available in SimRuns/Electrical_Examples/test_electrical_lc_resonance}
+  make_text -origin {1040 630} -text {plotsig(x,'vin*10,v_res_corrected-mean(v_res_corrected);vin*10,v_res_uncorrected-mean(v_res_uncorrected)')}
+  make_text -origin {1040 610} -text {In CppSimView, consider the following plot statement to see that corrected resonance matches expectations at resonance:}
+}
+

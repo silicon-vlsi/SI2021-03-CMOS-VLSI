@@ -1,0 +1,32 @@
+proc SCHEMATIC_dffset {} {
+
+
+
+make input -name d -origin {300 -720}
+make input -name clk -origin {300 -660}
+make input -name s -origin {300 -590}
+make output -name q -origin {450 -700}
+make output -name qb -origin {450 -620}
+
+
+
+}
+
+proc ICON_dffset args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-50 -30} -name d
+icon_term -type input -origin {-50 20} -name clk
+icon_term -type output -origin {40 -30} -name q
+icon_term -type output -origin {40 20} -name qb
+icon_term -type input -origin {-10 50} -orient R270 -name s
+  icon_property -origin {-70 120} -type user -name name -default x
+  icon_line -50 -50 -50 50 40 50 40 -50 -50 -50
+icon_property -origin {-40 -30} -label d
+icon_property -origin {-40 20} -label clk
+icon_property -origin {-10 40} -anchor center -label s
+icon_property -origin {30 -30} -anchor e -label q
+icon_property -origin {30 20} -anchor e -label qb
+icon_property -origin {0 0} -anchor center -label dffset
+icon_property -origin {-50 -60} -label {$name}
+}
+

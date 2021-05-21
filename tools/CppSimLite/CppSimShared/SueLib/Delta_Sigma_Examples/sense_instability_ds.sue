@@ -1,0 +1,24 @@
+proc SCHEMATIC_sense_instability_ds {} {
+make input -name in -origin {530 90}
+make input -name clk -origin {530 150}
+make output -name assert -origin {680 90}
+make input -name enable -origin {530 120}
+}
+
+proc ICON_sense_instability_ds args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-90 -30} -name in
+icon_term -type input -origin {-90 50} -name clk
+icon_term -type output -origin {90 -30} -name assert
+icon_term -type input -origin {-90 10} -name enable
+icon_property -origin {-80 -30} -label in
+icon_property -origin {-80 50} -label clk
+icon_property -origin {80 -30} -anchor e -label assert
+icon_property -origin {-80 -80} -label {$name}
+icon_property -origin {-80 -60} -label sense_instability_ds
+  icon_line -90 -70 90 -70 90 70 -90 70 -90 -70
+  icon_property -origin {-80 100} -type user -name name -default x
+  icon_line -90 40 -80 50 -90 60
+icon_property -origin {-80 10} -label enable
+}
+

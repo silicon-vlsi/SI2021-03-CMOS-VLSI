@@ -1,0 +1,118 @@
+proc SCHEMATIC_test_dt_ord3_mash_3bit_uint {} {
+make ds_dt_ord3_mash_3bit_uint -name xi0 -wid_in 20 -origin {440 -140}
+make name_net -name clk -origin {280 -90}
+make name_net -name in -origin {280 -170}
+make name_net -name out_mash -origin {640 -170}
+make constant -name xi2 -origin {-800 -150}
+make constant -name xi3 -origin {-800 80}
+make signal_source -name xi4 -stype 1 -freq 1e3 -origin {-660 -130}
+make add2 -orient RY -name xi6 -origin {-320 -150}
+make name_net -name clk -origin {670 -90}
+make name_net -name clk -origin {1000 -90}
+make lpf_butter_ord2_w_clk -name xi8 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {830 -140}
+make lpf_butter_ord2_w_clk -name xi9 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {1160 -140}
+make signal_source -name xi5 -freq clk_freq_gl -origin {-660 100}
+make gain -name xi1 -gain amp_in_gl -origin {-450 -150}
+make name_net -name out_mash_filt -origin {1360 -170}
+make name_net -name clk -origin {280 330}
+make name_net -name in -origin {280 250}
+make name_net -name clk -origin {670 330}
+make name_net -name clk -origin {1000 330}
+make name_net -name out_hk_mash -origin {640 250}
+make name_net -name out_hk_mash_filt -origin {1360 250}
+make lpf_butter_ord2_w_clk -name xi11 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {830 280}
+make lpf_butter_ord2_w_clk -name xi12 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {1160 280}
+make name_net -name in_msb -origin {270 -470}
+make name_net -name clk -origin {280 -390}
+make name_net -name clk -origin {670 -390}
+make name_net -name clk -origin {1000 -390}
+make name_net -name out_mash_mbit -origin {640 -470}
+make name_net -name out_mash_mbit_filt -origin {1360 -470}
+make lpf_butter_ord2_w_clk -name xi15 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {830 -440}
+make lpf_butter_ord2_w_clk -name xi16 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {1160 -440}
+make ds_dt_ord3_mash_mbit_uint -name xi13 -n_lsb 20 -origin {440 -440}
+make ds_dt_ord3_hk_mash_3bit_uint -name xi10 -wid_in 20 -a 3 -origin {440 280}
+make constant -name xi7 -consval 524288+2048 -origin {-450 -280}
+make name_net -name clk -origin {400 -710}
+make name_net -name out_sd -origin {630 -750}
+make sd_modulator -name xi17 -order 3 -origin {500 -730}
+make name_net -name clk -origin {670 -670}
+make name_net -name clk -origin {1000 -670}
+make name_net -name out_sd_filt -origin {1360 -750}
+make lpf_butter_ord2_w_clk -name xi19 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {830 -720}
+make lpf_butter_ord2_w_clk -name xi20 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {1160 -720}
+make sampler_w_delay -name xi18 -origin {-40 -170}
+make inv -name xi21 -origin {-380 10}
+make name_net -name sel_dc_input -origin {-270 -430}
+make mux2 -orient RY -name xi22 -origin {-200 -170}
+make constant_bool -name xi23 -val sel_dc_input_gl -origin {-460 -430}
+make gain -name xi14 -gain 4.5 -origin {170 -470}
+make gain -name xi24 -gain 1/(2*524288) -origin {180 -750}
+  make_wire 280 -90 320 -90
+  make_wire 280 -170 320 -170
+  make_wire 710 -90 670 -90
+  make_wire 1040 -90 1000 -90
+  make_wire 950 -170 1040 -170
+  make_wire 1280 -170 1360 -170
+  make_wire 640 -170 560 -170
+  make_wire 640 -170 710 -170
+  make_wire 280 330 320 330
+  make_wire 280 250 320 250
+  make_wire 710 330 670 330
+  make_wire 1040 330 1000 330
+  make_wire 950 250 1040 250
+  make_wire 1280 250 1360 250
+  make_wire 640 250 560 250
+  make_wire 640 250 710 250
+  make_wire -410 -280 -320 -280
+  make_wire 270 -470 220 -470
+  make_wire 270 -470 320 -470
+  make_wire 320 -390 280 -390
+  make_wire 710 -390 670 -390
+  make_wire 1040 -390 1000 -390
+  make_wire 950 -470 1040 -470
+  make_wire 1280 -470 1360 -470
+  make_wire 560 -470 640 -470
+  make_wire 640 -470 710 -470
+  make_wire 400 -710 440 -710
+  make_wire 560 -750 630 -750
+  make_wire 710 -670 670 -670
+  make_wire 1040 -670 1000 -670
+  make_wire 950 -750 1040 -750
+  make_wire 1280 -750 1360 -750
+  make_wire 630 -750 710 -750
+  make_wire -400 -150 -350 -150
+  make_wire -410 10 -460 10
+  make_wire -320 10 -150 10
+  make_wire -530 80 -460 80
+  make_wire -460 80 80 80
+  make_wire 80 -470 130 -470
+  make_wire 80 -170 280 -170
+  make_wire 80 -170 40 -170
+  make_wire -170 -170 -120 -170
+  make_wire -150 -130 -120 -130
+  make_wire 80 -90 80 80
+  make_wire 280 -90 80 -90
+  make_wire -150 -130 -150 10
+  make_wire -460 10 -460 80
+  make_wire -290 -150 -220 -150
+  make_wire -270 -280 -320 -280
+  make_wire -190 -430 -190 -210
+  make_wire -270 -430 -410 -430
+  make_wire -270 -430 -190 -430
+  make_wire -270 -280 -270 -190
+  make_wire -270 -190 -220 -190
+  make_wire -320 -280 -320 -180
+  make_wire 80 -750 80 -470
+  make_wire 80 -470 80 -170
+  make_wire 140 -750 80 -750
+  make_wire 230 -750 440 -750
+  make_wire -530 -150 -490 -150
+  make_text -origin {300 70} -text {HK MASH from "Maximum Sequence Length MASH Digital Delta-Sigma Modulators", K. Hosseini, M.P. Kennedy, TCAS 1, Dec. 2007 }
+  make_text -origin {310 170} -text { }
+  make_text -origin {-630 -350} -text {Offset 2^19 to center input within 20-bit input range }
+  make_text -origin {300 100} -text {-> this example shows how MASH can be modified for better noise behavior (though max operating range of MASH may be adversely impacted)}
+  make_text -origin {320 130} -text {To see difference between HK MASH and MASH noise shaping, set sel_dc_input_gl = 1 in the test.par file, run the simulation}
+  make_text -origin {320 160} -text { and then run Python script  snr_calc_for-mash.py located in same directory where test.par file is located to see spectra}
+}
+

@@ -1,0 +1,81 @@
+proc SCHEMATIC_ds_ct_ord3_1bit {} {
+make input -name in -origin {680 60}
+make input -name clk -origin {680 340}
+make output -name out -origin {2290 80}
+make name_net -name error -origin {950 60}
+make name_net -name x1 -origin {1190 60}
+make sub2 -name xi5 -origin {870 60}
+make sub2 -name xi6 -origin {1280 60}
+make comparator_basic -name xi7 -origin {2140 80}
+make constant -name xi8 -origin {1930 230}
+make add2 -orient RY -name xi9 -origin {750 60}
+make voltage_noise_cpp -orient RX -name xi10 -en_noise en_noise -thermal_noise therm_noise -flicker_corner flicker_corner -origin {1060 -150}
+make gain -orient RX -name xi16 -gain vref -origin {2160 440}
+make integrator_w_sat -name xi13 -k 0.25*clk_freq -max_val 10*vref -min_val -10*vref -origin {1070 60}
+make name_net -name x2 -origin {1590 60}
+make name_net -name x3 -origin {2030 60}
+make integrator_w_sat -name xi11 -k 0.25*clk_freq -max_val 10*vref -min_val -10*vref -origin {1480 60}
+make name_net -name error2 -origin {1360 60}
+make name_net -name error3 -origin {1770 60}
+make integrator_w_sat -name xi14 -k 0.5*clk_freq -max_val 10*vref -min_val -10*vref -origin {1900 60}
+make sub2 -name xi12 -origin {1680 60}
+  make_wire 2220 80 2250 80
+  make_wire 2250 80 2290 80
+  make_wire 680 60 720 60
+  make_wire 2030 230 1970 230
+  make_wire 2090 100 2030 100
+  make_wire 900 60 950 60
+  make_wire 950 60 1000 60
+  make_wire 750 -150 750 30
+  make_wire 680 340 2140 340
+  make_wire 2030 100 2030 230
+  make_wire 1970 60 2030 60
+  make_wire 2030 60 2090 60
+  make_wire 840 60 780 60
+  make_wire 750 -150 980 -150
+  make_wire 2200 440 2250 440
+  make_wire 870 440 1280 440
+  make_wire 870 90 870 440
+  make_wire 1590 60 1550 60
+  make_wire 1140 60 1190 60
+  make_wire 1190 60 1250 60
+  make_wire 1650 60 1590 60
+  make_wire 1680 440 1280 440
+  make_wire 1680 440 2110 440
+  make_wire 1360 60 1310 60
+  make_wire 1360 60 1410 60
+  make_wire 1280 90 1280 440
+  make_wire 1770 60 1710 60
+  make_wire 1830 60 1770 60
+  make_wire 1680 90 1680 440
+  make_wire 2250 80 2250 440
+  make_wire 2140 120 2140 340
+}
+
+proc ICON_ds_ct_ord3_1bit args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {vref 1.0} {clk_freq 1e6} {en_noise 0} {therm_noise 10e-9} {flicker_corner 1e3}}
+icon_term -type input -origin {-130 -30} -name in
+icon_term -type input -origin {-130 50} -name clk
+icon_term -type output -origin {130 -30} -name out
+icon_property -origin {-120 -30} -label in
+icon_property -origin {-120 50} -label clk
+icon_property -origin {120 -30} -anchor e -label out
+icon_property -origin {-120 -80} -label {$name}
+icon_property -origin {-120 -60} -label ds_ct_ord3_1bit
+  icon_line -130 -70 130 -70 130 70 -130 70 -130 -70
+  icon_property -origin {-120 210} -type user -name name -default x
+  icon_line -130 40 -120 50 -130 60
+icon_property -origin {-120 80} -label {vref=$vref (V)}
+  icon_property -origin {-120 230} -type user -name vref -default 1.0
+icon_property -origin {-120 100} -label {clk_freq=$clk_freq (Hz)}
+  icon_property -origin {-120 250} -type user -name clk_freq -default 1e6
+icon_property -origin {-120 120} -label {en_noise=$en_noise (0 or 1)}
+  icon_property -origin {-120 270} -type user -name en_noise -default 0
+icon_property -origin {-120 140} -label {therm_noise=$therm_noise (V/rHz)}
+  icon_property -origin {-120 290} -type user -name therm_noise -default 10e-9
+icon_property -origin {-120 160} -label {flicker_corner=$flicker_corner (Hz)}
+  icon_property -origin {-120 310} -type user -name flicker_corner -default 1e3
+icon_property -origin {-70 30} -label {in:  range is -vref to vref}
+icon_property -origin {-70 50} -label {out: -1 or 1}
+}
+

@@ -1,0 +1,93 @@
+proc SCHEMATIC_sd_synth_tristate {} {
+make output -name out -origin {1340 50}
+make name_net -name vin -origin {1070 70}
+make name_net -name div_val -origin {1040 400}
+make name_net -name sd_in -origin {550 400}
+make name_net -name ref -origin {280 70}
+make constant -name xi0 -origin {40 90}
+make vco -name xi1 -freq 20e6 -kvco 1 -origin {190 90}
+make leadlagfilter -name xi3 -fp 127.2e3 -fz 11.8e3 -gain 1/(30e-12) -origin {940 70}
+make sd_modulator -name xi9 -order 2 -origin {710 420}
+make step_in -name xi10 -vend in_gl+delta_gl -vstart in_gl -tstep step_time_gl -origin {450 400}
+make tristate_pfd -name xi11 -origin {350 90}
+make sub2 -name xi12 -origin {790 70}
+make name_net -name down -origin {440 130}
+make name_net -name up -origin {440 70}
+make output -name trig_sig -origin {1250 770}
+make constant -name xi6 -origin {980 790}
+make output -name vin_filt -origin {1250 510}
+make output -name noiseout_filt -origin {1250 640}
+make name_net -name div -origin {850 290}
+make divider_ideal -orient RX -name xi16 -origin {1170 320}
+make vco_with_noise -name xi4 -fc 1.8e9 -kv 30e6 -foffset 10e6 -noise_at_foffset -146 -origin {1160 90}
+make vco -name xi8 -freq 200e6 -kvco 1 -origin {1130 790}
+make accum_and_dump -name xi5 -origin {1120 520}
+make accum_and_dump -name xi7 -origin {1120 650}
+make tristate_ch_pump_with_noise -name xi14 -i_up 2*1.6e-6 -i_down 2*1.5e-6 -thermal_noise_up 2.2e-12 -thermal_noise_down 0.86e-12 -origin {570 90}
+make name_net -name iup -origin {700 90}
+make name_net -name idown -origin {700 130}
+  make_wire 120 90 80 90
+  make_wire 550 400 490 400
+  make_wire 550 400 650 400
+  make_wire 280 70 260 70
+  make_wire 280 70 300 70
+  make_wire 280 130 280 290
+  make_wire 820 70 850 70
+  make_wire 730 70 760 70
+  make_wire 1060 790 1020 790
+  make_wire 910 510 1040 510
+  make_wire 1200 510 1250 510
+  make_wire 1050 70 1030 70
+  make_wire 1050 70 1070 70
+  make_wire 1070 70 1090 70
+  make_wire 770 400 1040 400
+  make_wire 910 640 1040 640
+  make_wire 1200 640 1250 640
+  make_wire 1040 400 1260 400
+  make_wire 1220 350 1260 350
+  make_wire 1260 350 1260 400
+  make_wire 850 290 1120 290
+  make_wire 1220 290 1330 290
+  make_wire 910 590 1360 590
+  make_wire 1360 130 1360 590
+  make_wire 1330 50 1230 50
+  make_wire 1330 50 1340 50
+  make_wire 910 260 1050 260
+  make_wire 910 590 910 640
+  make_wire 910 260 910 510
+  make_wire 1220 770 1220 710
+  make_wire 1220 710 1020 710
+  make_wire 1020 710 1020 670
+  make_wire 1020 670 1040 670
+  make_wire 1220 770 1200 770
+  make_wire 1220 770 1250 770
+  make_wire 1020 670 1020 540
+  make_wire 1020 540 1040 540
+  make_wire 600 440 650 440
+  make_wire 600 290 600 440
+  make_wire 280 290 600 290
+  make_wire 600 290 850 290
+  make_wire 440 70 440 90
+  make_wire 440 90 470 90
+  make_wire 440 130 400 130
+  make_wire 440 130 470 130
+  make_wire 440 70 400 70
+  make_wire 790 100 790 130
+  make_wire 730 70 730 90
+  make_wire 1330 50 1330 290
+  make_wire 280 130 300 130
+  make_wire 1050 70 1050 260
+  make_wire 1230 130 1360 130
+  make_wire 700 90 670 90
+  make_wire 700 90 730 90
+  make_wire 670 130 700 130
+  make_wire 700 130 790 130
+  make_text -origin {330 640} -text {Examples in CppSimView:}
+  make_text -origin {360 680} -text {To observe dynamics:  select test.tr0}
+  make_text -origin {360 710} -text {plotsig(x,'sd_in;vin')}
+  make_text -origin {360 760} -text {To observe phase noise: select test_noise.tr0}
+  make_text -origin {360 790} -text plot_pll_phasenoise(x,10e3,30e6,'noiseout_filt')
+  make_text -origin {940 440} -text {Filter vin and noiseout with accumulate and dump circuit
+to avoid aliasing due to decimation by trig_sig}
+}
+

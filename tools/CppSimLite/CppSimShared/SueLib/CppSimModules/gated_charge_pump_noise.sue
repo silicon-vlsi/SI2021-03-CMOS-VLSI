@@ -1,0 +1,37 @@
+proc SCHEMATIC_gated_charge_pump_noise {} {
+
+make output -name out -origin {360 -670}
+make input -name pol -origin {290 -670}
+
+}
+
+proc ICON_gated_charge_pump_noise args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {thermal_noise_pos 1e-12} {thermal_noise_neg 1e-12} {flicker_corner_freq_pos 1e3} {flicker_corner_freq_neg 1e3}}
+icon_term -type output -origin {10 50} -orient R90 -name out
+icon_term -type input -origin {-50 20} -name pol
+  icon_property -origin {-50 100} -type user -name name -default x
+  icon_property -origin {-50 120} -type user -name thermal_noise_pos -default 1e-12
+icon_property -origin {20 40} -label out
+  icon_property -origin {-50 140} -type user -name thermal_noise_neg -default 1e-12
+icon_property -origin {60 -20} -label {thermal_noise_pos=$thermal_noise_pos (A/sqrt(Hz) single-sided)}
+icon_property -origin {-50 -50} -label {$name}
+  icon_line -50 50 -50 -40 50 -40 50 50 -50 50
+icon_property -origin {-40 20} -label pol
+  icon_arc 20 -20 40 0 -start 270 -extent 359
+  icon_arc -20 -20 0 0 -start 270 -extent 359
+  icon_line -10 0 -10 10 -20 20
+  icon_line 30 0 30 10 20 20
+  icon_line 30 20 30 30 -10 30 -10 20
+  icon_line 10 30 10 50
+  icon_line -10 -20 -10 -30
+  icon_line 30 -20 30 -30
+  icon_line 20 -30 40 -30
+  icon_line -20 -30 0 -30
+icon_property -origin {60 0} -label {thermal_noise_neg=$thermal_noise_neg (A/sqrt(Hz) single-sided)}
+icon_property -origin {60 20} -label {flicker_corner_freq_pos=$flicker_corner_freq_pos (Hz)}
+icon_property -origin {60 40} -label {flicker_corner_freq_neg=$flicker_corner_freq_neg (Hz)}
+  icon_property -origin {-50 160} -type user -name flicker_corner_freq_pos -default 1e3
+  icon_property -origin {-50 180} -type user -name flicker_corner_freq_neg -default 1e3
+icon_property -origin {40 -50} -label gated_charge_pump_noise
+}
+

@@ -1,0 +1,27 @@
+proc SCHEMATIC_usrp_rftx {} {
+
+make input -name tx_a -origin {350 240}
+make input -name tx_b -origin {350 310}
+
+}
+
+proc ICON_usrp_rftx args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {vco_freq 0.0} {dac_gain 0.0} {sample_rate 1.0} {dco_freq 0.0}}
+icon_term -type input -origin {-100 -10} -name tx_a
+icon_term -type input -origin {-100 20} -name tx_b
+icon_property -origin {-90 -10} -label tx_a
+icon_property -origin {-90 20} -label tx_b
+icon_property -origin {-90 -50} -label {$name}
+icon_property -origin {-90 -30} -label usrp_rftx
+  icon_line -100 -40 100 -40 100 40 -100 40 -100 -40
+icon_property -origin {-90 70} -label {vco_freq=$vco_freq Hz}
+  icon_property -origin {-90 170} -type user -name name -default x
+  icon_property -origin {-90 210} -type user -name vco_freq -default 0.0
+icon_property -origin {-90 90} -label {dac_gain=$dac_gain dB  (-20 to 0 dB)}
+  icon_property -origin {-90 230} -type user -name dac_gain -default 0.0
+icon_property -origin {-90 110} -label {sample_rate=$sample_rate Msample/s}
+  icon_property -origin {-90 250} -type user -name sample_rate -default 1.0
+icon_property -origin {-90 50} -label {dco_freq=$dco_freq Hz}
+  icon_property -origin {-90 190} -type user -name dco_freq -default 0.0
+}
+

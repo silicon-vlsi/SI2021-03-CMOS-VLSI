@@ -1,0 +1,36 @@
+proc SCHEMATIC_electrical_switch {} {
+
+
+
+
+
+
+make input -name sw_on -origin {90 20}
+make inout -name t1 -origin {30 70}
+make inout -name t2 -origin {150 70}
+
+
+
+
+
+
+}
+
+proc ICON_electrical_switch args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name s} {on_resistance 1k} {off_resistance 100e9} {noise_enable 0}}
+icon_term -type inout -origin {-40 0} -name t1
+icon_term -type inout -origin {40 0} -name t2
+icon_term -type input -origin {0 -30} -orient R90 -name sw_on
+icon_property -origin {-10 10} -label {$name}
+  icon_property -origin {-90 130} -type user -name name -default s
+  icon_line -40 0 -20 0 10 -20
+  icon_line 10 0 40 0
+  icon_property -origin {-200 110} -type fixed -name spice -text {$name $t1 $t2 $sw_on 0 ideal_switch_model}
+  icon_property -origin {-90 150} -type user -name on_resistance -default 1k
+  icon_property -origin {-90 170} -type user -name off_resistance -default 100e9
+  icon_property -origin {-40 70} -text {[if {$off_resistance != 100e9} {set x "r_off=$off_resistance"}]}
+  icon_property -origin {-40 50} -text {[if {$noise_enable != 0} {set x "noise_enable=$noise_enable"}]}
+  icon_property -origin {-90 190} -type user -name noise_enable -default 0
+icon_property -origin {-40 30} -label {r_on=$on_resistance}
+}
+

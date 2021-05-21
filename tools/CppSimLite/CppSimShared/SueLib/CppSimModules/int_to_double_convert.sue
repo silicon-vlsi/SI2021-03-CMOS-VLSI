@@ -1,0 +1,17 @@
+proc SCHEMATIC_int_to_double_convert {} {
+make output -name out -origin {-30 20}
+make input -name in -origin {-150 20}
+}
+
+proc ICON_int_to_double_convert args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-80 10} -name in
+icon_term -type output -origin {80 10} -name out
+icon_property -origin {-70 10} -label in
+icon_property -origin {70 10} -anchor e -label out
+icon_property -origin {-70 -40} -label {$name}
+icon_property -origin {-70 -20} -label int_to_double_convert
+  icon_line -80 -30 80 -30 80 30 -80 30 -80 -30
+  icon_property -origin {-90 100} -type user -name name -default x
+}
+

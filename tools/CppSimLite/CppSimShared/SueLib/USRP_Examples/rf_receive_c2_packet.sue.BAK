@@ -1,0 +1,20 @@
+proc SCHEMATIC_rf_receive_c2_packet {} {
+make usrp_rfrx -name xi1 -vco_freq vco_freq -adc_gain adc_gain -sample_rate sample_rate -dco_freq dco_freq -offset_cancel_on offset_cancel_on -mixer_gain mixer_gain -origin {690 420}
+make output -name rx_a -origin {1260 410}
+make output -name rx_b -origin {1260 440}
+make output -name out -origin {1260 510}
+make input -name preamble_vec -origin {1020 560}
+make name_net -name data_valid -origin {1270 550}
+make c2_packet_detect_and_slice -name xi0 -data_length data_length -origin {1120 520}
+  make_wire 1000 510 1020 510
+  make_wire 980 530 1020 530
+  make_wire 790 440 980 440
+  make_wire 980 440 1260 440
+  make_wire 1000 410 790 410
+  make_wire 1000 410 1260 410
+  make_wire 1220 550 1270 550
+  make_wire 1220 510 1260 510
+  make_wire 980 440 980 530
+  make_wire 1000 410 1000 510
+}
+

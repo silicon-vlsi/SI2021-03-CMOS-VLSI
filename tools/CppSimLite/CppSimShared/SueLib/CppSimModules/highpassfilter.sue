@@ -1,0 +1,28 @@
+proc SCHEMATIC_highpassfilter {} {
+
+
+make input -name in -origin {300 -640}
+make output -name out -origin {380 -640}
+
+
+}
+
+proc ICON_highpassfilter args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {fp 1.0} {gain 1.0}}
+icon_term -type input -origin {-80 0} -name in
+icon_term -type output -origin {80 0} -name out
+  icon_property -origin {-80 100} -type user -name name -default x
+  icon_property -origin {-80 140} -type user -name fp -default 1.0
+icon_property -origin {-70 0} -anchor center -label in
+icon_property -origin {70 0} -anchor e -label out
+icon_property -origin {0 -20} -anchor center -label highpassfilter
+icon_property -origin {-70 60} -label {fp=$fp (Hz)}
+icon_property -origin {-80 -40} -label {$name}
+  icon_line -80 -30 -80 30 80 30 80 -30 -80 -30
+icon_property -origin {0 20} -anchor center -label s+2*pi*fp
+icon_property -origin {0 0} -anchor center -label gain*s
+  icon_line -30 10 30 10
+  icon_property -origin {-80 120} -type user -name gain -default 1.0
+icon_property -origin {-70 40} -label {gain=$gain}
+}
+

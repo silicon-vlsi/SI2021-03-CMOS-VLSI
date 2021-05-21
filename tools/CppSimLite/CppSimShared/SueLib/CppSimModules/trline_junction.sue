@@ -1,0 +1,34 @@
+proc SCHEMATIC_trline_junction {} {
+make input -name eil -origin {-80 110}
+make output -name err -origin {80 110}
+make input -orient RX -name eir -origin {80 160}
+make input -orient RX -name eir_p -origin {80 210}
+make output -orient RX -name erl -origin {-80 160}
+}
+
+proc ICON_trline_junction args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {zol {}} {zor {}} {c {}} {sim_order {}}}
+icon_term -type input -origin {-80 -30} -name eil
+icon_term -type output -origin {80 -30} -name err
+icon_term -type output -origin {-80 -10} -orient RX -name erl
+icon_term -type input -origin {80 -10} -orient RX -name eir
+icon_term -type input -origin {80 30} -orient RX -name eir_p
+icon_property -origin {70 -60} -label {$name}
+  icon_property -origin {-50 130} -type user -name name -default x
+  icon_property -origin {-50 140} -type user -name zol
+  icon_line -80 -50 -80 50 80 50 80 -50 -80 -50
+icon_property -origin {-50 -60} -label trline_junction
+  icon_property -origin {-50 150} -type user -name zor
+  icon_property -origin {-50 160} -type user -name c
+  icon_property -origin {-50 170} -type user -name sim_order
+icon_property -origin {-30 60} -label {zol=$zol}
+icon_property -origin {-30 70} -label {zor=$zor}
+icon_property -origin {-30 80} -label {c=$c}
+icon_property -origin {-30 90} -label {sim_order=$sim_order}
+icon_property -origin {-70 -30} -label eil
+icon_property -origin {-70 -10} -label erl
+icon_property -origin {50 -30} -label err
+icon_property -origin {50 -10} -label eir
+icon_property -origin {40 30} -label eir_p
+}
+

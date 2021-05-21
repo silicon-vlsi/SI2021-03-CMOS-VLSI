@@ -1,0 +1,38 @@
+proc SCHEMATIC_sd_modulator {} {
+
+
+
+
+
+
+
+make input -name in -origin {380 -690}
+make input -name clk -origin {380 -640}
+make output -name out -origin {450 -670}
+
+
+
+
+
+
+
+}
+
+proc ICON_sd_modulator args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {order {}}}
+icon_term -type input -origin {-60 -20} -name in
+icon_term -type input -origin {-60 20} -name clk
+icon_term -type output -origin {60 -20} -name out
+  icon_property -origin {-50 90} -type user -name name -default x
+  icon_property -origin {-50 110} -type user -name order
+  icon_line -60 -40 -60 50 60 50 60 -40 -60 -40
+icon_property -origin {-50 -20} -label in
+icon_property -origin {-50 20} -label clk
+icon_property -origin {50 -20} -anchor e -label out
+icon_property -origin {0 40} -anchor center -label sd_modulator
+  icon_line 0 -10 -20 -10 -10 0 -20 10 0 10
+  icon_line 10 -10 0 10 20 10 10 -10
+icon_property -origin {-50 60} -label {order=$order}
+icon_property -origin {-60 -50} -label {$name}
+}
+

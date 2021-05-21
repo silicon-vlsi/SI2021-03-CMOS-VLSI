@@ -1,0 +1,52 @@
+proc SCHEMATIC_vco_and_divider_with_noise {} {
+make add2 -name xi2 -origin {270 240}
+make output -name squareout -origin {650 240}
+make output -name sineout -origin {650 280}
+make gain -name xi3 -gain kv -origin {470 470}
+make output -name noiseout -origin {630 470}
+make vco_noise -name xi1 -noise_at_foff noise_at_foffset -foff foffset -Kv kv -origin {10 240}
+make input -name div -origin {-110 530}
+make vco_and_divider -name xi0 -freq fc -kvco kv -origin {480 260}
+make input -name vctrl -origin {-110 470}
+  make_wire 70 240 240 240
+  make_wire 560 280 650 280
+  make_wire 560 240 650 240
+  make_wire 350 470 430 470
+  make_wire 350 240 300 240
+  make_wire 350 240 400 240
+  make_wire 520 470 630 470
+  make_wire -110 470 270 470
+  make_wire -110 530 320 530
+  make_wire 320 280 400 280
+  make_wire 350 240 350 470
+  make_wire 320 280 320 530
+  make_wire 270 270 270 470
+}
+
+proc ICON_vco_and_divider_with_noise args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {fc 1.0} {kv 1.0} {foffset 1.0} {noise_at_foffset 1.0}}
+icon_term -type output -origin {80 -40} -name squareout
+icon_term -type output -origin {80 0} -name sineout
+icon_term -type output -origin {80 40} -name noiseout
+icon_term -type input -origin {-80 0} -name div
+icon_term -type input -origin {-80 -40} -name vctrl
+icon_property -origin {-80 -110} -label {$name}
+icon_property -origin {-70 80} -label {kv = $kv Hz/V}
+  icon_property -origin {-90 180} -type user -name name -default x
+  icon_property -origin {-90 200} -type user -name fc -default 1.0
+  icon_line -80 -100 80 -100 80 50 -80 50 -80 -100
+icon_property -origin {-70 -90} -label vco_and_divider
+icon_property -origin {-70 60} -label {fc = $fc Hz}
+icon_property -origin {-70 100} -label {foffset = $foffset Hz}
+icon_property -origin {-70 120} -label {noise_at_foffset = $noise_at_foffset dBc/Hz}
+  icon_property -origin {-90 220} -type user -name kv -default 1.0
+  icon_property -origin {-90 240} -type user -name foffset -default 1.0
+  icon_property -origin {-90 260} -type user -name noise_at_foffset -default 1.0
+icon_property -origin {-70 -70} -label _with_noise
+icon_property -origin {70 -40} -anchor e -label squareout
+icon_property -origin {70 0} -anchor e -label sineout
+icon_property -origin {70 40} -anchor e -label noiseout
+icon_property -origin {-70 -40} -label vctrl
+icon_property -origin {-70 0} -label div
+}
+

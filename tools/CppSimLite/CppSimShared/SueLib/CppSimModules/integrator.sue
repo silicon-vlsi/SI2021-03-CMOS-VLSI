@@ -1,0 +1,31 @@
+proc SCHEMATIC_integrator {} {
+
+
+
+
+make input -name in -origin {290 -650}
+make output -name out -origin {350 -650}
+
+
+
+
+}
+
+proc ICON_integrator args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {k 1.0}}
+icon_term -type input -origin {-40 0} -name in
+icon_term -type output -origin {40 0} -name out
+  icon_property -origin {-60 110} -type user -name name -default x
+  icon_arc 0 -20 20 0 -start 50 -extent 133
+  icon_arc -20 0 0 20 -start 231 -extent 136
+  icon_line 0 -10 0 10
+icon_property -origin {-30 0} -label in
+icon_property -origin {30 0} -anchor e -label out
+  icon_line -40 -40 -40 40 40 40 40 -40 -40 -40
+icon_property -origin {0 30} -anchor center -label integrator
+icon_property -origin {-40 -50} -label {$name}
+icon_property -origin {-10 -30} -label k/s
+  icon_property -origin {-60 90} -type user -name k -default 1.0
+icon_property -origin {-30 50} -label {k=$k}
+}
+

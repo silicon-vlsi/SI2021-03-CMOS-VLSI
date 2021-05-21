@@ -1,0 +1,48 @@
+# The title_bar calls the procedure file_mod_time to display modified date.
+# Note that you can not write this procedure out from sue because of the
+# hack to icon_setup: i.e., the default in the icon_property
+# for owner is missing -- this forces the user's name to be saved.
+
+proc ICON_title_bar args {
+  global env
+  icon_setup $args "{origin {0 0}} {orient R0} \{owner $env(USER)\}"
+  icon_line -290 -20 300 -20 300 20 -290 20 -290 -20
+  icon_property -origin {-280 10} -label {cell: $cur_s}
+  icon_property -origin {-110 10} -text \
+      {file: [uplevel #0 "set SUE_${cur_s}(filename)"]}
+  icon_property -origin {-280 -10} -label {owner: $owner}
+  icon_property -origin {-110 -10} -text {modified: [file_mod_time $cur_s]}
+  icon_line -320 -10 -320 -20 -350 -20 -350 -10 -320 10 -320 20 -350 20 -350 10
+  icon_line -310 -20 -310 -10 -300 -10 -300 -20
+  icon_line -300 0 -310 0 -310 20 -300 20
+  icon_line -310 10 -300 10
+  icon_property -origin {-160 50} -type user -name owner
+  icon_property -origin {-300 90} -size large -type comment -text \
+	{Don't try editing this cell in SUE.}
+}
+
+# used in the title_bar
+# need a mtime->good format converter (could use tclX)
+# hack for now of using ls with date.
+
+proc file_mod_time schematic {
+
+  set schematic_name [get_rootname $schematic]
+
+  global SUE_$schematic_name SUE_ICON_$schematic_name
+
+  set filename [use_first SUE_${schematic_name}(filename) \
+	SUE_ICON_${schematic_name}(filename)]
+
+  if {[file exists $filename]} {
+#    return [file mtime $filename]
+    set time [lrange [exec ls -l $filename] 4 6]
+    if {[string first : $time] != -1} {
+      return "[lindex $time 2] [lrange $time 0 1], [lindex [exec date] 5]"
+    } else {
+      return $time
+    }
+  } else {
+    return "doesn't exist"
+  }
+}

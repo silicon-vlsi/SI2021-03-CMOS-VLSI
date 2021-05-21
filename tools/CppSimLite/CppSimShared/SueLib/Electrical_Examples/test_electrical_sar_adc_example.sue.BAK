@@ -1,0 +1,222 @@
+proc SCHEMATIC_test_electrical_sar_adc_example {} {
+make constant -name xi2 -consval 0.0 -origin {-3040 1590}
+make comparator_basic -name xi11 -origin {-510 1150}
+make electrical_switch -orient R90X -name s10 -origin {-1000 1370}
+make electrical_switch -orient R90X -name s11 -origin {-1130 1370}
+make global -name gnd -origin {-1130 1420}
+make global -name gnd -origin {-1400 1420}
+make global -name gnd -origin {-1660 1420}
+make global -name gnd -origin {-1920 1420}
+make global -name gnd -origin {-2180 1420}
+make electrical_switch -orient R90X -name s12 -origin {-1270 1370}
+make electrical_switch -orient R90X -name s13 -origin {-1400 1370}
+make electrical_switch -orient R90X -name s14 -origin {-1530 1370}
+make electrical_switch -orient R90X -name s15 -origin {-1660 1370}
+make electrical_switch -orient R90X -name s16 -origin {-1790 1370}
+make electrical_switch -orient R90X -name s17 -origin {-1920 1370}
+make electrical_switch -orient R90X -name s18 -origin {-2050 1370}
+make electrical_switch -orient R90X -name s19 -origin {-2180 1370}
+make and2 -name xi13<4:0> -origin {-1170 1960}
+make and2 -name xi14<4:0> -origin {-1170 2090}
+make name_net -name input_adc -origin {-2370 1590}
+make electrical_switch -orient RX -name s0 -origin {-2180 1690}
+make constant -name xi1 -consval 0.5 -origin {-2370 1690}
+make electrical_switch -orient RX -name s1 -origin {-2180 1590}
+make global -orient RX -name gnd -origin {-590 1230}
+make name_net -name vx -origin {-1180 1130}
+make name_net -name comp_out -origin {-370 1150}
+make and2 -name xi6 -origin {-1170 1840}
+make example_five_bit_sar_algorithm -name xi7 -origin {-1740 2120}
+make name_net -name vref -origin {-2270 1690}
+make capacitor -name C0 -capacitance 1p -origin {-1000 1230}
+make capacitor -name C1 -capacitance 1p -origin {-1270 1230}
+make capacitor -name C4 -capacitance 2p -origin {-1530 1230}
+make capacitor -name C5 -capacitance 4p -origin {-1790 1230}
+make capacitor -name C6 -capacitance 8p -origin {-2050 1230}
+make name_net -name clk -origin {-550 1330}
+make signal_source -name xi4 -stype 1 -freq 5e3 -origin {-2900 1610}
+make electrical_switch -orient RX -name s2 -origin {-690 1010}
+make add2 -name xi0 -origin {-2540 1590}
+make constant -name xi9 -consval 0.25 -origin {-2650 1710}
+make gain -name xi3 -gain 0.2 -origin {-2690 1590}
+make name_net -name out -origin {-1500 2190}
+make name_net -name vcap0 -origin {-1080 1300}
+make name_net -name vcap1 -origin {-1360 1300}
+make name_net -name vcap2 -origin {-1610 1300}
+make name_net -name vcap3 -origin {-1870 1300}
+make name_net -name vcap4 -origin {-2130 1300}
+make name_net -name sel_gnd<4:0> -origin {-1530 2110}
+make name_net -name sel_ref_in<4:0> -origin {-1350 2110}
+make constant -name xi5 -consval 0.0 -origin {-3050 2010}
+make name_net -name sw_gnd<4:0> -origin {-1020 1960}
+make name_net -name sw_gnd<4> -origin {-2230 1370}
+make name_net -name sw_gnd<3> -origin {-1970 1370}
+make name_net -name sw_gnd<2> -origin {-1710 1370}
+make name_net -name sw_gnd<1> -origin {-1450 1370}
+make name_net -name sw_gnd<0> -origin {-1180 1370}
+make name_net -name sw_ref_in<4:0> -origin {-1020 2090}
+make name_net -name sw_ref_in<4> -origin {-2110 1370}
+make name_net -name sw_ref_in<3> -origin {-1840 1370}
+make name_net -name sw_ref_in<2> -origin {-1580 1370}
+make name_net -name sw_ref_in<1> -origin {-1320 1370}
+make name_net -name sw_ref_in<0> -origin {-1050 1370}
+make name_net -name sw_sample_in -origin {-2180 1560}
+make name_net -name sw_sample_in -origin {-690 980}
+make name_net -name sw_sample_in -origin {-1020 1840}
+make name_net -name sel_in -origin {-1400 1820}
+make inv -name xi15 -origin {-2130 1960}
+make inv -name xi16 -origin {-1980 1960}
+make name_net -name sw_ref -origin {-2180 1660}
+make name_net -name sw_ref -origin {-1560 2170}
+make inv -name xi10 -origin {-1820 1960}
+make inv -name xi17 -origin {-1690 1960}
+make dff2 -name xi18 -origin {-2510 1990}
+make dff2 -name xi19 -origin {-2470 2210}
+make inv -name xi20 -origin {-2640 2230}
+make name_net -name clk_state -origin {-2040 2180}
+make signal_source -name xi12 -freq 2e6 -origin {-2910 2030}
+make global -orient RX -name gnd -origin {-620 1020}
+make global -orient RX -name gnd -origin {-870 1290}
+  make_wire -2770 1590 -2730 1590
+  make_wire -1130 1330 -1130 1300
+  make_wire -1160 1370 -1180 1370
+  make_wire -1030 1370 -1050 1370
+  make_wire -1400 1330 -1400 1300
+  make_wire -1400 1410 -1400 1420
+  make_wire -1430 1370 -1450 1370
+  make_wire -1300 1370 -1320 1370
+  make_wire -1270 1270 -1270 1300
+  make_wire -1270 1300 -1270 1330
+  make_wire -1660 1330 -1660 1300
+  make_wire -1660 1410 -1660 1420
+  make_wire -1690 1370 -1710 1370
+  make_wire -1560 1370 -1580 1370
+  make_wire -1530 1270 -1530 1300
+  make_wire -1530 1300 -1530 1330
+  make_wire -1920 1330 -1920 1300
+  make_wire -1920 1410 -1920 1420
+  make_wire -1950 1370 -1970 1370
+  make_wire -1820 1370 -1840 1370
+  make_wire -1790 1270 -1790 1300
+  make_wire -1790 1300 -1790 1330
+  make_wire -2180 1330 -2180 1300
+  make_wire -2180 1410 -2180 1420
+  make_wire -2210 1370 -2230 1370
+  make_wire -2080 1370 -2110 1370
+  make_wire -2050 1270 -2050 1300
+  make_wire -2050 1300 -2050 1330
+  make_wire -1150 1960 -1020 1960
+  make_wire -1260 2070 -1210 2070
+  make_wire -1270 1190 -1270 1130
+  make_wire -1530 1190 -1530 1130
+  make_wire -1530 1130 -1270 1130
+  make_wire -1790 1190 -1790 1130
+  make_wire -1790 1130 -1530 1130
+  make_wire -2050 1190 -2050 1130
+  make_wire -2050 1130 -1790 1130
+  make_wire -1180 1130 -1270 1130
+  make_wire -1150 2090 -1020 2090
+  make_wire -1260 1860 -1210 1860
+  make_wire -1150 1840 -1020 1840
+  make_wire -1470 1980 -1210 1980
+  make_wire -2270 1690 -2330 1690
+  make_wire -1880 2110 -1860 2110
+  make_wire -370 1150 -430 1150
+  make_wire -1400 1820 -1600 1820
+  make_wire -1400 1820 -1210 1820
+  make_wire -1130 1410 -1130 1420
+  make_wire -1000 1590 -1270 1590
+  make_wire -1270 1590 -1530 1590
+  make_wire -1530 1590 -1790 1590
+  make_wire -2070 1690 -2070 1590
+  make_wire -2070 1590 -2140 1590
+  make_wire -2070 1590 -2050 1590
+  make_wire -1530 1410 -1530 1590
+  make_wire -1000 1410 -1000 1590
+  make_wire -1790 1410 -1790 1590
+  make_wire -1270 1410 -1270 1590
+  make_wire -2050 1590 -1790 1590
+  make_wire -2050 1590 -2050 1410
+  make_wire -2220 1590 -2370 1590
+  make_wire -590 1170 -560 1170
+  make_wire -1000 1270 -1000 1300
+  make_wire -1000 1300 -1000 1330
+  make_wire -2570 1590 -2640 1590
+  make_wire -2510 1590 -2370 1590
+  make_wire -2610 1710 -2540 1710
+  make_wire -2540 1710 -2540 1620
+  make_wire -2070 1690 -2140 1690
+  make_wire -2220 1690 -2270 1690
+  make_wire -730 1010 -790 1010
+  make_wire -1080 1300 -1130 1300
+  make_wire -1080 1300 -1000 1300
+  make_wire -1360 1300 -1400 1300
+  make_wire -1360 1300 -1270 1300
+  make_wire -1610 1300 -1660 1300
+  make_wire -1610 1300 -1530 1300
+  make_wire -1870 1300 -1920 1300
+  make_wire -1870 1300 -1790 1300
+  make_wire -2130 1300 -2180 1300
+  make_wire -2130 1300 -2050 1300
+  make_wire -1640 2190 -1500 2190
+  make_wire -1640 2150 -1600 2150
+  make_wire -1470 1980 -1470 2110
+  make_wire -1640 2170 -1560 2170
+  make_wire -1640 2130 -1380 2130
+  make_wire -1530 2110 -1640 2110
+  make_wire -1530 2110 -1470 2110
+  make_wire -1380 2110 -1350 2110
+  make_wire -1350 2110 -1210 2110
+  make_wire -1260 1940 -1210 1940
+  make_wire -1260 1940 -1260 1860
+  make_wire -370 1150 -370 1750
+  make_wire -1850 1960 -1920 1960
+  make_wire -1260 1940 -1260 1960
+  make_wire -1260 1960 -1260 2070
+  make_wire -1720 1960 -1760 1960
+  make_wire -1630 1960 -1260 1960
+  make_wire -2460 2010 -2430 2010
+  make_wire -2430 2010 -2430 1910
+  make_wire -2430 1910 -2580 1910
+  make_wire -2580 1910 -2580 1960
+  make_wire -2580 1960 -2550 1960
+  make_wire -2400 2110 -2570 2110
+  make_wire -2570 2180 -2510 2180
+  make_wire -2670 2230 -2710 2230
+  make_wire -2710 2010 -2780 2010
+  make_wire -2710 2010 -2550 2010
+  make_wire -510 1190 -510 1330
+  make_wire -2070 1960 -2040 1960
+  make_wire -2040 1960 -2010 1960
+  make_wire -570 1330 -570 1720
+  make_wire -1860 2170 -1860 2180
+  make_wire -2570 2110 -2570 2180
+  make_wire -2580 2230 -2510 2230
+  make_wire -2430 2010 -2400 2010
+  make_wire -2400 2010 -2400 2110
+  make_wire -2160 1960 -2460 1960
+  make_wire -2710 2010 -2710 2230
+  make_wire -590 1230 -590 1170
+  make_wire -2040 1720 -570 1720
+  make_wire -1000 1130 -1180 1130
+  make_wire -1380 2110 -1380 2130
+  make_wire -2420 2180 -2040 2180
+  make_wire -2040 2180 -1860 2180
+  make_wire -1600 1820 -1600 2150
+  make_wire -1880 1750 -1880 2110
+  make_wire -1000 1130 -1000 1190
+  make_wire -2040 1720 -2040 1960
+  make_wire -870 1130 -790 1130
+  make_wire -870 1130 -1000 1130
+  make_wire -870 1270 -870 1290
+  make_wire -870 1190 -870 1130
+  make_wire -620 1010 -620 1020
+  make_wire -650 1010 -620 1010
+  make_wire -570 1330 -550 1330
+  make_wire -550 1330 -510 1330
+  make_wire -1880 1750 -370 1750
+  make_wire -790 1010 -790 1130
+  make_wire -560 1130 -790 1130
+  make_text -origin {-940 1200} -text {Load Cap}
+}
+

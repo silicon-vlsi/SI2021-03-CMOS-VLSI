@@ -1,0 +1,62 @@
+proc SCHEMATIC_tristate_pfd_down_xdelay {} {
+make input -name ref -origin {110 70}
+make input -name div -origin {110 490}
+make and2 -orient RX -name xi2 -origin {630 180}
+make output -name up -origin {780 20}
+make output -name down -origin {760 540}
+make constant_interp -name xi3 -origin {180 20}
+make constant_interp -name xi4 -origin {180 540}
+make name_net -name and_out -origin {580 180}
+make name_net -name and_out_del1 -origin {400 180}
+make name_net -name and_out_del2 -origin {400 410}
+make pfd_dffreset -name xi0 -origin {350 50}
+make pfd_dffreset -orient RY -name xi1 -origin {350 510}
+make pfd_reset_delay2 -orient R90X -name xi6 -delaytime down_xdelay -origin {350 320}
+make pfd_reset_delay -orient RX -name xi5 -delaytime reset_delay -origin {500 190}
+  make_wire 230 20 300 20
+  make_wire 110 70 300 70
+  make_wire 670 160 700 160
+  make_wire 390 20 700 20
+  make_wire 390 540 700 540
+  make_wire 780 20 700 20
+  make_wire 760 540 700 540
+  make_wire 700 200 700 540
+  make_wire 540 180 580 180
+  make_wire 580 180 610 180
+  make_wire 400 180 340 180
+  make_wire 670 200 700 200
+  make_wire 340 410 400 410
+  make_wire 700 20 700 160
+  make_wire 460 180 400 180
+  make_wire 340 100 340 180
+  make_wire 340 180 340 280
+  make_wire 340 360 340 410
+  make_wire 340 410 340 460
+  make_wire 300 490 110 490
+  make_wire 300 540 230 540
+  make_text -origin {510 -10} -text {register output alternates
+between -1 and 1}
+  make_text -origin {510 510} -text {register output alternates
+between -1 and 1}
+}
+
+proc ICON_tristate_pfd_down_xdelay args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {reset_delay 2.5e-9} {down_xdelay 4.0e-9}}
+icon_term -type input -origin {-60 -40} -name ref
+icon_term -type input -origin {-60 20} -name div
+icon_term -type output -origin {60 -40} -name up
+icon_term -type output -origin {60 20} -name down
+icon_property -origin {-60 -70} -label {$name}
+icon_property -origin {-60 70} -label {reset_delay = $reset_delay}
+  icon_property -origin {-60 130} -type user -name name -default x
+  icon_property -origin {-60 150} -type user -name reset_delay -default 2.5e-9
+  icon_line -60 -60 60 -60 60 60 -60 60 -60 -60
+icon_property -origin {-50 50} -label tristate_pfd_down_xdelay
+icon_property -origin {50 -40} -anchor e -label up
+icon_property -origin {50 20} -anchor e -label down
+icon_property -origin {-50 -40} -label ref
+icon_property -origin {-50 20} -label div
+icon_property -origin {-60 90} -label {down_xdelay = $down_xdelay}
+  icon_property -origin {-60 170} -type user -name down_xdelay -default 4.0e-9
+}
+

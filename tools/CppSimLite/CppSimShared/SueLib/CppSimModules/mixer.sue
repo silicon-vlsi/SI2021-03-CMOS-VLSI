@@ -1,0 +1,28 @@
+proc SCHEMATIC_mixer {} {
+
+
+
+make input -name A -origin {240 260}
+make input -name B -origin {240 300}
+make output -name Y -origin {400 260}
+
+
+
+}
+
+proc ICON_mixer args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-40 0} -name A
+icon_term -type output -origin {40 0} -name Y
+icon_term -type input -origin {0 40} -orient R270 -name B
+icon_property -origin {-20 -50} -label {$name}
+  icon_property -origin {-80 100} -type user -name name -default x
+icon_property -origin {0 -30} -anchor center -label mixer
+icon_property -origin {-30 0} -label A
+icon_property -origin {0 30} -anchor center -label B
+icon_property -origin {20 0} -label Y
+  icon_arc -40 -40 40 40 -start 276 -extent 359
+  icon_line -20 -20 20 20 20 20
+  icon_line -20 20 20 -20
+}
+

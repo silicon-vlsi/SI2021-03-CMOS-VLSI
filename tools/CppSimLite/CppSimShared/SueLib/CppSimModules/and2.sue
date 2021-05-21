@@ -1,0 +1,29 @@
+proc SCHEMATIC_and2 {} {
+
+
+
+make input -name a -origin {310 -760}
+make input -name b -origin {310 -710}
+make output -name y -origin {440 -730}
+
+
+
+}
+
+proc ICON_and2 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-40 -20} -name a
+icon_term -type input -origin {-40 20} -name b
+icon_term -type output -origin {20 0} -name y
+  icon_property -origin {-60 70} -type user -name name -default x
+  icon_line -10 -30 -40 -30
+  icon_line -10 30 -40 30
+  icon_line -40 30 -40 -30
+icon_property -origin {-30 -20} -label a
+icon_property -origin {10 0} -anchor e -label y
+icon_property -origin {-30 20} -label b
+icon_property -origin {0 40} -anchor center -label and2
+  icon_arc -40 -30 20 30 -start 265 -extent 185
+icon_property -origin {-40 -40} -label {$name}
+}
+

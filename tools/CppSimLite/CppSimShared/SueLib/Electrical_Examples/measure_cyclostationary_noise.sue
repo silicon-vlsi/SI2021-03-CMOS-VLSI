@@ -1,0 +1,26 @@
+proc SCHEMATIC_measure_cyclostationary_noise {} {
+make input -name in -origin {400 60}
+make input -name clk -origin {400 160}
+make output -name out_vec -origin {550 60}
+make input -name start -origin {400 110}
+}
+
+proc ICON_measure_cyclostationary_noise args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {num_samples 5}}
+icon_term -type input -origin {-100 0} -name in
+icon_term -type input -origin {-100 40} -name clk
+icon_term -type output -origin {100 0} -name out_vec
+icon_term -type input -origin {-100 20} -name start
+icon_property -origin {-90 0} -label in
+icon_property -origin {-90 40} -label clk
+icon_property -origin {90 0} -anchor e -label out_vec
+icon_property -origin {-90 -50} -label {$name}
+icon_property -origin {-90 -30} -label measure_cyclostationary_noise
+  icon_line -100 -40 100 -40 100 60 -100 60 -100 -40
+icon_property -origin {-90 70} -label {num_samples=$num_samples}
+  icon_property -origin {-90 110} -type user -name name -default x
+  icon_property -origin {-90 130} -type user -name num_samples -default 5
+  icon_line -100 30 -90 40 -100 50
+icon_property -origin {-90 20} -label start
+}
+

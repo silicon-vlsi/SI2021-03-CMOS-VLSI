@@ -1,0 +1,18 @@
+/////////////////////////////////////////////////////////////
+// CppSim Sim File: test.par
+// Cell: test_electrical_lc_resonance
+// Library: Electrical_Examples
+/////////////////////////////////////////////////////////////
+
+num_sim_steps: 25e3
+
+Ts: 1/200e9
+
+output: test start_time=100e-9
+probe: vin v_res_uncorrected  v_res_corrected
+
+// Numerical integration method for electrical schematics
+// 1.0: Backward Euler (default)
+// 0.0: Trap (more accurate, but prone to ringing)
+electrical_integration_damping_factor: 1.0
+

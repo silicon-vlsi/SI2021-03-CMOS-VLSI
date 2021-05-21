@@ -1,0 +1,23 @@
+proc SCHEMATIC_rcfilter {} {
+
+
+make input -name in -origin {300 -660}
+make output -name out -origin {370 -660}
+
+
+}
+
+proc ICON_rcfilter args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {fo {}}}
+icon_term -type input -origin {-40 0} -name in
+icon_term -type output -origin {40 0} -name out
+  icon_property -origin {-50 90} -type user -name name -default x
+  icon_property -origin {-50 110} -type user -name fo
+icon_property -origin {0 30} -anchor center -label rcfilter
+icon_property -origin {-30 0} -label in
+icon_property -origin {30 0} -anchor e -label out
+  icon_line -40 -20 -40 50 40 50 40 -20 -40 -20
+icon_property -origin {-40 60} -label {fo=$fo}
+icon_property -origin {-40 -30} -label {$name}
+}
+

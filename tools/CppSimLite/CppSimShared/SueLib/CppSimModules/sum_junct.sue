@@ -1,0 +1,26 @@
+proc SCHEMATIC_sum_junct {} {
+
+
+make input -name a -origin {230 -700}
+make input -name b -origin {230 -630}
+make output -name y -origin {290 -670}
+
+
+}
+
+proc ICON_sum_junct args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-30 0} -name a
+icon_term -type output -origin {30 0} -name y
+icon_term -type input -origin {0 30} -orient R270 -name b
+  icon_property -origin {-50 80} -type user -name name -default x
+  icon_arc -30 -30 30 30 -start 271 -extent 359
+icon_property -origin {30 0} -anchor e -label y
+icon_property -origin {-30 0} -label a
+icon_property -origin {0 30} -anchor center -label b
+icon_property -origin {0 -40} -anchor center -label sum_junct
+  icon_line 0 -20 0 20
+  icon_line -20 0 20 0
+icon_property -origin {-10 -60} -label {$name}
+}
+

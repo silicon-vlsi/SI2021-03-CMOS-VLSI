@@ -1,0 +1,49 @@
+proc SCHEMATIC_gmsk_modulator {} {
+make input -name clk -origin {-160 -140}
+make name_net_s -name dg_out -origin {90 -140}
+make name_net_s -name filt_out -origin {330 -140}
+make gaussian_transmit_filter -name xi3 -h h -bt bt -data_period data_period -filt_periods 5 -origin {210 -120}
+make gmsk_data_generator -name xi4 -enable mod_enable -data_period data_period -origin {-30 -140}
+make output -name out -origin {500 -140}
+make gain -name xi0 -gain 1/data_period -origin {410 -140}
+  make_wire 110 -100 130 -100
+  make_wire 110 30 -130 30
+  make_wire -130 -140 -110 -140
+  make_wire -130 -140 -160 -140
+  make_wire 90 -140 50 -140
+  make_wire 90 -140 130 -140
+  make_wire 330 -140 290 -140
+  make_wire 330 -140 370 -140
+  make_wire -130 -140 -130 30
+  make_wire 460 -140 500 -140
+  make_wire 110 -100 110 30
+  make_text -origin {-120 -230} -text {data_period is referenced
+to clock periods of clk input
+and must be integer-valued}
+  make_text -origin {120 -250} -text {filt_periods corresponds to
+the span of the gaussian filter
+relative to the symbol period
+for BT=0.3, often choose filt_periods=5
+for BT=0.5, often choose filt_periods=3}
+}
+
+proc ICON_gmsk_modulator args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {mod_enable 1} {data_period 100} {h 0.5} {bt 0.3}}
+icon_term -type input -origin {-90 0} -name clk
+icon_term -type output -origin {90 0} -name out
+icon_property -origin {-80 -50} -label {$name}
+  icon_property -origin {-90 150} -type user -name name -default x
+  icon_property -origin {-90 170} -type user -name mod_enable -default 1
+  icon_line -90 -40 -90 50 90 50 90 -40 -90 -40
+icon_property -origin {0 40} -anchor center -label gmsk_modulator
+icon_property -origin {80 0} -anchor e -label out
+icon_property -origin {-80 0} -label clk
+icon_property -origin {-80 120} -label {mod_enable=$mod_enable}
+  icon_property -origin {-90 190} -type user -name data_period -default 100
+  icon_property -origin {-90 210} -type user -name h -default 0.5
+  icon_property -origin {-90 230} -type user -name bt -default 0.3
+icon_property -origin {-80 60} -label {h=$h}
+icon_property -origin {-80 80} -label {bt=$bt}
+icon_property -origin {-80 100} -label {data_period=$data_period}
+}
+

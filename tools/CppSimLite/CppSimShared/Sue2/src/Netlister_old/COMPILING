@@ -1,0 +1,13 @@
+To compile in Windows, you must first install the complete Cygwin
+package available at http://www.cygwin.com.  Be sure to follow the
+directions on the Cygwin web site for proper installation, and also
+make sure that you select "install" rather than "default" on the "all"
+item of the Cygwin setup wizard.
+
+Once Cygwin is installed, simply open a Bash shell, go to the
+directory where this file is located, and then type at the prompt:
+
+make -f sue_spice_netlister_makefile
+
+Assuming Cygwin is properly installed, the above command will
+create the executable sue_spice_netlister.exe.

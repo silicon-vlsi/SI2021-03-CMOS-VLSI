@@ -1,0 +1,52 @@
+proc SCHEMATIC_test_electrical_noise {} {
+make global -name gnd -origin {-90 960}
+make global -name gnd -origin {580 960}
+make name_net -name out_sampler -origin {550 820}
+make capacitor -name C7 -capacitance 10p -origin {-90 890}
+make capacitor -name C8 -capacitance 10p -origin {580 890}
+make step_in -name xi3 -vend 1 -vstart 0 -tstep 10e-6 -origin {540 640}
+make name_net -name out_vec -origin {1030 820}
+make measure_cyclostationary_noise -name xi2 -num_samples 150 -origin {850 820}
+make clock_for_noise_test -name xi4 -num_samples 50 -double_interp_val 0.5 -origin {130 1080}
+make global -name gnd -origin {650 1210}
+make name_net -name reset -origin {560 1150}
+make electrical_switch -orient R270 -name s0 -origin {650 1150}
+make name_net -name out_rc -origin {-90 820}
+make name_net -name ph1 -origin {250 1090}
+make electrical_switch -orient RY -name s2 -on_resistance 15k -noise_enable 1 -origin {280 820}
+make resistor -orient R90 -name R0 -resistance 159k -noise_enable 1 -origin {-210 820}
+  make_wire 580 950 30 950
+  make_wire 710 860 750 860
+  make_wire 280 1090 710 1090
+  make_wire 580 640 710 640
+  make_wire 710 840 750 840
+  make_wire 950 820 1030 820
+  make_wire 710 640 710 840
+  make_wire 250 1090 230 1090
+  make_wire 250 1090 280 1090
+  make_wire 580 820 580 850
+  make_wire 650 820 580 820
+  make_wire 650 820 750 820
+  make_wire 330 1150 330 1110
+  make_wire 560 1150 620 1150
+  make_wire 560 1150 330 1150
+  make_wire 230 1110 330 1110
+  make_wire 650 1190 650 1210
+  make_wire 650 1110 650 820
+  make_wire 280 850 280 1090
+  make_wire 710 860 710 1090
+  make_wire 550 820 580 820
+  make_wire 30 820 30 950
+  make_wire 30 820 240 820
+  make_wire 320 820 550 820
+  make_wire -370 820 -370 950
+  make_wire -370 950 -90 950
+  make_wire -90 820 -170 820
+  make_wire -90 820 -90 850
+  make_wire 580 930 580 950
+  make_wire 580 950 580 960
+  make_wire -90 950 -90 930
+  make_wire -90 950 -90 960
+  make_wire -370 820 -250 820
+}
+

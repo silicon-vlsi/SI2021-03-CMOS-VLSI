@@ -1,0 +1,36 @@
+proc SCHEMATIC_inverter {} {
+make global -name gnd -origin {550 400}
+make global -orient RY -name vdd -origin {550 160}
+make input -name in -origin {450 280}
+make output -name out -origin {570 280}
+make pmos -name M1 -m m -w w_p -l l_p -origin {550 200}
+make nmos -name M0 -m m -w w_n -l l_n -origin {550 360}
+  make_wire 470 200 490 200
+  make_wire 470 360 490 360
+  make_wire 450 280 470 280
+  make_wire 470 280 470 360
+  make_wire 470 280 470 200
+  make_wire 550 280 570 280
+  make_wire 550 280 550 240
+  make_wire 550 280 550 320
+  make_text -origin {430 80} -text {Inverter Primitive}
+  make_line 420 100 590 100
+}
+
+proc ICON_inverter args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {m 1} {w_p 2.4u} {l_p 0.13u} {w_n 1.2u} {l_n 0.13u}}
+icon_term -type input -origin {-30 0} -name in
+icon_term -type output -origin {50 0} -name out
+  icon_line -30 -30 -30 30 30 0 -30 -30
+  icon_arc 30 -10 50 10 -start 0 -extent 359
+  icon_property -origin {-70 50} -type user -name name -default x
+  icon_property -origin {-70 70} -type user -name m -default 1
+  icon_property -origin {-70 90} -type user -name w_p -default 2.4u
+  icon_property -origin {-70 110} -type user -name l_p -default 0.13u
+  icon_property -origin {-70 130} -type user -name w_n -default 1.2u
+  icon_property -origin {-70 150} -type user -name l_n -default 0.13u
+icon_property -origin {-20 20} -label {N:$w_n}
+icon_property -origin {-20 -20} -label {P:$w_p}
+icon_property -origin {-30 -40} -label {$name}
+}
+

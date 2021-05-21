@@ -1,0 +1,53 @@
+proc SCHEMATIC_sd_synth_fast {} {
+make output -name out -origin {1360 70}
+make name_net -name vin -origin {1070 70}
+make name_net -name div_val -origin {950 400}
+make name_net -name sd_in -origin {550 400}
+make name_net -name pfdout -origin {560 -40}
+make name_net -name ref -origin {430 70}
+make constant -name xi0 -origin {190 90}
+make vco -name xi1 -freq 20e6 -kvco 1 -origin {340 90}
+make xorpfd -name xi12 -origin {490 100}
+make ch_pump -name xi2 -ival 1.5e-6 -origin {650 70}
+make step_in -name xi10 -vend in_gl+delta_gl -vstart in_gl -tstep step_time_gl -origin {450 400}
+make output -name noiseout -origin {1360 150}
+make sd_modulator -name xi9 -order 3 -origin {710 420}
+make leadlagfilter -name xi3 -fp 127.2e3 -fz 11.8e3 -gain 1/30e-12 -origin {940 70}
+make add2 -orient RY -name xi4 -origin {790 70}
+make vco_and_divider_with_1f_noise -name xi6 -fc 1.84e9 -kv 30e6 -foffset 10e6 -noise_at_foffset -146 -fcorner 1e3 -origin {1180 110}
+make gated_charge_pump_noise -name xi5 -thermal_noise_pos 0.6e-12 -thermal_noise_neg 1.5e-12 -origin {780 -60}
+  make_wire 820 70 850 70
+  make_wire 270 90 230 90
+  make_wire 560 70 530 70
+  make_wire 560 70 580 70
+  make_wire 580 280 430 280
+  make_wire 580 440 650 440
+  make_wire 550 400 490 400
+  make_wire 550 400 650 400
+  make_wire 430 70 410 70
+  make_wire 430 70 450 70
+  make_wire 1340 280 580 280
+  make_wire 1100 110 1080 110
+  make_wire 730 70 760 70
+  make_wire 1340 70 1260 70
+  make_wire 1340 70 1360 70
+  make_wire 950 400 1080 400
+  make_wire 430 130 430 280
+  make_wire 1070 70 1100 70
+  make_wire 1260 150 1360 150
+  make_wire 1070 70 1030 70
+  make_wire 770 400 950 400
+  make_wire 1080 110 1080 400
+  make_wire 1340 70 1340 280
+  make_wire 580 280 580 440
+  make_wire 430 130 450 130
+  make_wire 730 -40 560 -40
+  make_wire 560 -40 560 70
+  make_wire 790 -10 790 40
+  make_text -origin {930 470} -text {Examples in CppSimView:}
+  make_text -origin {970 510} -text {To observe dynamics:  select test.tr0}
+  make_text -origin {960 540} -text {plotsig(x,'sd_in;vin')}
+  make_text -origin {960 590} -text {To observe phase noise: select test_noise.tr0}
+  make_text -origin {960 620} -text plot_pll_phasenoise(x,10e3,30e6,'noiseout')
+}
+

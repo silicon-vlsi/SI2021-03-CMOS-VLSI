@@ -1,0 +1,21 @@
+*** How to create token_code_lib.dll: *****
+
+Windows:
+1) First install the 2013 Microsoft Visual Studio Express C++ compiler
+   (available for free from Microsoft website)
+2) Open the 64-bit Visual Studio Command Prompt
+3) Within the Command Prompt, cd to the directory containing the token_code_lib.c file
+4) Within the Command Promp, run the commmand:   
+   cl -LD token_code_lib.cpp token_code.cpp -Fetoken_code_lib.dll
+5) Move the resulting token_code_lib.dll into the win64 subdirectory
+
+
+*** How to create reg_control.dll: *****
+
+Windows:
+1) to 2)  Same as above
+3) Within the Command Prompt, cd to the directory containing the token_code_lib.c file
+4) Within the Command Promp, run the commmand:   
+   cl -LD reg_control.cpp -Fereg_control.dll
+5) Move the resulting reg_control.dll into the win64 subdirectory
+

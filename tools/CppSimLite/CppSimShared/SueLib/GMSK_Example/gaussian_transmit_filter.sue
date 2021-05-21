@@ -1,0 +1,38 @@
+proc SCHEMATIC_gaussian_transmit_filter {} {
+
+
+
+
+
+make output -name out -origin {400 260}
+make input -name in -origin {240 260}
+make input -name clk -origin {240 300}
+
+
+
+
+
+}
+
+proc ICON_gaussian_transmit_filter args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {h 0.5} {bt 0.3} {data_period 100} {filt_periods 3}}
+icon_term -type input -origin {-80 -20} -name in
+icon_term -type input -origin {-80 20} -name clk
+icon_term -type output -origin {80 -20} -name out
+icon_property -origin {-70 -50} -label {$name}
+  icon_property -origin {-80 150} -type user -name name -default x
+  icon_line -80 -40 80 -40 80 40 -80 40 -80 -40
+icon_property -origin {0 0} -anchor center -label gaussian_transmit_filter
+icon_property -origin {-70 -20} -label in
+icon_property -origin {-70 20} -label clk
+icon_property -origin {50 -20} -label out
+  icon_property -origin {-80 170} -type user -name h -default 0.5
+  icon_property -origin {-80 190} -type user -name bt -default 0.3
+  icon_property -origin {-80 210} -type user -name data_period -default 100
+  icon_property -origin {-80 230} -type user -name filt_periods -default 3
+icon_property -origin {-60 50} -label {h=$h}
+icon_property -origin {-60 70} -label {bt=$bt}
+icon_property -origin {-60 90} -label {data_period=$data_period}
+icon_property -origin {-60 110} -label {filt_periods=$filt_periods}
+}
+

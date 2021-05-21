@@ -1,0 +1,80 @@
+proc SCHEMATIC_xorpfd {} {
+make input -name ref -origin {-210 -870}
+make input -name div -origin {-200 -540}
+make output -name out -origin {940 -730}
+make dff2 -name xi0 -origin {-30 -890}
+make dffreset -name xi1 -origin {440 -1030}
+make dffset -name xi2 -origin {460 -580}
+make nand2 -name xi3 -origin {720 -710}
+make nand2 -name xi4 -origin {860 -730}
+make xor2 -name xi5 -origin {230 -730}
+make dff2 -name xi6 -origin {-30 -560}
+make name_net -name xor_out -origin {440 -730}
+  make_wire 80 -780 -120 -780
+  make_wire 110 -450 -110 -450
+  make_wire 340 -730 320 -730
+  make_wire 240 -420 -150 -420
+  make_wire -150 -540 -200 -540
+  make_wire -160 -870 -210 -870
+  make_wire 900 -730 940 -730
+  make_wire 820 -750 780 -750
+  make_wire 760 -710 820 -710
+  make_wire 680 -690 620 -690
+  make_wire 250 -730 320 -730
+  make_wire 190 -750 110 -750
+  make_wire 190 -710 110 -710
+  make_wire 20 -920 110 -920
+  make_wire 20 -870 80 -870
+  make_wire -70 -920 -120 -920
+  make_wire -70 -870 -160 -870
+  make_wire 20 -590 110 -590
+  make_wire 20 -540 110 -540
+  make_wire -70 -540 -150 -540
+  make_wire -70 -590 -110 -590
+  make_wire 390 -1010 -160 -1010
+  make_wire 390 -1060 320 -1060
+  make_wire 480 -1060 590 -1060
+  make_wire 480 -1010 780 -1010
+  make_wire 500 -610 620 -610
+  make_wire 500 -560 550 -560
+  make_wire 450 -530 450 -420
+  make_wire 410 -560 240 -560
+  make_wire 410 -610 340 -610
+  make_wire 430 -980 430 -860
+  make_wire 430 -860 550 -860
+  make_wire 590 -1060 590 -420
+  make_wire 550 -860 550 -560
+  make_wire 240 -560 240 -420
+  make_wire 450 -420 590 -420
+  make_wire 340 -730 340 -610
+  make_wire 620 -690 620 -610
+  make_wire 780 -1010 780 -750
+  make_wire 320 -1060 320 -730
+  make_wire -110 -590 -110 -450
+  make_wire 110 -710 110 -590
+  make_wire -150 -540 -150 -420
+  make_wire 110 -540 110 -450
+  make_wire -120 -920 -120 -780
+  make_wire 110 -920 110 -750
+  make_wire -160 -1010 -160 -870
+  make_wire 80 -870 80 -780
+  make_wire 440 -730 680 -730
+  make_wire 440 -730 340 -730
+}
+
+proc ICON_xorpfd args {
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-40 -30} -name ref
+icon_term -type input -origin {-40 30} -name div
+icon_term -type output -origin {40 -30} -name out
+  icon_property -origin {-60 80} -type user -name name -default x
+  icon_line -40 -50 -40 50 40 50 40 -50 -40 -50
+icon_property -origin {-30 -30} -label ref
+icon_property -origin {-30 30} -label div
+icon_property -origin {30 -30} -anchor e -label out
+icon_property -origin {0 60} -anchor center -label xorpfd
+icon_property -origin {-40 -60} -label {$name}
+
+}
+

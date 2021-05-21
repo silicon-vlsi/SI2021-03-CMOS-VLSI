@@ -1,0 +1,41 @@
+proc SCHEMATIC_test_varcap_electrical {} {
+make varcap_cpp -name xi0 -origin {-70 710}
+make varcap_electrical -name xi1 -origin {100 710}
+make name_net -name vin -origin {-170 710}
+make constant -name xi2 -origin {-610 710}
+make capacitor -orient R90 -name C0 -capacitance 100f -origin {420 460}
+make resistor -orient R90 -name R0 -resistance 1000Meg -origin {420 530}
+make opamp_basic -name xi4 -dc_gain 80 -f_unity 10e6 -origin {400 650}
+make signal_source -name xi5 -stype 1 -freq 100e3 -origin {-470 730}
+make gain -name xi3 -gain 1 -origin {-260 710}
+make global -name gnd -origin {320 740}
+make name_net -name vx -origin {230 630}
+make constant -name xi6 -consval 1.0 -origin {10 900}
+make name_net -name vout -origin {650 650}
+  make_wire 320 670 350 670
+  make_wire 310 630 350 630
+  make_wire 460 460 520 460
+  make_wire 520 650 650 650
+  make_wire 520 650 480 650
+  make_wire 310 460 380 460
+  make_wire 380 530 310 530
+  make_wire 460 530 520 530
+  make_wire 310 460 310 530
+  make_wire 520 460 520 530
+  make_wire -340 710 -300 710
+  make_wire 320 670 320 740
+  make_wire 520 530 520 650
+  make_wire 310 530 310 630
+  make_wire 100 660 100 630
+  make_wire -210 710 -170 710
+  make_wire -170 710 -120 710
+  make_wire 100 630 230 630
+  make_wire 230 630 310 630
+  make_wire 50 900 100 900
+  make_wire 100 760 100 770
+  make_wire 100 770 100 900
+  make_wire -20 680 40 680
+  make_wire -20 770 100 770
+  make_wire -20 730 40 730
+}
+

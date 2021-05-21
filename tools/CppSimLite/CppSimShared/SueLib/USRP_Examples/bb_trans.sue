@@ -1,0 +1,8 @@
+proc SCHEMATIC_bb_trans {} {
+make input -name tx_a -origin {640 210}
+make input -name tx_b -origin {640 240}
+make usrp_lftx -name xi0 -dac_gain dac_gain -sample_rate sample_rate -dco_freq dco_freq -origin {790 220}
+  make_wire 640 240 690 240
+  make_wire 690 210 640 210
+}
+

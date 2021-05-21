@@ -1,0 +1,27 @@
+proc SCHEMATIC_quantizer_clocked_basic {} {
+make input -name in -origin {-100 780}
+make input -name clk -origin {-100 860}
+make output -name out<29:0> -origin {50 780}
+}
+
+proc ICON_quantizer_clocked_basic args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {in_min -1.0} {in_max 1.0} {num_active_bits 5}}
+icon_term -type input -origin {-100 -10} -name in
+icon_term -type input -origin {-100 20} -name clk
+icon_term -type output -origin {100 -10} -name out<31:0>
+icon_property -origin {-90 -10} -label in
+icon_property -origin {-90 20} -label clk
+icon_property -origin {90 -10} -anchor e -label out<31:0>
+icon_property -origin {-90 -50} -label {$name}
+icon_property -origin {-90 -30} -label quantizer_clocked_basic
+  icon_line -100 -40 100 -40 100 40 -100 40 -100 -40
+icon_property -origin {-90 50} -label {in_min=$in_min}
+  icon_property -origin {-90 130} -type user -name name -default x
+  icon_property -origin {-90 150} -type user -name in_min -default -1.0
+  icon_line -100 10 -90 20 -100 30
+icon_property -origin {-90 70} -label {in_max=$in_max}
+icon_property -origin {-90 90} -label {num_active_bits=$num_active_bits (2 to 30)}
+  icon_property -origin {-90 170} -type user -name in_max -default 1.0
+  icon_property -origin {-90 190} -type user -name num_active_bits -default 5
+}
+

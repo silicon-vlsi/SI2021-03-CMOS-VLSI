@@ -1,0 +1,23 @@
+proc ICON_pulse args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {V}} {initial_voltage 0} {pulse_voltage 3V} {delay_time 0ns} {rise_time 200ps} {fall_time 200ps} {pulse_width 3ns} {period 6ns}}
+  icon_term -type inout -origin {0 40} -name v_minus
+  icon_term -type inout -origin {0 -40} -name v_plus
+  icon_arc -20 -20 20 20 -start 0 -extent 359
+  icon_line 0 -20 0 -40 0 -40
+  icon_line 0 40 0 20 0 20
+  icon_property -origin {-130 90} -type user -name name -default V
+  icon_property -origin {-230 280} -type fixed -name spice \
+	-text {$name $v_plus $v_minus pulse $initial_voltage 
++ $pulse_voltage $delay_time  $rise_time $fall_time $pulse_width $period}
+  icon_property -origin {-130 110} -type user -name initial_voltage -default 0
+  icon_property -origin {-130 130} -type user -name pulse_voltage -default 3V
+  icon_property -origin {-130 150} -type user -name delay_time -default 0ns
+  icon_property -origin {-130 170} -type user -name rise_time -default 200ps
+  icon_property -origin {-130 190} -type user -name fall_time -default 200ps
+  icon_property -origin {-130 210} -type user -name pulse_width -default 3ns
+  icon_property -origin {-130 230} -type user -name period -default 6ns
+  icon_property -origin {-20 10} -anchor e -label {$initial_voltage}
+  icon_property -origin {20 -10} -label {$pulse_voltage}
+  icon_line -10 10 -5 10 -5 -10 5 -10 5 10 10 10
+}
+

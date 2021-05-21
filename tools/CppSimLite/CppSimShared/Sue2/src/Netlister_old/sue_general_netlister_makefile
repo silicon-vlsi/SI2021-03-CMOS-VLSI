@@ -1,0 +1,11 @@
+sue_general_netlister:  sue_general_netlister.o sue2_common_code.o cppsim_classes.o
+	g++ -o sue_general_netlister sue_general_netlister.o sue2_common_code.o cppsim_classes.o -lm -mwindows
+	cp sue_general_netlister.exe sue_spice_netlister.exe
+	cp sue_general_netlister.exe sue_cppsim_netlister.exe
+sue_general_netlister.o:  sue_general_netlister.cpp sue2_common_code.h cppsim_classes.h
+	g++ -c sue_general_netlister.cpp  
+sue2_common_code.o:  sue2_common_code.cpp sue2_common_code.h
+	g++ -c sue2_common_code.cpp  
+cppsim_classes.o:  cppsim_classes.cpp cppsim_classes.h
+	g++ -c cppsim_classes.cpp  
+

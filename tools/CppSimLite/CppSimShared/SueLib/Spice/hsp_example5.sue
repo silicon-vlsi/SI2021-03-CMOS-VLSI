@@ -1,0 +1,70 @@
+proc SCHEMATIC_hsp_example5 {} {
+make nmos -name M0 -origin {-60 210}
+make pmos -name M1 -origin {-60 60}
+make input -name in -origin {-160 130}
+make global -orient RXY -name vdd -origin {-60 0}
+make global -name gnd -origin {-60 270}
+make inverter -name xi3 -origin {150 130}
+make inverter -name xi4 -origin {340 130}
+make name_net -name n0<5:0> -origin {440 -70}
+make name_net -name n1<5:0> -origin {860 150}
+make name_net -name n1<2:0> -origin {100 -110}
+make name_net -name n0<5:3> -origin {600 -130}
+make name_net -name n3<2:0> -origin {920 -110}
+make name_net -orient RX -name n0<2:0> -origin {600 -90}
+make name_net -orient RX -name na -origin {50 130}
+make name_net -orient RX -name nb -origin {260 130}
+make name_net -orient RX -name na,nb,n3<2:0>,na -origin {460 220}
+make name_net -orient RX -name n0<0:5> -origin {600 -50}
+make name_net -name n4<5:0> -origin {950 -70}
+make name_net -orient RX -name n4<0:2>,na,nb,n4<3> -origin {10 -70}
+make bus_terminals_example -name xi0 -origin {240 -110}
+make bus_terminals_example -name xi1 -origin {770 -110}
+make bus_terminals_example -name xi2 -origin {690 110}
+  make_wire -120 60 -140 60
+  make_wire -140 210 -120 210
+  make_wire -160 130 -140 130
+  make_wire -140 60 -140 130
+  make_wire -140 130 -140 210
+  make_wire -60 100 -60 130
+  make_wire -60 130 -60 170
+  make_wire -60 0 -60 20
+  make_wire -60 250 -60 270
+  make_wire 140 -110 100 -110
+  make_wire 870 -90 900 -90
+  make_wire 100 -90 140 -90
+  make_wire 490 -130 490 -90
+  make_wire 390 130 590 130
+  make_wire 400 -110 340 -110
+  make_wire 600 -90 670 -90
+  make_wire 640 -110 670 -110
+  make_wire 490 -130 600 -130
+  make_wire 600 -130 640 -130
+  make_wire 100 -10 900 -10
+  make_wire 340 -70 440 -70
+  make_wire 440 -70 490 -70
+  make_wire 490 -90 600 -90
+  make_wire 400 110 590 110
+  make_wire 590 150 560 150
+  make_wire 560 150 560 220
+  make_wire 50 130 -60 130
+  make_wire 50 130 120 130
+  make_wire 260 130 200 130
+  make_wire 260 130 310 130
+  make_wire 490 -90 490 -70
+  make_wire 490 -70 490 -50
+  make_wire 640 -70 670 -70
+  make_wire 870 -70 950 -70
+  make_wire 920 -110 870 -110
+  make_wire 460 220 560 220
+  make_wire 10 -70 140 -70
+  make_wire 860 150 790 150
+  make_wire 600 -50 490 -50
+  make_wire 600 -50 640 -50
+  make_wire 100 -90 100 -10
+  make_wire 400 -110 400 110
+  make_wire 640 -70 640 -50
+  make_wire 640 -130 640 -110
+  make_wire 900 -90 900 -10
+}
+

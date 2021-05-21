@@ -1,0 +1,52 @@
+proc SCHEMATIC_accum_no_delay_and_sat_and_rst {} {
+make input -name in -origin {170 150}
+make input -name clk -origin {180 380}
+make output -name out -origin {620 150}
+make gain -name xi0 -gain k -origin {260 150}
+make add2 -name xi2 -origin {380 150}
+make sat_basic -name xi3 -psat psat -msat msat -origin {500 140}
+make input -name rstb -origin {180 420}
+make reg_double_w_rst -orient RX -name xi1 -origin {500 290}
+  make_wire 170 150 220 150
+  make_wire 310 150 350 150
+  make_wire 600 150 620 150
+  make_wire 560 280 600 280
+  make_wire 560 340 600 340
+  make_wire 440 150 410 150
+  make_wire 560 150 600 150
+  make_wire 380 180 380 280
+  make_wire 180 380 600 380
+  make_wire 180 420 630 420
+  make_wire 630 310 560 310
+  make_wire 630 310 630 420
+  make_wire 440 280 380 280
+  make_wire 600 150 600 280
+  make_wire 600 340 600 380
+}
+
+proc ICON_accum_no_delay_and_sat_and_rst args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {k 1.0} {psat 1.0} {msat -1.0}}
+icon_term -type input -origin {-100 0} -name in
+icon_term -type input -origin {-100 80} -name clk
+icon_term -type output -origin {100 0} -name out
+icon_term -type input -origin {-100 40} -name rstb
+icon_property -origin {-90 0} -label in
+icon_property -origin {-90 80} -label clk
+icon_property -origin {90 0} -anchor e -label out
+icon_property -origin {-90 -50} -label {$name}
+icon_property -origin {-90 -30} -label accum_no_delay_and_sat_and_rst
+  icon_line -100 -40 100 -40 100 100 -100 100 -100 -40
+icon_property -origin {-90 110} -label {k=$k}
+  icon_property -origin {-90 190} -type user -name name -default x
+  icon_property -origin {-90 210} -type user -name k -default 1.0
+  icon_line -100 70 -90 80 -100 90
+icon_property -origin {0 0} -anchor center -label k
+icon_property -origin {0 20} -anchor center -label 1-z^-1
+  icon_line -20 10 20 10
+  icon_property -origin {-90 230} -type user -name psat -default 1.0
+  icon_property -origin {-90 250} -type user -name msat -default -1.0
+icon_property -origin {-90 130} -label {psat=$psat (V)}
+icon_property -origin {-90 150} -label {msat=$msat (V)}
+icon_property -origin {-90 40} -label rstb
+}
+

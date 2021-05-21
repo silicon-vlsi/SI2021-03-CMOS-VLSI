@@ -1,0 +1,23 @@
+proc SCHEMATIC_first_order_difference {} {
+make input -name in -origin {140 90}
+make input -name clk -origin {140 150}
+make output -name out -origin {310 90}
+}
+
+proc ICON_first_order_difference args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {kd 1.0}}
+icon_term -type input -origin {-90 0} -name in
+icon_term -type input -origin {-90 30} -name clk
+icon_term -type output -origin {90 0} -name out
+icon_property -origin {-80 0} -label in
+icon_property -origin {-80 30} -label clk
+icon_property -origin {80 0} -anchor e -label out
+icon_property -origin {-80 -50} -label {$name}
+icon_property -origin {-80 -30} -label first_order_difference
+  icon_line -90 -40 90 -40 90 50 -90 50 -90 -40
+icon_property -origin {-80 60} -label {kd=$kd}
+  icon_property -origin {-90 110} -type user -name name -default x
+  icon_property -origin {-90 130} -type user -name kd -default 1.0
+icon_property -origin {-30 30} -label kd*(1-z^-1)
+}
+

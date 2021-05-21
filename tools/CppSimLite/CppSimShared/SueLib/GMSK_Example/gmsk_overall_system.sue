@@ -1,0 +1,37 @@
+proc SCHEMATIC_gmsk_overall_system {} {
+make output -name qfilt -origin {200 110}
+make output -name ifilt -origin {200 50}
+make constant -orient RX -name xi3 -consval 0 -origin {210 290}
+make name_net -name trans_out -origin {-440 50}
+make gain -name xi0 -gain 1/5 -origin {-260 50}
+make gmsk_iq_receiver -name xi9 -fp 2e6 -origin {80 80}
+make gmsk_pll_transmitter -name xi1 -origin {-580 70}
+make vco_quadrature -orient RX -name xi2 -freq 900e6 -kvco 1 -phase_adj 305 -origin {70 290}
+  make_wire 140 290 170 290
+  make_wire 0 270 -50 270
+  make_wire 0 310 -30 310
+  make_wire 200 50 160 50
+  make_wire 200 110 160 110
+  make_wire -30 110 0 110
+  make_wire -50 90 0 90
+  make_wire -500 50 -440 50
+  make_wire -210 50 0 50
+  make_wire -300 50 -440 50
+  make_wire -50 90 -50 270
+  make_wire -30 110 -30 310
+  make_text -origin {-660 -30} -text {GMSK Transmitter} -size large
+  make_line -480 -30 -450 -30
+  make_line -700 -30 -670 -30
+  make_text -origin {0 200} -text {Receiver I/Q Local Oscillator} -size large
+  make_text -origin {0 -30} -text {GMSK Receiver} -size large
+  make_line 150 -30 230 -30
+  make_line -90 -30 -10 -30
+  make_text -origin {-330 -30} -text {A Simple Channel} -size large
+  make_line -183 -30 -153 -30
+  make_line -370 -30 -340 -30
+  make_text -origin {-650 240} -text {Note:  due to the implementation of
+this module, 100e6/symbol_rate
+must be an integer value in order
+to easily produce eye_diagrams}
+}
+

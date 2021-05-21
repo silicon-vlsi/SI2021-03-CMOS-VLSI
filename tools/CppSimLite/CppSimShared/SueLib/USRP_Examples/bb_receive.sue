@@ -1,0 +1,8 @@
+proc SCHEMATIC_bb_receive {} {
+make output -orient RX -name rx_a -origin {640 410}
+make output -orient RX -name rx_b -origin {640 440}
+make usrp_lfrx -orient RX -name xi0 -adc_gain adc_gain -sample_rate sample_rate -dco_freq dco_freq -offset_cancel_on offset_cancel_on -origin {790 420}
+  make_wire 640 410 690 410
+  make_wire 640 440 690 440
+}
+

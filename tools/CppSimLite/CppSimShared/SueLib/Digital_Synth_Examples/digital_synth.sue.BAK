@@ -1,0 +1,64 @@
+proc SCHEMATIC_digital_synth {} {
+make name_net -name ref -origin {1030 700}
+make constant -name xi0 -consval 0 -origin {800 850}
+make output -name noiseout -origin {1720 720}
+make name_net -name sd_in -origin {930 650}
+make name_net -name ph_err -origin {1310 640}
+make name_net -name vin -origin {1540 660}
+make output -name trig_sig -origin {1690 1270}
+make output -name vin_filt -origin {1690 1010}
+make output -name noiseout_filt -origin {1690 1140}
+make constant -name xi2 -consval 0 -origin {1420 1290}
+make vco -name xi3 -freq 200e6 -kvco 1 -origin {1570 1290}
+make accum_and_dump -name xi5 -origin {1560 1020}
+make accum_and_dump -name xi7 -origin {1560 1150}
+make name_net -name vin -origin {1350 1010}
+make name_net -name noiseout -origin {1350 1140}
+make step_in -name xi8 -vend in_gl+delta_gl -vstart in_gl -tstep step_time_gl -origin {860 650}
+make output -name out -origin {1840 640}
+make digital_phase_detector -name xi4 -delay_resolution 20e-12 -num_levels 48 -ref_freq 26e6 -origin {1170 660}
+make vco -name xi1 -freq 26e6 -kvco 1 -origin {930 850}
+make leadlagfilter_clocked -name xi19 -fp 62.7e3 -fz 5e3 -gain 2.04e2 -clk_freq 26e6 -origin {1430 660}
+make vco_with_noise -name xi26 -fc 1.84e9 -kv 30e6 -foffset 20e6 -noise_at_foffset -165 -origin {1640 680}
+  make_wire 860 850 840 850
+  make_wire 1710 720 1720 720
+  make_wire 1520 660 1540 660
+  make_wire 1540 660 1570 660
+  make_wire 1310 660 1340 660
+  make_wire 1270 650 1310 650
+  make_wire 1500 1290 1460 1290
+  make_wire 1350 1010 1480 1010
+  make_wire 1640 1010 1690 1010
+  make_wire 1640 1140 1690 1140
+  make_wire 1660 1270 1660 1210
+  make_wire 1660 1210 1460 1210
+  make_wire 1460 1210 1460 1170
+  make_wire 1460 1170 1480 1170
+  make_wire 1660 1270 1640 1270
+  make_wire 1660 1270 1690 1270
+  make_wire 1460 1170 1460 1040
+  make_wire 1460 1040 1480 1040
+  make_wire 1350 1140 1480 1140
+  make_wire 1830 640 1710 640
+  make_wire 1830 640 1840 640
+  make_wire 1310 690 1340 690
+  make_wire 1270 700 1310 700
+  make_wire 1040 740 1070 740
+  make_wire 1040 900 1830 900
+  make_wire 1000 830 1020 830
+  make_wire 1020 700 1030 700
+  make_wire 1030 700 1070 700
+  make_wire 900 650 930 650
+  make_wire 930 650 1070 650
+  make_wire 1020 700 1020 830
+  make_wire 1040 740 1040 900
+  make_wire 1310 640 1310 650
+  make_wire 1310 650 1310 660
+  make_wire 1310 690 1310 700
+  make_wire 1830 640 1830 900
+  make_text -origin {1400 860} -text {gain=K/Kv
+(where K from PLL Design Asst.)}
+  make_text -origin {1380 940} -text {Filter vin and noiseout with accumulate and dump circuit
+to avoid aliasing due to decimation by trig_sig}
+}
+

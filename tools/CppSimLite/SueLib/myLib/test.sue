@@ -1,0 +1,17 @@
+proc SCHEMATIC_test {} {
+make dc_voltage -name V0 -origin {3090 520}
+make resistor -name R0 -origin {3260 520}
+make resistor -orient R90 -name R1 -origin {3180 450}
+make global -name gnd -origin {3170 580}
+make name_net -name vin -origin {3090 450}
+make name_net -name vout -origin {3260 450}
+  make_wire 3090 450 3140 450
+  make_wire 3220 450 3260 450
+  make_wire 3260 450 3260 480
+  make_wire 3090 560 3090 580
+  make_wire 3260 580 3260 560
+  make_wire 3170 580 3090 580
+  make_wire 3170 580 3260 580
+  make_wire 3090 450 3090 480
+}
+

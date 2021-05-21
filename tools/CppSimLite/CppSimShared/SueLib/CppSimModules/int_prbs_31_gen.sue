@@ -1,0 +1,19 @@
+proc SCHEMATIC_int_prbs_31_gen {} {
+
+make output -name out -origin {460 100}
+make input -name clk -origin {350 100}
+
+}
+
+proc ICON_int_prbs_31_gen args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-60 -10} -name clk
+icon_term -type output -origin {60 -10} -name out
+icon_property -origin {-60 -40} -label {$name}
+  icon_property -origin {-70 80} -type user -name name -default x
+  icon_line -60 -30 60 -30 60 30 -60 30 -60 -30
+icon_property -origin {-50 20} -label int_prbs_31_gen
+icon_property -origin {-50 -10} -label clk
+icon_property -origin {50 -10} -anchor e -label out
+}
+

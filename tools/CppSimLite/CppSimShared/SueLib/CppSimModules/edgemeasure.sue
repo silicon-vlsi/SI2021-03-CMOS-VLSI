@@ -1,0 +1,23 @@
+proc SCHEMATIC_edgemeasure {} {
+
+
+
+make input -name in -origin {320 400}
+make output -name out -origin {400 400}
+
+
+
+}
+
+proc ICON_edgemeasure args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-60 10} -name in
+icon_term -type output -origin {60 10} -name out
+icon_property -origin {-60 -40} -label {$name}
+  icon_property -origin {-60 60} -type user -name name -default x
+icon_property -origin {0 -20} -anchor center -label edgemeasure
+icon_property -origin {-50 10} -label in
+icon_property -origin {50 10} -anchor e -label out
+  icon_line -60 -30 -60 40 60 40 60 -30 -60 -30
+}
+

@@ -1,0 +1,36 @@
+proc SCHEMATIC_vco_quadrature {} {
+
+
+
+make input -name vctrl -origin {260 -610}
+make output -name sineout -origin {320 -580}
+make output -name cosout -origin {320 -630}
+
+
+
+}
+
+proc ICON_vco_quadrature args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {freq {}} {kvco {}} {phase_adj {}}}
+icon_term -type input -origin {-70 0} -name vctrl
+icon_term -type output -origin {70 20} -name sineout
+icon_term -type output -origin {70 -20} -name cosout
+  icon_property -origin {-70 110} -type user -name name -default x
+  icon_property -origin {-70 130} -type user -name freq
+icon_property -origin {0 -40} -anchor center -label vco_quadrature
+icon_property -origin {-60 0} -label vctrl
+icon_property -origin {60 -20} -anchor e -label cosout
+icon_property -origin {60 20} -anchor e -label sineout
+  icon_line -70 -50 -70 40 70 40 70 -50 -70 -50
+  icon_property -origin {-70 150} -type user -name kvco
+icon_property -origin {-50 50} -label {fc=$freq Hz}
+icon_property -origin {-50 70} -label {kvco=$kvco Hz/V}
+  icon_arc -20 -10 0 10 -start 0 -extent 170
+  icon_arc 0 -10 20 10 -start 0 -extent -170
+  icon_line -10 10 20 -20 10 -20
+  icon_line 20 -20 20 -10
+icon_property -origin {-70 -60} -label {$name}
+icon_property -origin {-50 90} -label {phase_adj=$phase_adj degrees}
+  icon_property -origin {-70 170} -type user -name phase_adj
+}
+

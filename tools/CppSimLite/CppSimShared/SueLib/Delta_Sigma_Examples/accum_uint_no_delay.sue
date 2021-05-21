@@ -1,0 +1,46 @@
+proc SCHEMATIC_accum_uint_no_delay {} {
+make input -name in -origin {260 90}
+make input -name clk -origin {260 360}
+make reg_int -orient RX -name xi4 -origin {500 290}
+make output -name carry -origin {620 90}
+make output -name accum -origin {620 150}
+make adder2_full_uint -name xi0 -origin {460 120}
+  make_wire 260 90 360 90
+  make_wire 600 150 620 150
+  make_wire 560 280 600 280
+  make_wire 440 280 310 280
+  make_wire 560 310 600 310
+  make_wire 600 360 260 360
+  make_wire 560 150 600 150
+  make_wire 360 150 310 150
+  make_wire 600 310 600 360
+  make_wire 560 90 620 90
+  make_wire 600 150 600 280
+  make_wire 310 150 310 280
+}
+
+proc ICON_accum_uint_no_delay args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {n 20}}
+icon_term -type input -origin {-100 -30} -name in
+icon_term -type input -origin {-100 30} -name clk
+icon_term -type output -origin {100 30} -name carry
+icon_term -type output -origin {100 -30} -name accum
+icon_property -origin {-90 -30} -label in
+icon_property -origin {-90 30} -label clk
+icon_property -origin {90 30} -anchor e -label carry
+icon_property -origin {-90 -80} -label {$name}
+icon_property -origin {-90 -60} -label accum_uint_no_delay
+  icon_line -100 -70 100 -70 100 70 -100 70 -100 -70
+icon_property -origin {-90 80} -label {n=$n (<= 30 bits)}
+  icon_property -origin {-90 120} -type user -name name -default x
+  icon_property -origin {-90 140} -type user -name n -default 20
+  icon_line -100 20 -90 30 -100 40
+icon_property -origin {0 -10} -anchor center -label 1
+icon_property -origin {0 10} -anchor center -label 1-z^-1
+  icon_line -20 0 20 0
+icon_property -origin {-90 -10} -label {(n bits)}
+icon_property -origin {90 50} -anchor e -label (1-bit)
+icon_property -origin {90 -30} -anchor e -label accum
+icon_property -origin {90 -10} -anchor e -label (n-bits)
+}
+

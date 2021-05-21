@@ -1,0 +1,35 @@
+proc SCHEMATIC_accumulator {} {
+
+
+
+
+
+make output -name out -origin {400 260}
+make input -name in -origin {240 260}
+make input -name clk -origin {240 300}
+
+
+
+
+
+}
+
+proc ICON_accumulator args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {kph 1.0}}
+icon_term -type input -origin {-80 -20} -name in
+icon_term -type input -origin {-80 20} -name clk
+icon_term -type output -origin {80 -20} -name out
+icon_property -origin {-70 -50} -label {$name}
+  icon_property -origin {-80 100} -type user -name name -default x
+  icon_line -80 -40 80 -40 80 40 -80 40 -80 -40
+icon_property -origin {0 -30} -anchor center -label accumulator
+icon_property -origin {-70 -20} -label in
+icon_property -origin {-70 20} -label clk
+icon_property -origin {50 -20} -label out
+icon_property -origin {0 -10} -anchor center -label kph
+icon_property -origin {0 20} -anchor center -label {1 - z^-1}
+icon_property -origin {-20 0} -label ______
+  icon_property -origin {-80 80} -type user -name kph -default 1.0
+icon_property -origin {0 50} -anchor center -label {kph=$kph}
+}
+

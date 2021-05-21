@@ -1,0 +1,63 @@
+proc SCHEMATIC_gmsk_dig_iq_generator {} {
+make output -name I -origin {810 -140}
+make output -name Q -origin {810 -100}
+make input -name clk -origin {-160 -140}
+make name_net_s -name dg_out -origin {90 -140}
+make name_net_s -name filt_out -origin {330 -140}
+make name_net_s -name acc_out -origin {570 -140}
+make gmsk_iq_generator -name xi1 -origin {690 -120}
+make gaussian_transmit_filter -name xi3 -h h -bt bt -data_period data_period -filt_periods 5 -origin {210 -120}
+make gmsk_data_generator -name xi4 -enable mod_enable -data_period data_period -origin {-30 -140}
+make accumulator -name xi0 -kph 2*pi/data_period -origin {450 -120}
+  make_wire 370 -100 350 -100
+  make_wire 350 30 110 30
+  make_wire 110 -100 130 -100
+  make_wire 110 30 -130 30
+  make_wire -130 -140 -110 -140
+  make_wire 590 30 350 30
+  make_wire 810 -140 770 -140
+  make_wire 810 -100 770 -100
+  make_wire -130 -140 -160 -140
+  make_wire 90 -140 50 -140
+  make_wire 90 -140 130 -140
+  make_wire 330 -140 290 -140
+  make_wire 330 -140 370 -140
+  make_wire 570 -140 610 -140
+  make_wire 570 -140 530 -140
+  make_wire 590 -100 590 30
+  make_wire 590 -100 610 -100
+  make_wire 110 -100 110 30
+  make_wire -130 -140 -130 30
+  make_wire 350 -100 350 30
+  make_text -origin {-120 -230} -text {data_period is referenced
+to clock periods of clk input
+and must be integer-valued}
+  make_text -origin {120 -250} -text {filt_periods corresponds to
+the span of the gaussian filter
+relative tto the symbol period
+for BT=0.3, often choose filt_periods=5
+for BT=0.5, often choose filt_periods=3}
+}
+
+proc ICON_gmsk_dig_iq_generator args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {mod_enable 1} {data_period 100} {h 0.5} {bt 0.3}}
+icon_term -type input -origin {-90 -20} -name clk
+icon_term -type output -origin {90 -20} -name I
+icon_term -type output -origin {90 20} -name Q
+icon_property -origin {-80 -50} -label {$name}
+  icon_property -origin {-90 150} -type user -name name -default x
+  icon_property -origin {-90 170} -type user -name mod_enable -default 1
+  icon_line -90 -40 -90 50 90 50 90 -40 -90 -40
+icon_property -origin {0 40} -anchor center -label gmsk_dig_iq_generator
+icon_property -origin {80 -20} -anchor e -label I
+icon_property -origin {80 20} -anchor e -label Q
+icon_property -origin {-80 -20} -label clk
+icon_property -origin {-80 120} -label {mod_enable=$mod_enable}
+  icon_property -origin {-90 190} -type user -name data_period -default 100
+  icon_property -origin {-90 210} -type user -name h -default 0.5
+  icon_property -origin {-90 230} -type user -name bt -default 0.3
+icon_property -origin {-80 60} -label {h=$h}
+icon_property -origin {-80 80} -label {bt=$bt}
+icon_property -origin {-80 100} -label {data_period=$data_period}
+}
+

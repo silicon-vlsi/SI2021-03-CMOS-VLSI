@@ -1,0 +1,70 @@
+proc SCHEMATIC_bang_bang_detector {} {
+make input -name clk -origin {180 420}
+make input -name data -origin {180 370}
+make output -name ph_error -origin {950 590}
+make xor2 -name xi0 -origin {800 590}
+make latch1 -name xi1 -origin {620 640}
+make dff2 -name xi2 -origin {300 400}
+make xor2 -name xi4 -origin {800 390}
+make output -name retimed_data -origin {910 310}
+make dff2 -name xi5 -origin {620 400}
+make dff2 -name xi6 -origin {430 640}
+make inv -name xi7 -origin {290 660}
+make sub2 -orient RY -name xi3 -origin {890 590}
+  make_wire 240 490 560 490
+  make_wire 260 660 240 660
+  make_wire 370 730 560 730
+  make_wire 560 730 560 660
+  make_wire 560 660 580 660
+  make_wire 370 660 350 660
+  make_wire 370 660 390 660
+  make_wire 560 420 580 420
+  make_wire 560 420 560 490
+  make_wire 670 370 760 370
+  make_wire 670 610 720 610
+  make_wire 720 410 760 410
+  make_wire 720 610 760 610
+  make_wire 240 420 260 420
+  make_wire 720 410 720 610
+  make_wire 240 420 180 420
+  make_wire 210 370 210 610
+  make_wire 210 610 390 610
+  make_wire 210 370 180 370
+  make_wire 210 370 260 370
+  make_wire 920 590 950 590
+  make_wire 820 590 860 590
+  make_wire 820 390 890 390
+  make_wire 890 390 890 560
+  make_wire 530 570 760 570
+  make_wire 500 310 910 310
+  make_wire 480 610 500 610
+  make_wire 500 610 580 610
+  make_wire 370 660 370 730
+  make_wire 500 310 500 610
+  make_wire 530 370 530 570
+  make_wire 240 420 240 490
+  make_wire 240 490 240 660
+  make_wire 350 370 530 370
+  make_wire 530 370 580 370
+}
+
+proc ICON_bang_bang_detector args {
+
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-80 30} -name clk
+icon_term -type input -origin {-80 -10} -name data
+icon_term -type output -origin {80 30} -name ph_error
+icon_term -type output -origin {80 -10} -name retimed_data
+icon_property -origin {-80 -60} -label {$name}
+  icon_property -origin {-80 90} -type user -name name -default x
+  icon_line -80 -50 80 -50 80 50 -80 50 -80 -50
+icon_property -origin {-70 -40} -label bang_bang_detector
+icon_property -origin {-70 -10} -label data
+icon_property -origin {70 30} -anchor e -label ph_error
+icon_property -origin {-70 30} -label clk
+icon_property -origin {70 -10} -anchor e -label retimed_data
+
+
+}
+

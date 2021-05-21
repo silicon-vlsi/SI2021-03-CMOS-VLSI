@@ -1,0 +1,16 @@
+proc SCHEMATIC_test_clk_jitter {} {
+make name_net -name clk -origin {210 330}
+make constant -name xi1 -origin {-500 330}
+make name_net -name clk_ideal -origin {-130 330}
+make meas_clk_period -name xi2 -origin {390 320}
+make signal_source -name xi12 -freq 1e6 -origin {-360 350}
+make add_white_clock_jitter -name xi0 -jitter_std_dev 10e-12 -origin {50 320}
+make name_net -name clk_period -origin {590 330}
+  make_wire 490 330 590 330
+  make_wire -130 330 -40 330
+  make_wire -130 330 -230 330
+  make_wire 210 330 140 330
+  make_wire 290 330 210 330
+  make_text -origin {-140 250} -text {Note that period jitter is sqrt(2) larger than rms jitter specified below}
+}
+

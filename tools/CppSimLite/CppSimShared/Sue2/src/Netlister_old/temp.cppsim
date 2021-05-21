@@ -1,0 +1,16 @@
+module: leadlagfilter
+description: 
+parameters:  double fp, double fz
+             double gain
+inputs:  double in
+outputs:  double out
+classes:  
+static_variables:  
+init:  
+end:  
+code:  
+
+
+functions:  
+custom_classes_definition:  
+custom_classes_code:  

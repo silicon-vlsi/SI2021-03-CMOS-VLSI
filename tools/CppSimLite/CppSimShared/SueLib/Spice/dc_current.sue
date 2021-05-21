@@ -1,0 +1,18 @@
+proc ICON_dc_current args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name I} {dc_current 0} {ac_current 0}}
+icon_term -type inout -origin {0 -40} -orient RY -name plus
+icon_term -type inout -origin {0 40} -name minus
+  icon_line 0 -20 0 -40
+  icon_line 0 40 0 20 0 20
+  icon_property -origin {-190 180} -type fixed -name spice -text {$name $plus $minus dc='$dc_current' ac='$ac_current'}
+  icon_property -origin {-100 70} -type user -name name -default I
+  icon_property -origin {-100 90} -type user -name dc_current -default 0
+icon_property -origin {30 -10} -label {DC: $dc_current}
+  icon_arc -20 -20 20 20 -start 0 -extent 359
+icon_property -origin {-20 -30} -anchor e -label {$name}
+  icon_line -10 0 0 10 10 0
+  icon_line 0 -10 0 10
+  icon_property -origin {-100 110} -type user -name ac_current -default 0
+icon_property -origin {30 10} -label {AC: $ac_current}
+}
+

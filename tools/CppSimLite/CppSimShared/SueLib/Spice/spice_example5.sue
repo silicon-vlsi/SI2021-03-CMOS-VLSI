@@ -1,0 +1,26 @@
+proc SCHEMATIC_spice_example5 {} {
+make global -name gnd -origin {10 180}
+make global -name gnd -origin {280 180}
+make capacitor -name C0 -capacitance 0.1u -origin {280 100}
+make resistor -orient R270 -name R1 -resistance 250 -origin {190 10}
+make diode -orient R270 -name D0 -origin {70 10}
+make output -name out -origin {420 10}
+make name_net -name in -origin {10 10}
+make name_net -name nd -origin {120 10}
+make pulse -name V0 -pulse_voltage vsupply -rise_time 200ns -fall_time 200ns -pulse_width 30us -period 60us -origin {10 120}
+make global -name gnd -origin {390 180}
+make resistor -name R0 -resistance 2k -origin {390 100}
+  make_wire 10 10 40 10
+  make_wire 230 10 280 10
+  make_wire 120 10 100 10
+  make_wire 120 10 150 10
+  make_wire 10 10 10 80
+  make_wire 390 10 280 10
+  make_wire 390 10 420 10
+  make_wire 10 160 10 180
+  make_wire 280 140 280 180
+  make_wire 280 10 280 60
+  make_wire 390 140 390 180
+  make_wire 390 10 390 60
+}
+

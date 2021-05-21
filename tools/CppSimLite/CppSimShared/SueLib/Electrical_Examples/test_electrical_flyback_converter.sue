@@ -1,0 +1,102 @@
+proc SCHEMATIC_test_electrical_flyback_converter {} {
+make capacitor -name C0 -capacitance 2e-3 -origin {490 430}
+make capacitor -name C1 -capacitance 0.5e-6 -origin {1290 430}
+make inductor -orient R270 -name L0 -inductance 300e-6 -origin {1370 300}
+make dc_voltage -name V1 -dc_voltage 342 -origin {1590 430}
+make inductor -name L1 -inductance 200e-6 -origin {760 420}
+make global -name gnd -origin {820 530}
+make global -name gnd -origin {960 530}
+make name_net -name v_primary -origin {720 350}
+make name_net -name v_source -origin {420 350}
+make name_net -name v_load -origin {1590 300}
+make dc_voltage -name V0 -dc_voltage -55 -origin {300 420}
+make name_net -name gate -origin {600 140}
+make name_net -name v_pos -origin {1020 300}
+make resistor -orient R90 -name R0 -resistance 1 -origin {390 520}
+make name_net -name v_c -origin {1260 300}
+make electrical_transformer -name T0 -n 10 -origin {880 420}
+make duty_cycle_clk_source -name xi0 -frequency 172e3 -origin {450 150}
+make electrical_switch -orient RXY -name s1 -on_resistance 1e-10 -origin {1450 620}
+make electrical_switch -orient RXY -name s2 -on_resistance 1e-10 -origin {390 610}
+make step_in_bool -name xi3 -vend 0 -vstart 1 -tstep 1e-6 -origin {270 700}
+make name_net -name duty -origin {330 150}
+make electrical_measure_current -orient R270 -name xi1 -origin {1190 300}
+make electrical_measure_current -orient R270 -name xi2 -origin {1470 300}
+make electrical_measure_current -orient RX -name xi6 -origin {760 490}
+make name_net -name i_mag -origin {730 490}
+make name_net -name i_diode -origin {1190 270}
+make name_net -name i_load -origin {1470 270}
+make step_in -name xi5 -vend 0.471 -vstart 0.431 -tstep 50e-3 -origin {250 150}
+make electrical_switch -name s0 -on_resistance 1e-7 -origin {600 350}
+make electrical_diode -name d0 -origin {1090 300}
+  make_wire 300 520 350 520
+  make_wire 300 380 300 350
+  make_wire 1290 300 1330 300
+  make_wire 950 460 960 460
+  make_wire 950 380 960 380
+  make_wire 1590 470 1590 520
+  make_wire 1450 300 1410 300
+  make_wire 1490 300 1590 300
+  make_wire 420 350 300 350
+  make_wire 420 350 490 350
+  make_wire 300 610 350 610
+  make_wire 430 610 470 610
+  make_wire 470 520 490 520
+  make_wire 470 520 430 520
+  make_wire 490 350 560 350
+  make_wire 1260 300 1290 300
+  make_wire 540 150 600 150
+  make_wire 720 350 760 350
+  make_wire 760 350 820 350
+  make_wire 820 380 820 350
+  make_wire 640 350 720 350
+  make_wire 1490 620 1530 620
+  make_wire 1360 620 1360 350
+  make_wire 1360 350 1290 350
+  make_wire 1530 620 1530 350
+  make_wire 1530 350 1590 350
+  make_wire 330 150 360 150
+  make_wire 330 150 290 150
+  make_wire 1130 300 1170 300
+  make_wire 960 300 1020 300
+  make_wire 1020 300 1050 300
+  make_wire 960 300 960 380
+  make_wire 600 140 600 150
+  make_wire 1210 300 1260 300
+  make_wire 820 520 820 460
+  make_wire 820 520 820 530
+  make_wire 470 520 470 610
+  make_wire 300 460 300 520
+  make_wire 300 520 300 610
+  make_wire 310 700 390 700
+  make_wire 760 520 820 520
+  make_wire 760 520 490 520
+  make_wire 960 460 960 520
+  make_wire 960 520 960 530
+  make_wire 1360 620 1410 620
+  make_wire 390 700 1450 700
+  make_wire 390 640 390 700
+  make_wire 1450 650 1450 700
+  make_wire 1290 300 1290 350
+  make_wire 1290 350 1290 390
+  make_wire 1290 470 1290 520
+  make_wire 960 520 1290 520
+  make_wire 1290 520 1590 520
+  make_wire 1590 300 1590 350
+  make_wire 1590 350 1590 390
+  make_wire 600 150 600 320
+  make_wire 490 350 490 390
+  make_wire 490 470 490 520
+  make_wire 760 510 760 520
+  make_wire 760 350 760 380
+  make_wire 760 460 760 470
+  make_text -origin {750 640} -text {Use these switches to initialize capacitors}
+  make_line 730 640 500 610
+  make_line 500 610 520 600
+  make_line 500 610 510 630
+  make_line 1060 640 1320 620
+  make_line 1320 620 1300 610
+  make_line 1320 620 1300 640
+  make_text -origin {1120 220} -text {Use electrical_measure_current modules to measure current}
+}
+

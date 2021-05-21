@@ -1,0 +1,17 @@
+proc SCHEMATIC_bus8_to_double {} {
+make input -name in<7:0> -origin {-170 70}
+make output -name out -origin {-20 70}
+}
+
+proc ICON_bus8_to_double args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-100 10} -name in<7:0>
+icon_term -type output -origin {100 10} -name out
+icon_property -origin {-90 10} -label in<7:0>
+icon_property -origin {90 10} -anchor e -label out
+icon_property -origin {-90 -40} -label {$name}
+icon_property -origin {-90 -20} -label bus8_to_double
+  icon_line -100 -30 100 -30 100 30 -100 30 -100 -30
+  icon_property -origin {-90 100} -type user -name name -default x
+}
+

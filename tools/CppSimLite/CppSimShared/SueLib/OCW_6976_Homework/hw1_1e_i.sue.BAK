@@ -1,0 +1,36 @@
+proc SCHEMATIC_hw1_1e_i {} {
+make name_net_s -name n0r -origin {440 100}
+make name_net_s -name n0 -origin {440 80}
+make name_net_s -name inr -origin {200 100}
+make name_net_s -name in -origin {200 80}
+make name_net_s -name n1 -origin {680 80}
+make name_net_s -name n1r -origin {680 100}
+make name_net_s -name n2 -origin {920 80}
+make name_net_s -name n2r -origin {920 100}
+make output -name out -origin {1200 80}
+make trline_vimp -name xi0 -zor 50 -zo 50 -timp 0 -vstart 0 -vheight 1 -sim_order 0 -origin {110 110}
+make trline_section -name xi1 -delay 200e-12 -gain 1 -sim_order 1 -origin {320 110}
+make trline_junction -name xi2 -zol 50 -zor 60 -c 0 -sim_order 2 -origin {560 110}
+make trline_section -name xi3 -delay 2e-12 -gain 1 -sim_order 3 -origin {800 110}
+make trline_load -name xi4 -zol 60 -zor 60 -c 0 -sim_order 4 -origin {1040 110}
+  make_wire 640 140 720 140
+  make_wire 1120 80 1200 80
+  make_wire 200 80 160 80
+  make_wire 200 80 240 80
+  make_wire 200 100 240 100
+  make_wire 200 100 160 100
+  make_wire 440 80 400 80
+  make_wire 440 80 480 80
+  make_wire 440 100 400 100
+  make_wire 440 100 480 100
+  make_wire 240 140 160 140
+  make_wire 680 80 720 80
+  make_wire 680 80 640 80
+  make_wire 680 100 640 100
+  make_wire 680 100 720 100
+  make_wire 920 80 880 80
+  make_wire 920 80 960 80
+  make_wire 920 100 960 100
+  make_wire 920 100 880 100
+}
+

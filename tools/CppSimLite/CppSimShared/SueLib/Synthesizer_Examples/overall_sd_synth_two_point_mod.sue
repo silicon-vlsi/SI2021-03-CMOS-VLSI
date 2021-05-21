@@ -1,0 +1,96 @@
+proc SCHEMATIC_overall_sd_synth_two_point_mod {} {
+make constant -orient RX -name xi3 -consval 0 -origin {210 290}
+make name_net -name trans_out -origin {-440 50}
+make output -name inst_freq -origin {-440 80}
+make gain -name xi0 -gain 2 -origin {-260 50}
+make accum_and_dump -name xi4 -origin {410 60}
+make accum_and_dump -name xi5 -origin {410 190}
+make output -name qfilt -origin {530 180}
+make output -name ifilt -origin {530 50}
+make name_net -name trig_sig -origin {250 80}
+make output -name trig_sig -origin {500 370}
+make constant -name xi6 -consval 0 -origin {260 390}
+make output -name trig_sig_freq -origin {-440 170}
+make vco -name xi7 -freq 10e6 -kvco 1 -origin {400 390}
+make sd_synth_two_point_mod -name xi1 -symbol_rate 270.27027e3 -pll_bw 50e3 -type2_enable 0 -origin {-600 80}
+make name_net -name trig_sig -origin {250 630}
+make output -name ifilt_ideal -origin {530 600}
+make output -name qfilt_ideal -origin {530 730}
+make constant -orient RX -name xi8 -consval 0 -origin {210 840}
+make gain -name xi10 -gain 2 -origin {-260 600}
+make accum_and_dump -name xi11 -origin {410 610}
+make accum_and_dump -name xi12 -origin {410 740}
+make gmsk_iq_receiver -name xi13 -fp 1.5e6 -origin {80 630}
+make vco_quadrature -orient RX -name xi2 -freq 1.8462e9 -kvco 1 -phase_adj 95 -origin {70 290}
+make vco_quadrature -orient RX -name xi14 -freq 1.8462e9 -kvco 1 -phase_adj 95 -origin {70 840}
+make gmsk_iq_receiver -name xi9 -fp 1.5e6 -origin {80 80}
+  make_wire 140 290 170 290
+  make_wire 0 270 -50 270
+  make_wire 0 310 -30 310
+  make_wire 330 50 160 50
+  make_wire -30 110 0 110
+  make_wire -50 90 0 90
+  make_wire -500 50 -440 50
+  make_wire -210 50 0 50
+  make_wire -300 50 -440 50
+  make_wire 530 50 490 50
+  make_wire 530 180 490 180
+  make_wire 240 180 330 180
+  make_wire 240 110 160 110
+  make_wire 330 80 300 80
+  make_wire 300 210 330 210
+  make_wire 300 80 250 80
+  make_wire 300 80 300 210
+  make_wire 330 390 300 390
+  make_wire 500 370 470 370
+  make_wire -460 170 -440 170
+  make_wire -460 140 -500 140
+  make_wire -440 80 -500 80
+  make_wire -460 140 -460 170
+  make_wire 140 840 170 840
+  make_wire 0 820 -50 820
+  make_wire 0 860 -30 860
+  make_wire 330 600 160 600
+  make_wire -30 660 0 660
+  make_wire -50 640 0 640
+  make_wire -210 600 0 600
+  make_wire 530 600 490 600
+  make_wire 530 730 490 730
+  make_wire 240 730 330 730
+  make_wire 240 660 160 660
+  make_wire 330 630 300 630
+  make_wire 300 760 330 760
+  make_wire 300 630 250 630
+  make_wire 300 630 300 760
+  make_wire -500 110 -390 110
+  make_wire -390 110 -390 600
+  make_wire -390 600 -300 600
+  make_wire 240 660 240 730
+  make_wire -30 660 -30 860
+  make_wire -50 640 -50 820
+  make_wire -50 90 -50 270
+  make_wire 240 110 240 180
+  make_wire -30 110 -30 310
+  make_text -origin {-660 -30} -text {GMSK Transmitter} -size large
+  make_line -480 -30 -450 -30
+  make_line -700 -30 -670 -30
+  make_text -origin {0 200} -text {Receiver I/Q Local Oscillator} -size large
+  make_text -origin {0 -30} -text {GMSK Receiver} -size large
+  make_line 150 -30 230 -30
+  make_line -90 -30 -10 -30
+  make_text -origin {-330 -30} -text {A Simple Channel} -size large
+  make_line -163 -30 -133 -30
+  make_line -370 -30 -340 -30
+  make_text -origin {-710 330} -text {Note:  due to the implementation of
+this module, 20e6/symbol_rate
+must be an integer value in order
+to easily produce eye_diagrams}
+  make_text -origin {0 750} -text {Receiver I/Q Local Oscillator} -size large
+  make_text -origin {0 520} -text {GMSK Receiver} -size large
+  make_line 150 520 230 520
+  make_line -90 520 -10 520
+  make_text -origin {-330 520} -text {A Simple Channel} -size large
+  make_line -163 520 -133 520
+  make_line -370 520 -340 520
+}
+

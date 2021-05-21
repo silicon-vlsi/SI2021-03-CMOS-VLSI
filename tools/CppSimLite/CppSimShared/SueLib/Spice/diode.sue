@@ -1,0 +1,13 @@
+proc ICON_diode args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name D}}
+icon_term -type inout -origin {0 -30} -name pos
+icon_term -type inout -origin {0 30} -name neg
+  icon_property -origin {-90 90} -type user -name name -default D
+  icon_property -origin {-160 200} -type fixed -name spice -text {$name $pos $neg 1n4007}
+icon_property -origin {-30 10} -anchor e -label {$name}
+  icon_line -20 -10 0 -10 0 -30
+  icon_line 0 20 0 30
+  icon_line -20 -10 0 20 20 -10 0 -10
+  icon_line -20 20 20 20
+}
+

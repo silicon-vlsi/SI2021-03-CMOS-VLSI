@@ -1,0 +1,35 @@
+proc SCHEMATIC_spice_example6 {} {
+make global -name gnd -origin {10 150}
+make global -name gnd -origin {230 150}
+make output -name out -origin {510 10}
+make name_net -name in -origin {10 10}
+make global -name gnd -origin {480 150}
+make global -name gnd -origin {400 150}
+make resistor -name R0 -origin {480 80}
+make mutual_inductors -name K0 -l1 1.0e-3 -l2 100.0e-3 -m 9.999e-3 -origin {310 50}
+make resistor -orient R270 -name R1 -resistance 10 -origin {130 10}
+make sine_voltage -name V0 -frequency 10K -origin {10 80}
+make name_net -name t_in -origin {220 10}
+  make_wire 480 10 510 10
+  make_wire 230 90 230 150
+  make_wire 380 10 480 10
+  make_wire 400 90 400 150
+  make_wire 220 10 170 10
+  make_wire 220 10 250 10
+  make_wire 480 120 480 150
+  make_wire 90 10 10 10
+  make_wire 10 120 10 150
+  make_wire 380 90 400 90
+  make_wire 230 90 250 90
+  make_wire 480 10 480 40
+  make_wire 10 10 10 40
+  make_text -origin {50 220} -text {To approximate ideal transformer, we used mutual inductors with K close to 1.0}
+  make_text -origin {50 240} -text {Note that K = M/sqrt(L1*L2) and the turns ratio for transformer N2/N1 = sqrt(L2/L1)}
+  make_text -origin {50 260} -text {Also, the inductances L1 and L2 must have impedances wL >> resistance seen by each inductor}
+  make_text -origin {50 300} -text {For the above example, an inductance of 1e-3 at frequency 10kHz yields an impedance of
+ }
+  make_text -origin {50 310} -text {2*pi*10e3*1e-3 = 62.8 Megaohms which is much larger than 1 kOhms and 10 Ohms}
+  make_text -origin {50 330} -text {To achieve N2/N1 = 10, we must set L2/L1 = 10^2, which yields L2=100e-3 assuming L1=1e-3}
+  make_text -origin {50 350} -text {To achieve K=0.9999, M = K*sqrt(L1*L2) = 0.9999*sqrt(1e-3*100e-3) = 9.999e-3}
+}
+

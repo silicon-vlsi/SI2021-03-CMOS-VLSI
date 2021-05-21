@@ -1,0 +1,431 @@
+
+arc.tcl,239
+proc abort_arc_mode104,3272
+proc arc_extent187,5658
+proc arc_start163,4914
+proc begin_arc_draw32,1161
+proc create_arc_edit_markers119,3445
+proc drag_arc54,1833
+proc end_arc_mode78,2614
+proc make_arc20,768
+proc setup_arc_mode5,318
+
+call_by_keyword.tcl,128
+proc call_by_keyword22,643
+proc call_use_keyword93,2680
+proc call_with_keyword51,1521
+proc test132,3622
+proc test2137,3755
+
+canvas.tcl,251
+proc enter_canvas151,3640
+proc enter_mode219,5034
+proc leave_canvas208,4890
+proc leave_mode243,5508
+proc make_canvas10,416
+proc pack_canvas55,1365
+proc propagate_modified_icons170,4029
+proc remember_modified116,2726
+proc unpack_canvas92,2209
+
+connect.tcl,387
+proc find_connect212,4893
+proc no_connects308,6826
+proc remove_connect_point329,7219
+proc remove_connect_wire347,7584
+proc remove_connects509,11257
+proc remove_term_connects421,9194
+proc show_connect_point10,380
+proc show_connect_point_fast268,6125
+proc show_connect_wire365,8008
+proc show_connects437,9513
+proc show_term_connects407,8916
+proc wire_compass_direction146,3437
+
+draw_wire.tcl,354
+proc abort_wire_mode82,2175
+proc add_wire_segment124,3212
+proc begin_draw_wire104,2504
+proc create_line297,6826
+proc end_wire_mode61,1829
+proc finish_wire_segment139,3543
+proc make_wire229,5429
+proc make_wire_selected240,5641
+proc remove_wire_segment177,4425
+proc rubber_band_wire253,5908
+proc setup_draw_wire17,542
+proc stretch_wire323,7542
+
+duplication.tcl,295
+proc abort_duplication151,3763
+proc create_verilog_property251,6168
+proc drag_duplication135,3305
+proc duplicate_selected55,1502
+proc duplicate_text81,1962
+proc end_duplication167,4130
+proc setup_duplicate_selected4,256
+proc setup_paste_mode184,4335
+proc start_drag_duplication113,2524
+
+edit_marker.tcl,136
+proc create_edit_mark110,2397
+proc edit_draw_item4,177
+proc marker_drag70,1585
+proc marker_press49,1056
+proc marker_release91,2134
+
+icon.tcl,174
+proc abort_icon_mode213,4706
+proc delete_selected5,273
+proc delete_selected_undo111,2632
+proc end_icon_mode198,4474
+proc move_icon185,4211
+proc setup_drop_icon159,3656
+
+icon_write.tcl,197
+proc get_origin_offset202,5093
+proc icon_default175,4550
+proc icon_name_from_property192,4864
+proc icon_write_all_but_instances116,3045
+proc icon_write_terminals54,1404
+proc write_icon11,375
+
+instances.tcl,535
+proc abort_replace_mode1012,26405
+proc generate829,22214
+proc icon_arc386,10478
+proc icon_generator538,15344
+proc icon_line374,9978
+proc icon_make299,8026
+proc icon_property464,13542
+proc icon_setup334,8719
+proc icon_term427,12277
+proc icon_text416,11585
+proc make204,5188
+proc make_icon_origin565,15900
+proc regenerate896,23709
+proc remake761,20538
+proc replace_instance973,25495
+proc setup_replace_instance948,24889
+proc show_icon_term_names1019,26485
+proc transform_icon739,20124
+proc transform_selected581,16380
+
+lines.tcl,346
+proc abort_line_mode142,4436
+proc add_line_segment65,2294
+proc add_vertex223,6021
+proc begin_line_segment26,985
+proc create_line_edit_markers169,4777
+proc delete_vertex201,5624
+proc drag_line_segment79,2728
+proc end_line_mode97,3307
+proc make_line159,4671
+proc remove_line_segment46,1705
+proc resize189,5357
+proc setup_line_mode5,328
+
+make_schematic.tcl,702
+proc add_auto_path1083,25000
+proc add_properties_to_icon433,9536
+proc add_to_auto_index1160,27067
+proc change_path689,14678
+proc change_views334,7512
+proc copy_schematic504,10909
+proc corresponding_cell345,7694
+proc delete_schematic749,16047
+proc goto_schematic30,478
+proc is_icon1070,24777
+proc load_schematic232,5166
+proc lremove1176,27539
+proc make_filename1189,27881
+proc make_icon361,8012
+proc make_new_schematic147,3015
+proc make_ps891,19691
+proc make_schematic3,62
+proc modified_save_and_leaves634,13523
+proc modified_save_and_leaves_int648,13739
+proc modify_exit1267,29706
+proc pop_out_of_schematic482,10566
+proc push_into_schematic450,9926
+proc split_filename1035,24108
+
+net_flat.tcl,213
+proc create_flat_spice_line192,5178
+proc expand_term_list358,9868
+proc flat_spice_netlist4,78
+proc flat_spice_netlist_cell73,1754
+proc sim_netlist47,1157
+proc translate_term171,4720
+proc unique_net344,9587
+
+net_spice.tcl,162
+proc create_spice_line178,4454
+proc create_spice_subckt_opener137,3437
+proc spice_line_to_file349,9382
+proc spice_netlist2,40
+proc spice_netlist_cell61,1478
+
+net_verilog.tcl,207
+proc create_verilog_line211,5416
+proc create_verilog_module_opener111,2799
+proc sort_terms_combine427,11532
+proc verilog_line_to_file382,10453
+proc verilog_netlist2,42
+proc verilog_netlist_cell48,1219
+
+netlist.tcl,602
+proc change_netlist_props906,21706
+proc check_ios691,16157
+proc expand_bus593,13867
+proc find_attached_terms445,11007
+proc find_most_general_name546,13016
+proc find_most_general_net_name511,12363
+proc find_net_connections259,6576
+proc find_term_net_name397,9987
+proc generate_term_names149,3731
+proc get_io_names739,17578
+proc get_term_info629,14571
+proc icons_changed860,20669
+proc is_bus576,13553
+proc line_to_file896,21541
+proc make_equiv_pairs825,19726
+proc netlist2,60
+proc sort_terms_expand788,18835
+proc trace_hierarchy71,1540
+proc unique_name658,15411
+proc walk_net286,7096
+
+prop_edit.tcl,146
+proc end_prop_menu245,6479
+proc generator_edit_menu299,7350
+proc prop_edit_menu8,279
+proc prop_menu143,3374
+proc tab_through_entries270,6920
+
+schem_canvas.tcl,295
+proc clear_bindings140,4172
+proc info_bindings166,4908
+proc is_modified192,5527
+proc item_enter10,507
+proc item_leave29,967
+proc not_modified225,6223
+proc restore_bindings112,3375
+proc save_bindings84,2531
+proc save_undo270,6983
+proc undo_last239,6404
+proc unhighlite_selected51,1316
+
+selection.tcl,352
+proc abort_select_region297,6651
+proc display_selection99,2063
+proc end_select_region278,6311
+proc find_attached_wire402,8680
+proc find_type121,2470
+proc icon_select5,209
+proc select_entire_wire364,7973
+proc select_id22,553
+proc select_ids72,1592
+proc select_in_bbox309,6828
+proc select_region_drag226,5275
+proc setup_select_region163,3339
+
+sim_probe.tcl,459
+proc analyzer_close_probe114,2503
+proc analyzer_erase_and_plot_memory168,3408
+proc analyzer_init_probe53,1089
+proc analyzer_plot_memory186,3649
+proc analyzer_plot_net130,2738
+proc analyzer_plot_net_and_remember198,3813
+proc analyzer_unplot_net156,3181
+proc analyzer_unplot_net_and_forget210,3956
+proc i27,614
+proc irsim_display_term_values306,5922
+proc irsim_set397,7885
+proc irsim_step388,7795
+proc irsim_update_flags226,4281
+proc sim_it11,293
+
+spice_probe.tcl,567
+proc NST_close_probe158,3213
+proc NST_erase_and_plot_memory229,4427
+proc NST_init_probe69,1312
+proc NST_plot_memory256,4754
+proc NST_plot_net172,3409
+proc NST_plot_net_and_remember267,4908
+proc NST_unplot_net201,3937
+proc NST_unplot_net_and_forget278,5041
+proc cancel_memory247,4659
+proc check_probe676,14707
+proc climb_hierarchy507,10870
+proc find_net_name361,7131
+proc find_terms433,9077
+proc flat_spice_it62,1208
+proc kill_spice_job707,15147
+proc spice_callback52,1112
+proc spice_it8,214
+proc spice_net294,5354
+proc translate_spice_net573,12432
+
+sticky_move.tcl,442
+proc abort_move_mode176,4037
+proc begin_move_mode42,1038
+proc control_move_drag106,2490
+proc end_move_mode134,3034
+proc end_sticky_move304,6976
+proc find_net_edges208,4849
+proc mark_attached422,9920
+proc mark_attached_wires319,7298
+proc move_drag84,2118
+proc remake_wires607,13907
+proc remove_extra_wires513,11999
+proc setup_move_mode6,288
+proc setup_sticky_move276,6458
+proc test_net_edge249,5893
+proc wire_direction652,14851
+
+sue.tcl,25
+proc setup_font227,8870
+
+text.tcl,447
+proc abort_modify_text_mode308,7303
+proc abort_text_mode298,7202
+proc add_text60,1318
+proc bol213,5406
+proc change_text_anchor145,4005
+proc change_text_size125,3589
+proc draw_anchor_marker197,5021
+proc end_text_mode317,7413
+proc eol225,5684
+proc make_text46,914
+proc modify_text77,1560
+proc next_line242,6016
+proc possibly_end_text_mode285,7072
+proc setup_modify_text_mode21,442
+proc setup_text_mode5,126
+proc show_anchors184,4862
+
+utilities.tcl,774
+proc center49,942
+proc center_bbox74,1460
+proc clean_dir486,8729
+proc clear162,2994
+proc copy_array112,2197
+proc current_procedure225,4447
+proc find_origin14,316
+proc find_origin_tag32,652
+proc get_assoc85,1779
+proc get_intersect_tag143,2689
+proc incrX390,7137
+proc info_canvas172,3127
+proc insert_unique404,7309
+proc intersect_tag129,2448
+proc is_tagged4,108
+proc lreverse300,5706
+proc max314,5868
+proc min326,5972
+proc nearby245,4950
+proc nearby_num257,5109
+proc parse_pp_number203,3876
+proc pp_number188,3417
+proc put_assoc96,1932
+proc reload511,9192
+proc round_list273,5348
+proc round_list_scale287,5549
+proc sue_error420,7607
+proc sue_warning468,8492
+proc text_anchor357,6524
+proc text_size339,6150
+proc use_first374,6864
+proc x527,9481
+
+verilog_probe.tcl,1499
+proc find_verilog_net_name96,2175
+proc interactive_close_probe723,13927
+proc interactive_erase_and_plot_memory988,19370
+proc interactive_init_probe682,12964
+proc interactive_plot_memory994,19422
+proc interactive_plot_net954,18863
+proc interactive_plot_net_and_remember980,19246
+proc interactive_unplot_net903,17957
+proc interactive_unplot_net_and_forget1000,19464
+proc magellan_close_probe553,10872
+proc magellan_erase_and_plot_memory593,11506
+proc magellan_init_probe486,9399
+proc magellan_plot_memory612,11796
+proc magellan_plot_net569,11133
+proc magellan_plot_net_and_remember624,11957
+proc magellan_unplot_net636,12100
+proc magellan_unplot_net_and_forget660,12475
+proc signalscan4_close_probe371,7556
+proc signalscan4_erase_and_plot_memory407,8086
+proc signalscan4_init_probe303,6095
+proc signalscan4_plot_memory425,8360
+proc signalscan4_plot_net385,7782
+proc signalscan4_plot_net_and_remember437,8527
+proc signalscan4_unplot_net453,8879
+proc signalscan4_unplot_net_and_forget471,9125
+proc signalscan_close_probe188,4274
+proc signalscan_erase_and_plot_memory224,4779
+proc signalscan_init_probe138,3243
+proc signalscan_plot_memory242,5047
+proc signalscan_plot_net202,4484
+proc signalscan_plot_net_and_remember254,5212
+proc signalscan_unplot_net270,5560
+proc signalscan_unplot_net_and_forget288,5801
+proc step943,18689
+proc v917,18214
+proc verilog_display_term_values821,16028
+proc verilog_it12,364
+proc verilog_net52,1234
+proc verilog_update_flags738,14240
+
+windows.tcl,476
+proc abbrev867,28884
+proc add_schematic_to_listbox753,26498
+proc busy883,29210
+proc change_listbox_prefix799,27463
+proc display_title451,18501
+proc help906,29440
+proc make_icon_listbox476,18965
+proc make_schematic_listbox696,25117
+proc make_sim_menu219,9408
+proc make_window16,641
+proc map_others837,28344
+proc new_icon_menu656,24195
+proc ready896,29339
+proc remove_schematic_from_listbox771,26814
+proc setup_bindings325,13523
+proc waste_icon_listbox672,24503
+
+write.tcl,200
+proc get_rootname329,8150
+proc write_draw_items271,6895
+proc write_file12,431
+proc write_instances173,4475
+proc write_proc_to_file316,7924
+proc write_schematic128,3509
+proc write_wires250,6433
+
+zoom.tcl,572
+proc abort_center_cursor274,6610
+proc abort_zoom_box421,9880
+proc auto_scroll214,5286
+proc begin_zoom_box301,7236
+proc center_canvas161,4003
+proc center_cursor265,6529
+proc change_grid455,10387
+proc delta_cursor186,4664
+proc drag_zoom_box355,8683
+proc end_zoom_box402,9598
+proc get_schematic_bbox108,2964
+proc make_grid490,11216
+proc scale_canvas7,392
+proc setup_center_cursor251,6231
+proc setup_zoom_box285,6885
+proc toggle335,8307
+proc toggle_grid434,10036
+proc visible_bbox37,1254
+proc zoom58,1938
+proc zoom_to_bbox127,3211
+proc zoom_to_fit82,2530

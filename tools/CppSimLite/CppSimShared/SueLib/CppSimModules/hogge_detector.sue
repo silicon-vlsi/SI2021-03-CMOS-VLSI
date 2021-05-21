@@ -1,0 +1,71 @@
+proc SCHEMATIC_hogge_detector {} {
+make input -name clk -origin {200 420}
+make input -name data -origin {200 370}
+make output -name ph_error -origin {880 180}
+make xor2 -name xi0 -origin {730 250}
+make latch1 -name xi1 -origin {580 400}
+make dff2 -name xi2 -origin {300 400}
+make sub2 -name xi3 -origin {820 180}
+make xor2 -name xi4 -origin {440 250}
+make output -name retimed_data -origin {880 520}
+make delay_fix -name xi5 -origin {300 230}
+make name_net -name n0 -origin {380 230}
+  make_wire 230 500 520 500
+  make_wire 520 500 520 420
+  make_wire 520 420 540 420
+  make_wire 230 420 260 420
+  make_wire 230 420 200 420
+  make_wire 370 270 400 270
+  make_wire 660 370 660 270
+  make_wire 660 270 690 270
+  make_wire 520 370 520 230
+  make_wire 260 370 240 370
+  make_wire 520 370 540 370
+  make_wire 350 370 370 370
+  make_wire 460 250 490 250
+  make_wire 490 250 490 180
+  make_wire 490 180 790 180
+  make_wire 820 250 820 210
+  make_wire 240 370 200 370
+  make_wire 440 370 440 520
+  make_wire 440 520 880 520
+  make_wire 440 370 370 370
+  make_wire 370 270 370 370
+  make_wire 240 230 240 370
+  make_wire 230 420 230 500
+  make_wire 880 180 850 180
+  make_wire 250 230 240 230
+  make_wire 690 230 520 230
+  make_wire 520 370 440 370
+  make_wire 660 370 630 370
+  make_wire 380 230 370 230
+  make_wire 380 230 400 230
+  make_wire 820 250 750 250
+  make_text -origin {260 160} -text {Delay of 1 sample
+compensates for
+clk-to-q delay of
+register xi2}
+}
+
+proc ICON_hogge_detector args {
+
+
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-80 30} -name clk
+icon_term -type input -origin {-80 -10} -name data
+icon_term -type output -origin {80 30} -name ph_error
+icon_term -type output -origin {80 -10} -name retimed_data
+icon_property -origin {-80 -60} -label {$name}
+  icon_property -origin {-80 90} -type user -name name -default x
+  icon_line -80 -50 80 -50 80 50 -80 50 -80 -50
+icon_property -origin {-70 -40} -label hogge_detector
+icon_property -origin {-70 -10} -label data
+icon_property -origin {70 30} -anchor e -label ph_error
+icon_property -origin {-70 30} -label clk
+icon_property -origin {70 -10} -anchor e -label retimed_data
+
+
+
+}
+

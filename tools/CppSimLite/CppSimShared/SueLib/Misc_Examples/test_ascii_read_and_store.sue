@@ -1,0 +1,23 @@
+proc SCHEMATIC_test_ascii_read_and_store {} {
+make ascii_read -name xi0 -origin {140 100}
+make name_net -name out -origin {280 100}
+make ascii_read_clocked -name xi1 -origin {140 -120}
+make constant -name xi2 -origin {-300 -120}
+make signal_source -name xi3 -freq 1e6 -origin {-160 -100}
+make name_net -name out_clk -origin {250 -120}
+make name_net -name clk -origin {20 -120}
+make ascii_store -name xi4 -origin {410 100}
+make ascii_store_clocked -name xi5 -x 1 -origin {410 -120}
+  make_wire 210 100 280 100
+  make_wire 210 -120 250 -120
+  make_wire 20 -120 -30 -120
+  make_wire 280 100 340 100
+  make_wire 250 -120 340 -120
+  make_wire 40 -50 310 -50
+  make_wire 310 -50 310 -100
+  make_wire 40 -120 20 -120
+  make_wire 40 -120 70 -120
+  make_wire 310 -100 340 -100
+  make_wire 40 -120 40 -50
+}
+

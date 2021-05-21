@@ -1,0 +1,20 @@
+proc ICON_pnp args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name Q} {m 1}}
+icon_term -type inout -origin {-60 0} -name b
+icon_term -type inout -origin {0 40} -name c
+icon_term -type inout -origin {0 -40} -name e
+  icon_line -60 0 -50 0
+  icon_property -origin {-90 90} -type user -name name -default Q
+  icon_property -origin {-90 110} -type user -name m -default 1
+  icon_property -origin {-160 200} -type fixed -name spice -text {$name $c $b $e vdd mod_pnp m=$m}
+icon_property -origin {-20 -30} -anchor e -label {$name}
+  icon_property -origin {10 30} -text {[if {$m != 1} {set x "m=$m"}]}
+  icon_line -30 -20 -30 20
+  icon_line -30 -10 0 -30 0 -40
+  icon_line 0 30 0 40
+  icon_line -30 0 -60 0
+  icon_line -30 10 0 30 0 30
+  icon_line -30 -10 -20 -10
+  icon_line -30 -10 -20 -20
+}
+

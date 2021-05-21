@@ -1,0 +1,35 @@
+proc SCHEMATIC_ch_pump {} {
+
+
+
+
+
+
+
+
+make input -name in -origin {310 -660}
+make output -name out -origin {490 -660}
+
+
+
+
+
+
+
+
+}
+
+proc ICON_ch_pump args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {ival {}}}
+icon_term -type input -origin {-70 0} -name in
+icon_term -type output -origin {80 0} -name out
+  icon_property -origin {-40 70} -type user -name name -default x
+  icon_line -70 -30 -70 30 80 30 80 -30 -70 -30
+icon_property -origin {-60 0} -label in
+icon_property -origin {70 0} -anchor e -label out
+icon_property -origin {0 -20} -anchor center -label ch_pump
+  icon_property -origin {-40 90} -type user -name ival
+icon_property -origin {-50 40} -label {ival=$ival A}
+icon_property -origin {-70 -40} -label {$name}
+}
+

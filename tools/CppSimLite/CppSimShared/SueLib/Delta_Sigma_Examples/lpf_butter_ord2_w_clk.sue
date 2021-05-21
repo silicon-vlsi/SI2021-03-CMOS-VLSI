@@ -1,0 +1,30 @@
+proc SCHEMATIC_lpf_butter_ord2_w_clk {} {
+make input -name in -origin {-230 140}
+make input -name clk -origin {-230 210}
+make output -name out -origin {-70 140}
+}
+
+proc ICON_lpf_butter_ord2_w_clk args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {fp 1.0} {gain 1.0} {sample_freq 1.0}}
+icon_term -type input -origin {-120 -30} -name in
+icon_term -type input -origin {-120 50} -name clk
+icon_term -type output -origin {120 -30} -name out
+icon_property -origin {-110 -30} -label in
+icon_property -origin {-110 50} -label clk
+icon_property -origin {110 -30} -anchor e -label out
+icon_property -origin {-110 -80} -label {$name}
+icon_property -origin {-110 -60} -label lpf_butter_ord2_w_clk
+  icon_line -120 -70 120 -70 120 70 -120 70 -120 -70
+icon_property -origin {-110 80} -label {fp=$fp (Hz)}
+  icon_property -origin {-120 190} -type user -name name -default x
+  icon_property -origin {-120 210} -type user -name fp -default 1.0
+  icon_line -120 40 -110 50 -120 60
+icon_property -origin {-110 100} -label {gain=$gain}
+  icon_property -origin {-120 230} -type user -name gain -default 1.0
+icon_property -origin {0 0} -anchor center -label gain
+icon_property -origin {0 20} -anchor center -label {(s/wp) ^2 + 1.4142*(s/wp) + 1}
+  icon_line -110 10 110 10
+icon_property -origin {-110 120} -label {sample_freq=$sample_freq (Hz)}
+  icon_property -origin {-120 250} -type user -name sample_freq -default 1.0
+}
+

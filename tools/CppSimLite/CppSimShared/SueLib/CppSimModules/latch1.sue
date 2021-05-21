@@ -1,0 +1,26 @@
+proc SCHEMATIC_latch1 {} {
+
+
+
+make input -name d -origin {290 -740}
+make input -name latch -origin {290 -650}
+make output -name q -origin {350 -700}
+
+
+
+}
+
+proc ICON_latch1 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-40 -30} -name d
+icon_term -type input -origin {-40 20} -name latch
+icon_term -type output -origin {50 -30} -name q
+  icon_property -origin {-40 70} -type user -name name -default x
+  icon_line -40 -50 -40 50 50 50 50 -50 -40 -50
+icon_property -origin {-30 -30} -label d
+icon_property -origin {40 -30} -anchor e -label q
+icon_property -origin {-30 20} -label latch
+icon_property -origin {40 -10} -anchor e -label latch1
+icon_property -origin {-40 -60} -label {$name}
+}
+

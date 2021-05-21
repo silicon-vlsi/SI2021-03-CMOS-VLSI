@@ -1,0 +1,28 @@
+proc SCHEMATIC_comparator_basic {} {
+
+make input -name in_pos -origin {-10 360}
+make input -name in_neg -origin {-10 460}
+make output -name out -origin {200 360}
+make input -name clk -origin {-10 520}
+
+}
+
+proc ICON_comparator_basic args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {voffset 0}}
+icon_term -type input -origin {-50 -20} -name in_pos
+icon_term -type input -origin {-50 20} -name in_neg
+icon_term -type output -origin {80 0} -name out
+icon_term -type input -origin {0 40} -orient R270 -name clk
+icon_property -origin {-40 -20} -label in_pos
+icon_property -origin {-40 20} -label in_neg
+icon_property -origin {60 0} -anchor e -label out
+icon_property -origin {-50 -70} -label {$name}
+icon_property -origin {-10 -50} -label comparator_basic
+  icon_line -50 -60 80 0 80 0 -50 60 -50 -60
+  icon_property -origin {-50 200} -type user -name name -default x
+  icon_property -origin {-50 220} -type user -name voffset -default 0
+  icon_property -origin {-50 110} -text {[if {$voffset != 0} {set x "voffset=$voffset (V)"}]}
+  icon_line -10 30 10 30 10 -20 30 -20 30 -20
+icon_property -origin {10 40} -label clk
+}
+

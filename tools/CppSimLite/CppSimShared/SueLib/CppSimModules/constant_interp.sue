@@ -1,0 +1,20 @@
+proc SCHEMATIC_constant_interp {} {
+
+
+make output -name out -origin {-330 -190}
+
+
+}
+
+proc ICON_constant_interp args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {consval 1}}
+icon_term -type output -origin {50 0} -name out
+icon_property -origin {40 0} -anchor e -label out
+icon_property -origin {-50 -40} -label {$name}
+icon_property -origin {-50 -20} -label constant_interp
+  icon_line -50 -30 50 -30 50 30 -50 30 -50 -30
+icon_property -origin {-50 40} -label {val=$consval (-1 or 1)}
+  icon_property -origin {-90 100} -type user -name name -default x
+  icon_property -origin {-90 120} -type user -name consval -default 1
+}
+

@@ -1,0 +1,53 @@
+proc SCHEMATIC_test_electrical_synch_buck_converter {} {
+make name_net -name v_source -origin {-40 250}
+make name_net -name gate -origin {50 100}
+make dc_voltage -name V0 -dc_voltage 12 -origin {-130 380}
+make inductor -orient R270 -name L1 -inductance 0.5e-3 -origin {430 250}
+make capacitor -name C0 -capacitance 100e-6 -origin {620 390}
+make global -name gnd -origin {430 550}
+make name_net -name v_load -origin {740 250}
+make name_net -name i_ind -origin {540 220}
+make resistor -orient RXY -name R0 -resistance 6 -origin {740 390}
+make electrical_switch -name s0 -on_resistance 1e-7 -off_resistance 1e9 -origin {60 250}
+make duty_cycle_clk_source -name xi0 -frequency 20.33e3 -origin {-90 100}
+make electrical_measure_current -orient RY -name xi1 -origin {280 470}
+make electrical_measure_current -orient R270 -name xi3 -origin {540 250}
+make step_in -name xi2 -vend 0.55 -vstart 0.5 -tstep 125e-3 -origin {-300 100}
+make name_net -name duty -origin {-220 100}
+make name_net -name v_switch -origin {330 250}
+make inv -name xi4 -origin {130 100}
+make electrical_switch -orient R90X -name s1 -on_resistance 1e-7 -off_resistance 1e9 -origin {280 380}
+make name_net -name gateb -origin {220 100}
+make name_net -orient RX -name i_switch -origin {310 470}
+  make_wire 330 250 390 250
+  make_wire -130 340 -130 250
+  make_wire 470 250 520 250
+  make_wire 740 430 740 550
+  make_wire -130 420 -130 550
+  make_wire 620 250 560 250
+  make_wire 740 250 620 250
+  make_wire 280 490 280 550
+  make_wire 100 250 280 250
+  make_wire 330 250 280 250
+  make_wire 740 250 740 350
+  make_wire 430 550 620 550
+  make_wire 620 550 740 550
+  make_wire 620 250 620 350
+  make_wire 620 430 620 550
+  make_wire 280 250 280 340
+  make_wire 280 420 280 450
+  make_wire -130 250 -40 250
+  make_wire -40 250 20 250
+  make_wire -130 550 280 550
+  make_wire 280 550 430 550
+  make_wire -220 100 -180 100
+  make_wire -220 100 -260 100
+  make_wire 60 100 100 100
+  make_wire 0 100 50 100
+  make_wire 50 100 60 100
+  make_wire 190 100 220 100
+  make_wire 220 380 250 380
+  make_wire 220 100 220 380
+  make_wire 60 100 60 220
+}
+

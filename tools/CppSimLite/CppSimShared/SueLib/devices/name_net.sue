@@ -1,0 +1,25 @@
+# Special because of its priority on its terminal.
+# Also note that the required default name is {}
+
+proc ICON_name_net args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}}}
+  icon_term -type output -origin {0 0} -name {$name} -priority name
+  icon_line 0 0 0 -10 -10 -10
+  icon_property -origin {-60 50} -type user -name name
+  icon_property -origin {0 -20} -label {$name} -anchor center
+  icon_property -origin {-60 70} -type fixed -name primitive -text 1
+}
+
+
+# Useful for labeling wires at close intervals
+
+proc ICON_name_net_s args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name {}}}
+  icon_term -type output -origin {0 0} -name {$name} -priority name
+  icon_line 15 3 -15 3 -15 -3 15 -3 15 3
+  icon_property -origin {-60 50} -type user -name name
+  icon_property -origin {0 -10} -label {$name} -anchor center
+  icon_property -origin {-60 70} -type fixed -name primitive -text 1
+}
+
+

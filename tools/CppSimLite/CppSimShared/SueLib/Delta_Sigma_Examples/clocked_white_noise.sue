@@ -1,0 +1,28 @@
+proc SCHEMATIC_clocked_white_noise {} {
+
+
+make input -name clk -origin {510 1230}
+make output -name out -origin {690 1230}
+
+
+}
+
+proc ICON_clocked_white_noise args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {en_noise 0} {spectral_density 10e-9} {clk_freq 1e6}}
+icon_term -type input -origin {-80 0} -name clk
+icon_term -type output -origin {80 0} -name out
+icon_property -origin {-70 0} -label clk
+icon_property -origin {70 0} -anchor e -label out
+icon_property -origin {-70 -40} -label {$name}
+icon_property -origin {-70 -20} -label clocked_white_noise
+  icon_line -80 -30 80 -30 80 30 -80 30 -80 -30
+  icon_property -origin {-70 120} -type user -name name -default x
+  icon_property -origin {-70 140} -type user -name en_noise -default 0
+icon_property -origin {-70 40} -label {en_noise=$en_noise (0 or 1)}
+icon_property -origin {-70 60} -label {spectral_density=$spectral_density (V/rHz single-sided)}
+  icon_property -origin {-70 160} -type user -name spectral_density -default 10e-9
+icon_property -origin {-70 80} -label {clk_freq=$clk_freq (Hz)}
+  icon_property -origin {-70 180} -type user -name clk_freq -default 1e6
+  icon_line -80 -10 -70 0 -80 10
+}
+

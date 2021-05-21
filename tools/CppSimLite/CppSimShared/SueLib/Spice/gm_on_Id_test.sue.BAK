@@ -1,0 +1,13 @@
+proc SCHEMATIC_gm_on_Id_test {} {
+make global -name gnd -origin {40 50}
+make global -orient RXY -name vdd -origin {40 -190}
+make nmos -name M1 -w 1.3u -origin {40 -10}
+make dc_current -name I0 -dc_current 100u -origin {40 -150}
+  make_wire 40 30 40 50
+  make_wire -100 -80 -100 -10
+  make_wire -100 -80 40 -80
+  make_wire -100 -10 -20 -10
+  make_wire 40 -110 40 -80
+  make_wire 40 -80 40 -50
+}
+

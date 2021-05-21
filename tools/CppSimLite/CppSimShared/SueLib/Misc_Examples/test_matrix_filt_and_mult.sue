@@ -1,0 +1,41 @@
+proc SCHEMATIC_test_matrix_filt_and_mult {} {
+make name_net -name filt_in_vec -origin {-230 10}
+make name_net -name filt_out_vec -origin {80 10}
+make constant -name xi3 -origin {-1000 -70}
+make signal_source -name xi4 -stype 1 -freq 100e3 -origin {-860 -50}
+make gain -name xi5 -gain 1 -origin {-660 -70}
+make constant -name xi6 -origin {-1000 130}
+make signal_source -name xi7 -stype 1 -freq 200e3 -origin {-860 150}
+make gain -name xi8 -gain 0.5 -origin {-660 130}
+make constant -name xi9 -origin {-1000 340}
+make signal_source -name xi10 -stype 1 -freq 300e3 -origin {-860 360}
+make gain -name xi11 -gain 0.25 -origin {-660 340}
+make name_net -name in0 -origin {-520 10}
+make name_net -name in1 -origin {-520 50}
+make name_net -name in2 -origin {-520 90}
+make name_net -name mul_out_vec -origin {410 10}
+make scalar_to_vec3 -name xi14 -num_sig num_sig_gl -origin {-380 40}
+make vec3_filter_array -name xi12 -num_sig num_sig_gl -origin {-80 0}
+make vec3_matrix_mult -name xi13 -num_out_sig num_sig_gl -origin {240 0}
+  make_wire -230 10 -180 10
+  make_wire -230 10 -280 10
+  make_wire -730 -70 -700 -70
+  make_wire -610 -70 -580 -70
+  make_wire -730 130 -700 130
+  make_wire -610 130 -580 130
+  make_wire -730 340 -700 340
+  make_wire -550 340 -610 340
+  make_wire -520 10 -580 10
+  make_wire -520 10 -480 10
+  make_wire -520 50 -480 50
+  make_wire -520 50 -580 50
+  make_wire -580 50 -580 130
+  make_wire -550 90 -550 340
+  make_wire -580 -70 -580 10
+  make_wire -550 90 -520 90
+  make_wire -520 90 -480 90
+  make_wire 340 10 410 10
+  make_wire 80 10 20 10
+  make_wire 80 10 140 10
+}
+

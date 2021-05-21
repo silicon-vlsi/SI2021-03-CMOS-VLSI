@@ -1,0 +1,164 @@
+proc SCHEMATIC_sd_synth_two_point_mod {} {
+make name_net -name div_val -origin {650 680}
+make name_net -name sd_in -origin {270 730}
+make name_net -name ref -origin {-140 400}
+make output -name out -origin {1310 420}
+make output -name trig_sig -origin {1240 890}
+make output -name inst_freq -origin {1240 760}
+make constant -name xi0 -origin {-540 420}
+make vco -name xi1 -freq 20e6 -kvco 1 -origin {-400 420}
+make step_in -name xi3 -vend in_gl+delta_gl -vstart in_gl -tstep step_time_gl -origin {30 980}
+make tristate_pfd -name xi7 -reset_delay 3e-9 -origin {-70 420}
+make sum_junct -name xi8 -origin {210 730}
+make leadlagfilter -name xi9 -fp 1.53*pll_bw -fz pll_bw/10 -gain 4.8*pll_bw*pll_bw -origin {550 400}
+make divider_ideal -orient RX -name xi12 -origin {560 650}
+make constant -name xi13 -origin {1000 910}
+make accum_and_dump -name xi15 -origin {1130 770}
+make vco -name xi14 -freq 200e6 -kvco 1 -origin {1140 910}
+make mux2 -name xi11 -origin {730 400}
+make first_order_lowpass -name xi18 -fp 1.414*pll_bw -gain 7.1*pll_bw -origin {540 250}
+make constant -name xi17 -consval -0.5+type2_enable -origin {670 510}
+make name_net -name vin -origin {1020 400}
+make mux2 -name xi19 -origin {970 400}
+make sum_junct -name xi20 -origin {840 420}
+make name_net -name mod_in -origin {120 730}
+make output -name ideal_out -origin {1250 1140}
+make gain -name xi22 -gain 20.0e6/30e6 -origin {650 900}
+make name_net -name comp_mod -origin {790 900}
+make sd_modulator -name xi2 -order 2 -origin {410 750}
+make name_net -name mod_clk -origin {-150 730}
+make name_net -name div -origin {-80 620}
+make inv -name xi24 -origin {-230 730}
+make gmsk_modulator -name xi10 -data_period 20e6/symbol_rate -origin {-10 730}
+make vco_with_noise -name xi16 -fc 1.8462e9 -kv 30e6 -foffset 20e6 -noise_at_foffset -165 -origin {1110 420}
+make vco -name xi23 -freq 1.8462e9 -kvco 30e6 -origin {1120 1120}
+make clocked_delay -name xi25 -origin {450 900}
+make constant -name xi21 -consval -0.5+comp_enable -origin {910 510}
+make name_net -name down -origin {10 460}
+make name_net -name up -origin {10 400}
+make name_net -name iup -origin {280 400}
+make name_net -name idown -origin {290 460}
+make sub2 -name xi26 -origin {360 400}
+make tristate_ch_pump_with_noise -name xi27 -i_up 2*1.6e-6 -i_down 2*1.5e-6 -thermal_noise_up 2.2e-12*1/100 -thermal_noise_down 0.86e-12*1/100 -origin {140 420}
+  make_wire 270 730 350 730
+  make_wire -140 400 -120 400
+  make_wire 660 400 640 400
+  make_wire -500 420 -470 420
+  make_wire 270 730 240 730
+  make_wire 300 620 510 620
+  make_wire 1070 910 1040 910
+  make_wire 1210 760 1240 760
+  make_wire 1010 760 1050 760
+  make_wire 1010 710 1010 760
+  make_wire 1230 830 1030 830
+  make_wire 1030 830 1030 790
+  make_wire 1030 790 1050 790
+  make_wire 1230 890 1210 890
+  make_wire 1230 890 1240 890
+  make_wire 610 620 1270 620
+  make_wire 1010 710 1300 710
+  make_wire 700 730 470 730
+  make_wire 610 680 650 680
+  make_wire 1180 420 1310 420
+  make_wire 660 420 710 420
+  make_wire 620 250 680 250
+  make_wire 680 380 710 380
+  make_wire 460 250 430 250
+  make_wire 70 980 210 980
+  make_wire 1020 400 1040 400
+  make_wire 1020 400 1000 400
+  make_wire 950 420 870 420
+  make_wire 810 420 790 420
+  make_wire 790 340 920 340
+  make_wire 950 380 920 380
+  make_wire 950 510 980 510
+  make_wire 740 440 740 510
+  make_wire 710 510 740 510
+  make_wire 680 250 680 380
+  make_wire 660 400 660 420
+  make_wire 760 400 790 400
+  make_wire 920 340 920 380
+  make_wire 790 340 790 400
+  make_wire 790 400 790 420
+  make_wire 150 730 180 730
+  make_wire 120 730 150 730
+  make_wire 120 730 80 730
+  make_wire 1230 830 1230 890
+  make_wire 1190 1140 1250 1140
+  make_wire 790 900 700 900
+  make_wire 790 900 840 900
+  make_wire -150 730 -170 730
+  make_wire -80 620 300 620
+  make_wire -80 620 -180 620
+  make_wire 1300 460 1300 710
+  make_wire 1270 380 1270 620
+  make_wire 840 900 840 1120
+  make_wire 700 680 650 680
+  make_wire 700 680 700 730
+  make_wire 840 1120 1050 1120
+  make_wire 210 760 210 980
+  make_wire 510 900 610 900
+  make_wire 150 900 390 900
+  make_wire 150 900 150 730
+  make_wire -100 730 -150 730
+  make_wire -290 920 390 920
+  make_wire 980 440 980 510
+  make_wire 280 400 330 400
+  make_wire 10 420 40 420
+  make_wire 360 430 360 460
+  make_wire 240 420 280 420
+  make_wire 240 460 290 460
+  make_wire 290 460 360 460
+  make_wire 280 400 280 420
+  make_wire -20 400 10 400
+  make_wire 10 460 40 460
+  make_wire 10 460 -20 460
+  make_wire 1180 380 1270 380
+  make_wire -180 460 -120 460
+  make_wire 1180 460 1300 460
+  make_wire 840 450 840 900
+  make_wire 10 400 10 420
+  make_wire 300 620 300 770
+  make_wire -290 730 -260 730
+  make_wire -290 400 -330 400
+  make_wire -290 400 -140 400
+  make_wire -290 730 -290 920
+  make_wire 390 400 430 400
+  make_wire 430 400 460 400
+  make_wire -180 460 -180 620
+  make_wire 300 770 350 770
+  make_wire 430 250 430 400
+  make_wire -290 400 -290 730
+  make_text -origin {920 670} -text {Filter noiseout with accumulate and dump circuit
+ to avoid aliasing due to decimation by trig_sig}
+  make_text -origin {570 990} -text {Compensation gain = ref_freq/Kv}
+}
+
+proc ICON_sd_synth_two_point_mod args {
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {symbol_rate 1.0} {pll_bw 1.0} {mod_enable 1.0} {type2_enable 1.0} {comp_enable 1.0}}
+icon_term -type output -origin {100 -30} -name out
+icon_term -type output -origin {100 60} -name trig_sig
+icon_term -type output -origin {100 0} -name inst_freq
+icon_term -type output -origin {100 30} -name ideal_out
+icon_property -origin {90 -30} -anchor e -label out
+icon_property -origin {90 60} -anchor e -label trig_sig
+icon_property -origin {90 0} -anchor e -label inst_freq
+icon_property -origin {-90 -70} -label {$name}
+icon_property -origin {-90 -50} -label sd_synth_two_point_mod
+  icon_line -100 -60 100 -60 100 80 -100 80 -100 -60
+icon_property -origin {-90 90} -label {symbol_rate=$symbol_rate}
+  icon_property -origin {-90 210} -type user -name name -default x
+  icon_property -origin {-90 230} -type user -name symbol_rate -default 1.0
+icon_property -origin {-90 110} -label {pll_bw=$pll_bw}
+icon_property -origin {-90 130} -label {mod_enable=$mod_enable}
+  icon_property -origin {-90 250} -type user -name pll_bw -default 1.0
+  icon_property -origin {-90 270} -type user -name mod_enable -default 1.0
+icon_property -origin {-90 150} -label {type2_enable=$type2_enable}
+  icon_property -origin {-90 290} -type user -name type2_enable -default 1.0
+icon_property -origin {-90 170} -label {comp_enable=$comp_enable}
+  icon_property -origin {-90 310} -type user -name comp_enable -default 1.0
+icon_property -origin {90 30} -anchor e -label ideal_out
+
+}
+

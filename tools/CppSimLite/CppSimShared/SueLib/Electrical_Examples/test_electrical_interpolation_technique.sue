@@ -1,0 +1,65 @@
+proc SCHEMATIC_test_electrical_interpolation_technique {} {
+make name_net -name input -origin {20 820}
+make global -name gnd -origin {300 960}
+make name_net -name ph1 -origin {110 1070}
+make name_net -name ph2 -origin {380 1090}
+make name_net -name out_raw -origin {290 820}
+make name_net -name phase -origin {-330 1070}
+make constant -name xi9 -consval 0 -origin {-760 1070}
+make constant -name xi7 -consval 0.0 -origin {-570 820}
+make add2 -name xi0 -origin {-270 1070}
+make constant -name xi1 -consval 0.25 -origin {-410 1190}
+make signal_source -name xi8 -stype 1 -freq 1e6 -origin {-430 840}
+make signal_source_two_phase -name xi15 -origin {-110 1090}
+make signal_source -name xi10 -stype 1 -freq 1e3 -origin {-620 1090}
+make capacitor -name C7 -capacitance 10p -origin {300 890}
+make gain -name xi11 -gain 0.00001 -origin {-410 1070}
+make electrical_switch -orient RY -name s1 -off_resistance 10000e9 -origin {180 820}
+make name_net -name tran_value -origin {400 1220}
+make global -name gnd -origin {630 960}
+make name_net -name out_rc -origin {630 820}
+make resistor -orient R90 -name R0 -resistance 100k -origin {530 820}
+make capacitor -name C0 -capacitance 10p -origin {630 890}
+make gain -name xi3 -gain 0.01 -origin {-170 820}
+make dc_current -name I0 -origin {400 870}
+make save_double_interp_transition_value -name xi2 -origin {160 1210}
+  make_wire 300 930 300 960
+  make_wire 290 820 300 820
+  make_wire 220 820 290 820
+  make_wire 180 1070 180 850
+  make_wire -490 1070 -450 1070
+  make_wire -360 1070 -330 1070
+  make_wire -300 1070 -330 1070
+  make_wire -240 1070 -210 1070
+  make_wire -370 1190 -270 1190
+  make_wire -270 1190 -270 1100
+  make_wire 110 1070 180 1070
+  make_wire -10 1090 380 1090
+  make_wire 30 1070 30 1220
+  make_wire 30 1220 60 1220
+  make_wire 30 1070 -10 1070
+  make_wire 30 1070 110 1070
+  make_wire 260 1220 400 1220
+  make_wire 300 820 400 820
+  make_wire 440 820 490 820
+  make_wire 70 820 70 700
+  make_wire 70 700 440 700
+  make_wire 440 700 440 820
+  make_wire 70 820 140 820
+  make_wire 630 930 630 960
+  make_wire 630 820 630 850
+  make_wire 400 820 400 830
+  make_wire 300 850 300 820
+  make_wire 400 910 400 930
+  make_wire 400 930 580 930
+  make_wire 580 930 580 820
+  make_wire 580 820 570 820
+  make_wire 580 820 630 820
+  make_wire -300 820 -210 820
+  make_wire -120 820 20 820
+  make_wire 20 820 70 820
+  make_text -origin {370 970} -text {Remove this current
+source to de-couple
+these two circuits}
+}
+

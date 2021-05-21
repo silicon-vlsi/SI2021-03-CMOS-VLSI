@@ -1,0 +1,16 @@
+proc ICON_resistor_with_cap args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name R} {resistance 1k} {noise_enable 0} {par_cap 10f}}
+icon_term -type inout -origin {0 40} -name t1
+icon_term -type inout -origin {0 -40} -name t2
+icon_term -type inout -origin {-30 0} -name b
+  icon_property -origin {-110 80} -type user -name name -default R
+icon_property -origin {-20 -30} -anchor e -label {$name}
+  icon_property -origin {-110 100} -type user -name resistance -default 1k
+  icon_property -origin {-110 160} -type fixed -name spice -text {$name $t1 $t2 $resistance}
+  icon_line 0 -40 0 -30 -10 -20 10 -10 -10 0 10 10 -10 20 0 30 0 40
+  icon_property -origin {-110 140} -type user -name noise_enable -default 0
+  icon_property -origin {20 0} -text {[if {$noise_enable != 0} {set x "$resistance, noise_enable=$noise_enable"} else {set x "$resistance"}]}
+  icon_property -origin {-110 120} -type user -name par_cap -default 10f
+icon_property -origin {-20 40} -anchor e -label {par_cap=$par_cap}
+}
+

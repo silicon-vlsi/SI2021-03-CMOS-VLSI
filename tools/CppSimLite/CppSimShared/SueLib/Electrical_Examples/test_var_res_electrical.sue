@@ -1,0 +1,49 @@
+proc SCHEMATIC_test_var_res_electrical {} {
+make constant -name xi1 -origin {480 300}
+make name_net -name vin -origin {950 300}
+make global -name gnd -origin {1440 330}
+make name_net -name vx -origin {1350 220}
+make name_net -name vout -origin {1770 240}
+make capacitor -orient R90 -name C0 -capacitance 100f -origin {1540 50}
+make opamp_basic -name xi4 -dc_gain 80 -f_unity 10e6 -origin {1520 240}
+make gain -name xi5 -gain 1 -origin {860 300}
+make var_res_electrical -name xi3 -origin {1220 300}
+make signal_source -name xi0 -stype 1 -freq 100e3 -origin {620 320}
+make constant -name xi6 -consval -1.0 -origin {1130 490}
+make constant -name xi2 -consval 1.0 -origin {1130 40}
+make resistor -orient RXY -name R1 -resistance 10e3 -origin {1220 130}
+make var_res_cpp -name xi8 -res_per_v 1e3 -origin {1050 300}
+make resistor -orient R90 -name R0 -resistance 10e3 -origin {1540 120}
+  make_wire 1440 260 1470 260
+  make_wire 1430 220 1470 220
+  make_wire 1580 50 1640 50
+  make_wire 1640 240 1770 240
+  make_wire 1640 240 1600 240
+  make_wire 1430 50 1500 50
+  make_wire 1500 120 1430 120
+  make_wire 1580 120 1640 120
+  make_wire 1430 50 1430 120
+  make_wire 1640 50 1640 120
+  make_wire 1440 260 1440 330
+  make_wire 1640 120 1640 240
+  make_wire 1430 120 1430 220
+  make_wire 910 300 950 300
+  make_wire 950 300 1000 300
+  make_wire 1220 220 1350 220
+  make_wire 1350 220 1430 220
+  make_wire 1170 490 1220 490
+  make_wire 1100 270 1160 270
+  make_wire 1100 360 1220 360
+  make_wire 1100 320 1160 320
+  make_wire 820 300 750 300
+  make_wire 1220 350 1220 360
+  make_wire 1220 360 1220 490
+  make_wire 1220 40 1220 90
+  make_wire 1220 170 1220 220
+  make_wire 1220 220 1220 250
+  make_wire 1170 40 1220 40
+  make_text -origin {1250 400} -text {Note:  if you enable noise for variable resistor}
+  make_text -origin {1250 420} -text {then noise corresponds to fixed resistance value}
+  make_text -origin {1250 440} -text {and does not change as resistance is varied}
+}
+

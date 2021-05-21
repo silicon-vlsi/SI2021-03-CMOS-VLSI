@@ -1,0 +1,27 @@
+proc SCHEMATIC_xor2 {} {
+
+
+make input -name a -origin {290 -700}
+make input -name b -origin {290 -650}
+make output -name y -origin {360 -680}
+
+
+}
+
+proc ICON_xor2 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-40 -20} -name a
+icon_term -type input -origin {-40 20} -name b
+icon_term -type output -origin {20 0} -name y
+  icon_property -origin {-70 60} -type user -name name -default x
+  icon_arc -40 -30 -30 30 -start 278 -extent 172
+  icon_arc -50 -30 -40 30 -start 278 -extent 172
+  icon_arc -130 -30 30 80 -start 26 -extent 54
+  icon_arc -130 -80 30 30 -start 334 -extent -54
+icon_property -origin {10 0} -anchor e -label y
+icon_property -origin {-30 -20} -label a
+icon_property -origin {-30 20} -label b
+icon_property -origin {-10 40} -label xor2
+icon_property -origin {-30 -40} -label {$name}
+}
+

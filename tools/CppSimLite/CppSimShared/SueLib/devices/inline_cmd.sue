@@ -1,0 +1,10 @@
+proc ICON_inline_cmd args {
+  icon_setup $args {{origin {0 0}} {orient R0} {simulator spice} {cmd *} }
+  icon_property -origin {-90 50} -type user -name simulator -default spice
+  icon_property -origin {0 0} -text {[concat inline_$simulator: $cmd]}
+  icon_property -origin {-90 70} -type user -name cmd -default *
+  icon_property -origin {-240 90} -type fixed -name spice -text {[if {$simulator == "spice"} {concat $cmd "$ inline code"}]}
+  icon_property -origin {-240 110} -type fixed -name verilog -text {[if {$simulator == "verilog"} {concat $cmd }]}
+  icon_property -origin {-240 130} -type fixed -name sim -text {[if {$simulator == "sim"} {concat $cmd // inline code}]}
+}
+

@@ -1,0 +1,21 @@
+proc SCHEMATIC_counter {} {
+
+
+make input -name in -origin {340 -630}
+make output -name count -origin {400 -630}
+
+
+}
+
+proc ICON_counter args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-40 0} -name in
+icon_term -type output -origin {40 0} -name count
+  icon_property -origin {-40 70} -type user -name name -default x
+  icon_line -40 -20 -40 20 40 20 40 -20 -40 -20
+icon_property -origin {-30 0} -label in
+icon_property -origin {30 0} -anchor e -label count
+icon_property -origin {0 40} -anchor center -label counter
+icon_property -origin {-50 -30} -label {$name}
+}
+

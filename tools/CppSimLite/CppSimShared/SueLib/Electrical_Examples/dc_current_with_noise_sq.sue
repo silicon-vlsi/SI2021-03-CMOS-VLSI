@@ -1,0 +1,26 @@
+proc ICON_dc_current_with_noise_sq args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name I} {dc_current 0} {noise_enable 0} {spectral_density_sq 1e-18} {flicker_corner_frequency 10e3} {flicker_slope -10}}
+icon_term -type inout -origin {0 -40} -orient RY -name plus
+icon_term -type inout -origin {0 40} -name minus
+  icon_line 0 -20 0 -40
+  icon_line 0 40 0 20 0 20
+  icon_property -origin {-40 110} -type user -name name -default I
+  icon_property -origin {-40 130} -type user -name dc_current -default 0
+icon_property -origin {40 -40} -label {DC=$dc_current (A)}
+  icon_arc -20 -20 20 20 -start 0 -extent 359
+icon_property -origin {-20 -40} -anchor e -label {$name}
+  icon_line -10 0 0 10 10 0
+  icon_line 0 -10 0 10
+  icon_property -origin {-40 150} -type user -name noise_enable -default 0
+  icon_property -origin {-40 170} -type user -name spectral_density_sq -default 1e-18
+  icon_property -origin {-40 190} -type user -name flicker_corner_frequency -default 10e3
+  icon_property -origin {-40 210} -type user -name flicker_slope -default -10
+icon_property -origin {40 -20} -label {noise_enable=$noise_enable (0 or 1)}
+icon_property -origin {40 0} -label {spectral_density_sq=$spectral_density_sq (A^2/Hz single-sided)}
+icon_property -origin {40 20} -label {flicker_corner_frequency=$flicker_corner_frequency (Hz)}
+icon_property -origin {40 40} -label {flicker_slope=$flicker_slope (dB/decade)}
+  icon_arc -50 -10 -30 10 -start 0 -extent 359
+  icon_line -40 -10 -40 -30 0 -30
+  icon_line -40 10 -40 20 -40 30 0 30
+}
+

@@ -1,0 +1,41 @@
+proc SCHEMATIC_dff2 {} {
+make output -name q -origin {820 -790}
+make output -name qb -origin {820 -610}
+make input -name d -origin {250 -790}
+make input -name clk -origin {250 -610}
+make inv -name xi0 -origin {400 -610}
+make inv -name xi1 -origin {720 -610}
+make latch1 -name xi2 -origin {570 -760}
+make latch1 -name xi3 -origin {360 -760}
+  make_wire 820 -790 660 -790
+  make_wire 320 -790 250 -790
+  make_wire 320 -740 290 -740
+  make_wire 460 -610 490 -610
+  make_wire 530 -740 490 -740
+  make_wire 530 -790 410 -790
+  make_wire 620 -790 660 -790
+  make_wire 690 -610 660 -610
+  make_wire 780 -610 820 -610
+  make_wire 290 -610 250 -610
+  make_wire 290 -610 370 -610
+  make_wire 490 -740 490 -610
+  make_wire 660 -790 660 -610
+  make_wire 290 -740 290 -610
+}
+
+proc ICON_dff2 args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-40 -30} -name d
+icon_term -type input -origin {-40 20} -name clk
+icon_term -type output -origin {50 -30} -name q
+icon_term -type output -origin {50 20} -name qb
+  icon_property -origin {-50 60} -type user -name name -default x
+  icon_line -40 -50 -40 50 50 50 50 -50 -40 -50
+icon_property -origin {10 0} -label dff2
+icon_property -origin {-30 -30} -label d
+icon_property -origin {-30 20} -label clk
+icon_property -origin {40 -30} -anchor e -label q
+icon_property -origin {40 20} -anchor e -label qb
+icon_property -origin {-40 -60} -label {$name}
+}
+

@@ -1,0 +1,8 @@
+proc SCHEMATIC_rf_trans {} {
+make input -name tx_a -origin {640 210}
+make input -name tx_b -origin {640 240}
+make usrp_rftx -name xi0 -vco_freq vco_freq+8e6 -dac_gain dac_gain -sample_rate sample_rate -dco_freq dco_freq-8e6 -origin {790 220}
+  make_wire 640 240 690 240
+  make_wire 690 210 640 210
+}
+

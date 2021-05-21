@@ -1,0 +1,16 @@
+proc SCHEMATIC_constant_bool {} {
+make output -name out -origin {480 -640}
+}
+
+proc ICON_constant_bool args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {val 0}}
+icon_term -type output -origin {50 0} -name out
+  icon_property -origin {-50 70} -type user -name name -default x
+  icon_property -origin {-50 90} -type user -name val -default 0
+icon_property -origin {-50 40} -label {val=$val (0 or 1)}
+  icon_line -50 -30 -50 30 50 30 50 -30 -50 -30
+icon_property -origin {40 0} -anchor e -label out
+icon_property -origin {-50 -40} -label {$name}
+icon_property -origin {-40 -20} -label constant_bool
+}
+

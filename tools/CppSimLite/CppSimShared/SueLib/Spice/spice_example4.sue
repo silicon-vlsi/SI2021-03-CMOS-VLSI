@@ -1,0 +1,66 @@
+proc SCHEMATIC_spice_example4 {} {
+make global -name gnd -origin {360 190}
+make global -orient RXY -name vdd -origin {360 -160}
+make npn -name Q0 -origin {360 70}
+make output -name out -origin {820 0}
+make name_net -name n0 -origin {390 0}
+make capacitor -orient R90 -name C1 -capacitance 0.1u -origin {450 0}
+make capacitor -orient R90 -name C3 -capacitance 0.1u -origin {100 10}
+make global -name gnd -origin {10 190}
+make global -orient RXY -name vdd -origin {770 -160}
+make global -name gnd -origin {770 190}
+make global -orient RXY -name vdd -origin {-150 -160}
+make global -name gnd -origin {-150 190}
+make resistor -orient R90 -name R4 -resistance 250 -origin {280 -20}
+make name_net -name in -origin {160 10}
+make sine_voltage -name V0 -peak_voltage 10mV -frequency freq -origin {10 120}
+make resistor -orient R270 -name R0 -resistance 10k -origin {700 10}
+make pmos4 -name M0 -w 25.0u -origin {770 -90}
+make nmos4 -name M1 -w 10.0u -origin {770 90}
+make resistor -orient R270 -name R2 -resistance 250 -origin {560 0}
+make dc_voltage -name V1 -dc_voltage vsupply -origin {-150 20}
+make dc_current -name I0 -dc_current 1mA -origin {360 -100}
+  make_wire 300 70 200 70
+  make_wire 770 0 820 0
+  make_wire 240 -20 200 -20
+  make_wire 320 -20 360 -20
+  make_wire 360 -160 360 -140
+  make_wire 360 110 360 190
+  make_wire 360 0 360 30
+  make_wire 360 0 390 0
+  make_wire 390 0 410 0
+  make_wire 10 160 10 190
+  make_wire 10 10 60 10
+  make_wire 10 10 10 80
+  make_wire 710 -90 630 -90
+  make_wire 630 90 710 90
+  make_wire 660 10 630 10
+  make_wire 770 -90 780 -90
+  make_wire 780 -140 770 -140
+  make_wire 770 90 780 90
+  make_wire 780 90 780 140
+  make_wire 780 140 770 140
+  make_wire 770 50 770 10
+  make_wire 770 130 770 140
+  make_wire 770 140 770 190
+  make_wire -150 -160 -150 -20
+  make_wire -150 60 -150 190
+  make_wire 160 10 140 10
+  make_wire 770 -50 770 0
+  make_wire 770 0 770 10
+  make_wire 770 -160 770 -140
+  make_wire 770 -140 770 -130
+  make_wire 780 -140 780 -90
+  make_wire 520 0 490 0
+  make_wire 600 0 630 0
+  make_wire 360 -60 360 -20
+  make_wire 360 -20 360 0
+  make_wire 160 10 200 10
+  make_wire 200 -20 200 10
+  make_wire 200 10 200 70
+  make_wire 630 10 630 90
+  make_wire 630 -90 630 0
+  make_wire 630 0 630 10
+  make_wire 740 10 770 10
+}
+

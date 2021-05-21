@@ -1,0 +1,18 @@
+proc SCHEMATIC_meas_clk_freq {} {
+make input -name clk -origin {-140 180}
+make output -name out -origin {0 180}
+}
+
+proc ICON_meas_clk_freq args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-80 10} -name clk
+icon_term -type output -origin {80 10} -name out
+icon_property -origin {-70 10} -label clk
+icon_property -origin {70 10} -anchor e -label out
+icon_property -origin {-70 -40} -label {$name}
+icon_property -origin {-70 -20} -label meas_clk_freq
+  icon_line -80 -30 80 -30 80 30 -80 30 -80 -30
+  icon_property -origin {-70 60} -type user -name name -default x
+  icon_line -80 0 -70 10 -80 20
+}
+

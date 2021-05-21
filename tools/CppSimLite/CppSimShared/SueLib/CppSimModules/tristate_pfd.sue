@@ -1,0 +1,65 @@
+proc SCHEMATIC_tristate_pfd {} {
+make input -name ref -origin {110 70}
+make input -name div -origin {110 300}
+make and2 -orient RX -name xi2 -origin {570 180}
+make output -name up -origin {720 20}
+make output -name down -origin {700 350}
+make pfd_reset_delay -orient RX -name xi5 -delaytime reset_delay -origin {460 190}
+make constant_interp -name xi3 -origin {180 20}
+make constant_interp -name xi4 -origin {180 350}
+make pfd_dffreset -name xi0 -origin {350 50}
+make pfd_dffreset -orient RY -name xi1 -origin {350 320}
+  make_wire 230 20 300 20
+  make_wire 230 350 300 350
+  make_wire 110 300 300 300
+  make_wire 110 70 300 70
+  make_wire 420 180 340 180
+  make_wire 610 200 640 200
+  make_wire 610 160 640 160
+  make_wire 390 20 640 20
+  make_wire 390 350 640 350
+  make_wire 340 180 340 270
+  make_wire 340 180 340 100
+  make_wire 500 180 550 180
+  make_wire 720 20 640 20
+  make_wire 700 350 640 350
+  make_wire 640 200 640 350
+  make_wire 640 20 640 160
+  make_text -origin {450 -10} -text {register output alternates
+between -1 and 1}
+  make_text -origin {450 320} -text {register output alternates
+between -1 and 1}
+}
+
+proc ICON_tristate_pfd args {
+
+
+
+
+
+
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {reset_delay 1e-9}}
+icon_term -type input -origin {-50 -20} -name ref
+icon_term -type input -origin {-50 40} -name div
+icon_term -type output -origin {50 -20} -name up
+icon_term -type output -origin {50 40} -name down
+icon_property -origin {-50 -50} -label {$name}
+icon_property -origin {-50 90} -label {reset_delay = $reset_delay}
+  icon_property -origin {-50 120} -type user -name name -default x
+  icon_property -origin {-50 140} -type user -name reset_delay -default 1e-9
+  icon_line -50 -40 50 -40 50 80 -50 80 -50 -40
+icon_property -origin {-30 70} -label tristate_pfd
+icon_property -origin {40 -20} -anchor e -label up
+icon_property -origin {40 40} -anchor e -label down
+icon_property -origin {-40 -20} -label ref
+icon_property -origin {-40 40} -label div
+
+
+
+
+
+
+
+}
+

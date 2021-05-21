@@ -1,0 +1,254 @@
+%\documentclass [dvipdfm,12pt,cite]{isscc_sub}
+%\documentclass [dvips,12pt,cite]{isscc_sub}
+\documentclass [dvips,12pt]{article}
+\addtolength{\topmargin}{-.75in}  % repairing LaTeX's huge margins...
+\addtolength{\textwidth}{0.75in}  % same here....
+\addtolength{\oddsidemargin}{-.3in}
+\addtolength{\evensidemargin}{-1in}
+\setlength{\textheight}{9.0in}  % more margin hacking.  I have a large
+                                  % resume to fit on one page.
+\renewcommand{\baselinestretch}[0]{1.3}   
+\renewcommand{\textfraction}[0]{0.0}
+\renewcommand{\topfraction}[0]{1.0}
+\renewcommand{\bottomfraction}[0]{1.0}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center} \vspace{.2in}}
+\newcommand{\bt}{\vspace{-.1in} \begin{tabbing} alter \= set \= set \= \kill}
+\newcommand{\et}{\end{tabbing} \vspace{-.06in}}
+
+\def \sd{$\Sigma$-$\Delta$ }
+
+%\pagestyle{empty}
+
+%\usepackage{endfloat}
+%\usepackage{pslatex}
+
+\setcounter{secnumdepth}{1} % no subsubsection numbering
+\setcounter{tocdepth}{1} % no subsubsections in table of contents
+\begin{document}
+
+
+\title{CppSim and Ngspice Data Modules for Python}
+\author{Michael H. Perrott \\ http://www.cppsim.com/download\_hspice\_tools.html
+\\ Copyright (c) 2013-2017 by Michael H. Perrott}
+\date{March 12, 2017}
+\maketitle
+
+\vspace{-.3in}
+\begin{center}
+Note:  This software is distributed under the terms of the 
+\\    MIT License (see the included Copying file for more details), 
+\\    and comes with no warranty or support.
+\end{center}
+
+The CppSim and Ngspice Data modules for Python include the classes
+CppSimData and NgspiceData, respectively, and additional functions to
+allow easy post-processing of CppSim and Ngspice simulation data using
+Python. This package is analagous to the Hspice Toolbox for
+Matlab/Octave, which allows easy post-processing of CppSim and Ngspice
+simulation data using Matlab and Octave.
+
+We will begin this document by explaining how to set up the CppSim or
+Ngspice module for use with Python, and will then highlight key
+commands used within example Python scripts that illustrates loading
+of CppSim and Ngspice simulation data into Numpy arrays.
+
+\section*{Setup}
+
+The CppSim and Ngspice Data modules are part of the main CppSim distribution, but
+are also provided as a standalone tar file at www.cppsim.com.  It is recommended that
+you download and install the newest version of CppSim such that
+no further installation steps are required to include the CppSim and Ngspice
+Data modules.  However, you can also download the file
+\verb|cppsimdata_for_python.tar.gz| from the www.cppsim.com website, and
+then extract it within the CppSimShared directory of the CppSim
+installation. Once extracted, a Python directory should then appear
+within the CppSimShared directory.  We will refer to this \verb|CppSimShared/Python|
+directory in the discussion to follow.
+
+For Windows and Linux computers, both 32-bit and 64-bit
+versions of Python are supported.  For Mac computers, it is assumed that you are
+running a 64-bit version of Python. In all cases, it is highly recommended to install 
+the Express (i.e., free) version of the Enthought distribution of Python
+(www.enthought.com) to try out examples of using the CppSimData and NgspiceData modules. 
+If you desire to use a 32-bit version of Python on a Mac, you will
+need to examine the \verb|README| file within the \verb|CppSimShared/Python| directory for
+instructions on how to compile the cppsimdata\_lib.c and ngspicedata\_lib.c files contained in
+that directory.  Once you have compiled these files, you should then
+place the newly created \verb|cppsimdata_lib.so| file and \verb|ngspicedata_lib.so| file
+into the \verb|macosx| subdirectory.
+
+When running Python scripts that use the CppSim or Ngspice Data module, you should include the following lines at the top of such scripts:
+
+\bt
+\> \verb|# import cppsimdata and ngspicedata modules| \\
+\> \verb|import os| \\
+\> \verb|import sys| \\
+\> \verb|cppsimsharedhome = os.getenv("CPPSIMSHAREDHOME")| \\
+\> \verb|if cppsimsharedhome != None:| \\
+\> \verb|   CPPSIMSHARED_PATH = `%s' % cppsimsharedhome| \\
+\> \verb|else:| \\
+\> \verb|   home_dir = os.getenv("HOME")| \\
+\> \verb|   CPPSIMSHARED_PATH = `%s/CppSim/CppSimShared' % home_dir| \\
+\> \verb|sys.path.append(CPPSIMSHARED_PATH + `/Python')| \\
+\> \verb|from cppsimdata import *| \\
+\> \verb|from ngspicedata import *|
+\et
+
+The above lines direct Python to look in the appropriate directory when importing the CppSimData and NgspiceData modules.  The last two lines import the CppSim and Ngspice Data modules for use within the given Python script.
+
+\section*{CppSimData and NgspiceData Classes}
+
+The CppSimData and NgspiceData classes both include the following methods:
+\bi
+\item \verb|loadsig(filename)|
+  \bi
+    \item  Loads the CppSim or Ngspice simulation signals within file \verb|filename| into the CppSimData or NgspiceData object, respectively.
+  \ei
+\item \verb|lssig()|
+  \bi
+    \item Returns a list of
+          the signal names in the CppSimData/NgspiceData object.  Note that \verb|lssig(`print')| can be used
+          to print the signal names in addition to returning the list of signal names. 
+  \ei
+\item \verb|evalsig(nodename)|
+  \bi
+    \item Pulls out the data for signal \verb|nodename| 
+          from the CppSimData/NgspiceData object and
+          places into a Numpy array.  
+  \ei
+\item \verb|get_num_samples()|
+  \bi
+    \item Returns the number of samples for each signal contained in 
+          the CppSimData/NgspiceData object. 
+  \ei
+\item \verb|get_num_sigs()|
+  \bi
+    \item Returns the number of signals contained in
+          the CppSimData/NgspiceData object.  
+  \ei
+\item \verb|get_filename()|
+  \bi
+    \item Returns the name of the file associated with the data contained in
+          the CppSimData/NgspiceData object.  
+  \ei
+\ei
+
+\subsection*{Example}
+
+  The following commands are part of the \verb|test_cppsimdata.py| file included in the 
+\verb|CppSimShared/Python| directory.  Within Python, \verb|cd| to that directory and
+ then enter
+\bt
+\> \verb|%run test_cppsimdata.py|
+\et
+to see the results. Some key commands from this file are:
+
+\bt
+  \> \verb|from pylab import *| \\
+  \> \verb|from cppsimdata import *| \\
+  \> \verb|data = CppSimData(`test.tr0')| \\
+  \> \verb|t = data.evalsig(`TIME')| \\
+  \> \verb|vin = data.evalsig(`vin')|
+\et
+
+The first and second lines import the pylab routines (which include
+Numpy arrays) and the CppSimData module.  The third line creates the
+CppSimData object, which is named \verb|data|.  Note that you can also
+load the CppSim simulation file as you create the CppSimData object by
+specifying the filename, such as \verb|data = CppSimData(`test.tr0')|.
+The fourth line loads the CppSim simulation data from file
+\verb|test.tr0| into the CppSimData object using the \verb|loadsig|
+method.  The fifth and sixth lines transfer the data corresponding to
+signals \verb|TIME| and \verb|vin| into Numpy arrays \verb|t| and
+\verb|vin|, respectively.  From there, the Numpy arrays can be plotted
+or used for post-processing operations.
+
+Note that using the NgspiceData class is very similar to the above example, with the main difference being that an Ngspice raw file is loaded and the following commands are used instead
+of lines two and three above:
+\bt
+  \> \verb|from ngspicedata import *| \\
+  \> \verb|data = NgspiceData(`simrun.raw')| \\
+\et
+
+
+\section*{CppSimData Functions}
+
+A few other functions are available as part of the CppSim Data module:
+\bi
+\item \verb|cppsim(sim_file)|
+  \bi
+    \item Allows CppSim to be run directly from Python.  If
+      \verb|sim_file| is not specified (i.e., \verb|cppsim()| is run),
+      it is assumed to be \verb|test.par|.  
+  \ei 
+\item \verb|calc_pll_phasenoise(noiseout,Ts)|
+  \bi
+    \item  Returns \verb|f| (Hz) and \verb|Pxx_db| (dBc/Hz) given the \verb|noiseout| signal
+     and time step, \verb|Ts|, of the \verb|noiseout| samples.
+  \ei
+\ei
+
+\subsection*{Example}
+
+To see the \verb|calc_pll_phasenoise(noiseout,Ts)| in action, an example Python script has been provided.  Within Python, \verb|cd| to the \verb|CppSimShared/Python| directory and then enter:
+\[
+\verb|%run test_phase_noise_plot.py|
+\]
+A phase noise plot should appear.  For further details, use an editor to examine the contents of the
+\verb|test_phase_noise_plot.py| file.
+
+
+\section*{NgspiceData Functions}
+
+A few other functions are available as part of the Ngspice Data module:
+\bi
+\item \verb|ngsim(hspc_file)|
+  \bi
+    \item Allows Ngspice to be run directly from Python.  If
+      \verb|hpsc_file| is not specified (i.e., \verb|ngsim()| is run),
+      it is assumed to be \verb|test.hspc|.  
+  \ei 
+\item \verb|hspc_set_param(param_name, param_value, hspc_file)|
+  \bi
+    \item  Changes the parameter value of \verb|param_name| to \verb|param_value| within
+           the corresponding \verb|.param| line of the specified \verb|hspc_file|. This 
+           function facilitates parametric sweeps when running Ngspice from within Python
+            using the \verb|ngsim()| command. 
+  \ei
+\item \verb|hspc_addline(new_line, hspc_file)|
+  \bi
+    \item  Adds the line \verb|new_line| to the specified \verb|hspc_file|. This 
+           function facilitates alter runs and parametric sweeps when 
+            running Ngspice from within Python
+            using the \verb|ngsim()| command. 
+  \ei
+\item \verb|hspc_addline_continued(new_line, hspc_file)|
+  \bi
+    \item  Adds the line \verb|new_line| to the specified \verb|hspc_file|. This 
+           function facilitates alter runs and parametric sweeps when 
+            running Ngspice from within Python
+            using the \verb|ngsim()| command. Note that \verb|hspc_addline()| is used
+            to create one line, and \verb|hspc_addline_continued()| is used to create
+            additional lines after  \verb|hspc_addline()| has been run.
+  \ei
+\item \verb|eyesig(period, start_off, time, data)|
+  \bi
+    \item  Plots the eyedigram for signal \verb|data| given its associated time
+           signal \verb|time| and the specified \verb|period| and starting time offset,
+           \verb|start_off|.
+  \ei
+
+\ei
+
+\subsection*{Example}
+
+Please see the section \verb|Running Parameter Sweeps using Python Scripting| in
+the PDF document \verb|NGspice Primer Within CppSim (Version 5) Framework| available at
+\verb|http://www.cppsim.com/manuals.html|.
+
+\end{document}

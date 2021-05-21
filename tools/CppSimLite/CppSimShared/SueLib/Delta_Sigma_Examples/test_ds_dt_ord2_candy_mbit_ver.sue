@@ -1,0 +1,129 @@
+proc SCHEMATIC_test_ds_dt_ord2_candy_mbit_ver {} {
+make constant -name xi1 -origin {-820 280}
+make constant -name xi2 -origin {-820 -10}
+make signal_source -name xi4 -stype 1 -freq 1e3 -origin {-680 10}
+make name_net -name in -origin {-80 -10}
+make constant_bool -name xi7 -val 1 -origin {30 70}
+make name_net -name clk -origin {-80 190}
+make name_net -name rstb -origin {-80 130}
+make step_in_bool -name xi8 -vend 1 -vstart 0 -tstep 1e-3 -origin {-240 130}
+make name_net -name in -origin {-80 690}
+make name_net -name clk -origin {-80 890}
+make name_net -name rstb -origin {-80 830}
+make name_net -name out_5bit -origin {400 690}
+make name_net -name out_1bit -origin {400 -10}
+make constant_bool -name xi0 -val 1 -origin {30 770}
+make name_net -name valid_out_1bit -origin {400 70}
+make name_net -name valid_out_5bit -origin {400 770}
+make name_net -name clk -origin {550 70}
+make name_net -name out_1bit_filt -origin {1220 -10}
+make name_net -name clk -origin {880 70}
+make name_net -name clk -origin {550 770}
+make name_net -name out_5bit_filt -origin {1220 690}
+make lpf_butter_ord2_w_clk -name xi9 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {710 20}
+make name_net -name clk -origin {880 770}
+make lpf_butter_ord2_w_clk -name xi6 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {710 720}
+make lpf_ord1_w_clk -name xi11 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {1030 720}
+make lpf_ord1_w_clk -name xi10 -fp adc_bw_gl -sample_freq clk_freq_gl -origin {1030 20}
+make signal_source -name xi3 -freq clk_freq_gl -origin {-680 300}
+make gain -name xi5 -gain 4096 -origin {-450 -10}
+make name_net -name gnd -origin {-490 490}
+make constant -name xi13 -origin {-590 490}
+make name_net -name gnd -origin {940 390}
+make resistor -orient R90 -name R0 -resistance 100k -origin {890 250}
+make capacitor -name C0 -capacitance 80p -origin {980 320}
+make name_net -name gnd -origin {1250 390}
+make name_net -name out_1bit_rfilt -origin {1340 250}
+make name_net -name clk -origin {550 350}
+make gain -name xi14 -gain 1 -origin {1070 250}
+make resistor -orient R90 -name R1 -resistance 100k -origin {1200 250}
+make capacitor -name C1 -capacitance 80p -origin {1290 320}
+make name_net -name gnd -origin {940 1090}
+make name_net -name gnd -origin {1250 1090}
+make name_net -name clk -origin {550 1050}
+make resistor -orient R90 -name R3 -resistance 100k -origin {890 950}
+make capacitor -name C3 -capacitance 80p -origin {980 1020}
+make resistor -orient R90 -name R4 -resistance 100k -origin {1200 950}
+make capacitor -name C4 -capacitance 80p -origin {1290 1020}
+make name_net -name out_5bit_rfilt -origin {1340 950}
+make dac2real -name xi20 -wid_in 5 -signed_in 1 -fbw adc_bw_gl -origin {690 990}
+make dac2real -name xi12 -wid_in 1 -out_cm 0.5 -fbw adc_bw_gl -origin {690 290}
+make gain -name xi17 -gain 32 -origin {1070 950}
+make name_net -name clk_freq -origin {290 380}
+make meas_clk_freq -name xi15 -origin {160 370}
+make ds_dt_ord2_candy_mbit_ver -name xiadc1 -origin {200 80}
+make ds_dt_ord2_candy_mbit_ver -name xiadc5 -wid_out 5 -signed_out 1 -origin {200 780}
+make inv -name xi18 -origin {-460 170}
+make sampler_w_delay -name xi16 -origin {-200 -10}
+  make_wire -550 -10 -490 -10
+  make_wire -80 -10 80 -10
+  make_wire -80 130 80 130
+  make_wire -80 130 -200 130
+  make_wire -80 190 80 190
+  make_wire -80 690 80 690
+  make_wire -80 830 80 830
+  make_wire -80 890 80 890
+  make_wire 590 70 550 70
+  make_wire 1140 -10 1220 -10
+  make_wire 920 70 880 70
+  make_wire 590 770 550 770
+  make_wire 1140 690 1220 690
+  make_wire 830 -10 920 -10
+  make_wire 920 770 880 770
+  make_wire 830 690 920 690
+  make_wire 790 250 850 250
+  make_wire -550 490 -490 490
+  make_wire 930 250 980 250
+  make_wire 980 250 1030 250
+  make_wire 940 390 980 390
+  make_wire 980 250 980 280
+  make_wire 1290 390 1290 360
+  make_wire 1120 250 1160 250
+  make_wire 1240 250 1290 250
+  make_wire 1250 390 1290 390
+  make_wire 980 360 980 390
+  make_wire 590 350 550 350
+  make_wire 490 250 590 250
+  make_wire 790 950 850 950
+  make_wire 930 950 980 950
+  make_wire 980 950 1030 950
+  make_wire 940 1090 980 1090
+  make_wire 980 950 980 980
+  make_wire 1290 1090 1290 1060
+  make_wire 1120 950 1160 950
+  make_wire 1240 950 1290 950
+  make_wire 1250 1090 1290 1090
+  make_wire 980 1060 980 1090
+  make_wire 590 1050 550 1050
+  make_wire 490 950 590 950
+  make_wire 490 950 490 690
+  make_wire 1340 250 1290 250
+  make_wire 1340 950 1290 950
+  make_wire 1290 250 1290 280
+  make_wire 1290 950 1290 980
+  make_wire 490 -10 490 250
+  make_wire 240 380 290 380
+  make_wire -80 380 80 380
+  make_wire 490 -10 400 -10
+  make_wire 490 -10 590 -10
+  make_wire 490 690 400 690
+  make_wire 490 690 590 690
+  make_wire 320 -10 400 -10
+  make_wire 320 70 400 70
+  make_wire 320 690 400 690
+  make_wire 320 770 400 770
+  make_wire -280 -10 -400 -10
+  make_wire -80 190 -80 280
+  make_wire -80 280 -80 380
+  make_wire -520 170 -490 170
+  make_wire -350 30 -280 30
+  make_wire -400 170 -350 170
+  make_wire -120 -10 -80 -10
+  make_wire -550 280 -520 280
+  make_wire -520 280 -80 280
+  make_wire -520 170 -520 280
+  make_wire -350 30 -350 170
+  make_text -origin {10 -100} -text {Verilog example for 1-bit Candy Digital Delta-Sigma}
+  make_text -origin {10 600} -text {Verilog example for 5-bit Candy Digital Delta-Sigma}
+}
+

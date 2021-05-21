@@ -1,0 +1,57 @@
+proc SCHEMATIC_linear_dll {} {
+make constant -name xi0 -consval 0 -origin {-190 30}
+make edgemeasure -name xi15 -origin {1270 260}
+make edgemeasure -name xi16 -origin {1270 380}
+make output -name edge_ref -origin {1350 390}
+make output -name clk_out -origin {1350 40}
+make output -name edge_clk -origin {1350 270}
+make output -name data_out -origin {1350 -60}
+make signal_source -name xi1 -stype 3 -freq 2.502e9 -origin {-20 50}
+make name_net -name ph_err -origin {620 70}
+make step_in -name xi6 -vend step_end_gl -vstart step_start_gl -tstep tstep_gl -origin {-190 260}
+make name_net -name clk_ref -origin {850 390}
+make name_net -name clk_ref_delay -origin {370 30}
+make variable_delay -name xi5 -nom_delay 300e-12 -control_gain 50e-12 -origin {250 50}
+make variable_delay -name xi7 -nom_delay 300e-12 -control_gain 50e-12 -origin {1070 60}
+make name_net -name vin -origin {950 70}
+make hogge_detector -name xi4 -origin {500 40}
+make ch_pump -name xi2 -ival -100e-6 -origin {730 70}
+make integrator -name xi3 -k 1/5e-12 -origin {880 70}
+  make_wire 1140 40 1190 40
+  make_wire 1190 270 1210 270
+  make_wire 1330 390 1350 390
+  make_wire 400 270 1190 270
+  make_wire 1190 40 1350 40
+  make_wire 1330 270 1350 270
+  make_wire 580 30 600 30
+  make_wire 1350 -60 600 -60
+  make_wire -120 30 -150 30
+  make_wire 400 70 420 70
+  make_wire 110 110 130 110
+  make_wire 980 40 1000 40
+  make_wire 620 70 580 70
+  make_wire 180 30 110 30
+  make_wire -150 260 160 260
+  make_wire 160 60 180 60
+  make_wire 980 390 1210 390
+  make_wire 950 70 920 70
+  make_wire 950 70 1000 70
+  make_wire 810 70 840 70
+  make_wire 660 70 620 70
+  make_wire 850 390 980 390
+  make_wire 850 390 130 390
+  make_wire 320 30 370 30
+  make_wire 370 30 420 30
+  make_wire 1190 40 1190 270
+  make_wire 980 40 980 390
+  make_wire 130 110 130 390
+  make_wire 160 60 160 260
+  make_wire 600 -60 600 30
+  make_wire 400 70 400 270
+  make_text -origin {560 470} -text {To observe PLL dynamics at control voltage of delay line:}
+  make_text -origin {560 500} -text plotsig(x,'vin')
+  make_text -origin {560 550} -text {To observe instantaneous phase tracking and jitter:}
+  make_text -origin {560 580} -text {plot_pll_jitter(x,'edge_ref ',20e3,'edge_clk')}
+  make_text -origin {530 440} -text {In CppSimView:}
+}
+

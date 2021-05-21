@@ -1,0 +1,38 @@
+proc SCHEMATIC_vco {} {
+
+
+
+
+
+make input -name vctrl -origin {260 -610}
+make output -name squareout -origin {320 -630}
+make output -name sineout -origin {320 -580}
+
+
+
+
+
+}
+
+proc ICON_vco args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {freq {}} {kvco {}}}
+icon_term -type input -origin {-70 0} -name vctrl
+icon_term -type output -origin {70 -20} -name squareout
+icon_term -type output -origin {70 20} -name sineout
+  icon_property -origin {-70 100} -type user -name name -default x
+  icon_property -origin {-70 120} -type user -name freq
+icon_property -origin {-10 -40} -label vco
+icon_property -origin {-60 0} -label vctrl
+icon_property -origin {60 -20} -anchor e -label squareout
+icon_property -origin {60 20} -anchor e -label sineout
+  icon_line -70 -50 -70 50 70 50 70 -50 -70 -50
+  icon_property -origin {-70 140} -type user -name kvco
+icon_property -origin {-50 60} -label {freq=$freq Hz}
+icon_property -origin {-50 80} -label {kvco=$kvco Hz/V}
+  icon_arc -20 -10 0 10 -start 0 -extent 170
+  icon_arc 0 -10 20 10 -start 0 -extent -170
+  icon_line -10 10 20 -20 10 -20
+  icon_line 20 -20 20 -10
+icon_property -origin {-70 -60} -label {$name}
+}
+

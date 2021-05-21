@@ -1,0 +1,38 @@
+***** Parameters for Calculation of Diffusion Regions for 0.13u CMOS Process
+* > set_mode_diff geo
+* > set_hdout .2u
+* > set_hdin .3u
+* > use_four_sided_perimeter
+
+***** SCMOS 0.5um MOSIS CMOS Process Models 
+.lib '../../../../ngspice-32/models/scn4m_subm/scmos_bsim4.lib' nom
+
+***** Temperature
+.temp 25
+
+***** Parameters
+.param vsupply=5.0
+.global vdd gnd
+
+** Loading
+Cload	out 	0	10f
+
+***** DC Voltage Sources
+Vsup vdd 0 vsupply
+**Vpulse n1 n2 PULSE(V1 V2 TD TR TF PW PER)
+Vclk in  0 PULSE(0 vsupply 5n 100p 100p 10n 20n)
+* Vin in 0 0 
+
+***** Simulation Options
+.options delmax=5p relv=1e-6 reli=1e-6 relmos=1e-6 method=gear
+
+***** Simulation Parameters (.tran or .ac or .dc statements) 
+.tran 100p 20n
+* .dc Vin 0.0 'vsupply' 0.001
+
+***** Have operating point information sent to log file (simrun.log)
+.op
+
+****** Selectively Probe Signals
+* .probe in n0 n1 n2 out i(Vsup)
+* .probe @m1[id] @m1[gm] @m1[gds] @m1[cgs] @m1[cgd] @m1[gmbs]

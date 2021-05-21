@@ -1,0 +1,21 @@
+/////////////////////////////////////////////////////////////
+// CppSim Sim File: test.par
+// Cell: test_read_write_audio_file
+// Library: Misc_Examples
+/////////////////////////////////////////////////////////////
+
+// Number of simulation time steps
+// Example: num_sim_steps: 10e3
+num_sim_steps: 20e6
+
+// Time step of simulator (in seconds)
+// Example: Ts: 1/10e9
+Ts: 1/240e3
+
+output: test trigger=audio_clk
+probe: *
+
+global_param: 
+file_num_gl=0
+
+alter: 

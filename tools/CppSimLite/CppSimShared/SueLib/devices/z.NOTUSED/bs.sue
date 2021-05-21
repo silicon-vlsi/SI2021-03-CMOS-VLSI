@@ -1,0 +1,43 @@
+# This is an example generator of a cmos nand gate.
+# This example also changes the defaults of the icon based on
+# the generator inputs.
+
+proc SCHEMATIC_bus_short args {
+  call_use_keyword $args {{ninputs 2} {name bus_short}}
+
+  set x 0
+  set y 0
+  for {set i 0} {$i < $ninputs} {incr i} {
+    make name_net -origin "$x -140" -orient RX -name "in\[$i\]"
+    make srcV -origin "$x -100" 
+    make_wire $x -60 $x -50
+    make_wire $x -50 [incr x 160] -50
+    incr y 50
+  }
+
+  make inout -origin "$x -50" -name out
+  make inout -origin "$x +50" -name "in\[[expr $ninputs-1]:0\]"
+  make name_net -origin "$x +50" -name "in\[[expr $ninputs-1]:0\]"
+}
+
+proc ICON_bus_short args {
+  # This line is needed for all generators
+  icon_generator $args {{ninputs 2}}
+
+  set txt "[expr $ninputs-1]:0"
+
+  icon_setup $args "{origin {0 0}} {orient R0} {name {}} {M {}} [list [list txt $txt]]"
+
+		
+  icon_term -type inout -origin "-50 0" -name "in\[[expr $ninputs-1]:0\]"
+  icon_term -type inout -origin {50 0} -name out
+
+  icon_property -origin {20 100} -type user -name name
+  icon_property -origin {20 120} -type user -name M
+  icon_property -origin {20 140} -type user -name txt -default $txt
+  icon_line -50 -20 -50 20 50 20 50 -20 -50 -20
+  icon_property -origin {-40 0} -text { i[concat \[$txt\] ] }
+  icon_line 20 -20 50 0 20 20
+  icon_line 50 0 20 0
+
+}

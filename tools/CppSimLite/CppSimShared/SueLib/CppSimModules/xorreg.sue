@@ -1,0 +1,31 @@
+proc SCHEMATIC_xorreg {} {
+
+make input -name a -origin {350 -690}
+make input -name clk -origin {350 -640}
+make output -name q -origin {420 -670}
+
+}
+
+proc ICON_xorreg args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x}}
+icon_term -type input -origin {-110 -20} -name a
+icon_term -type input -origin {-110 30} -name clk
+icon_term -type output -origin {110 -20} -name q
+  icon_property -origin {-30 100} -type user -name name -default x
+  icon_arc -80 -50 -70 10 -start 278 -extent 172
+  icon_arc -90 -50 -80 10 -start 278 -extent 172
+  icon_arc -170 -50 -10 60 -start 26 -extent 54
+  icon_arc -170 -100 -10 10 -start 334 -extent -54
+icon_property -origin {-60 -20} -label a
+  icon_line -20 -40 -20 60 70 60 70 -40 -20 -40
+  icon_line 70 -20 110 -20
+  icon_line -80 -20 -110 -20
+  icon_line -20 30 -110 30
+  icon_line -80 -40 -110 -40 -110 -70 90 -70 90 -20
+icon_property -origin {-10 -20} -label d
+icon_property -origin {-10 30} -label clk
+icon_property -origin {60 -20} -anchor e -label q
+icon_property -origin {20 70} -label xorreg
+icon_property -origin {-20 -80} -label {$name}
+}
+

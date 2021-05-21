@@ -1,0 +1,7 @@
+sue_spice_netlister:  sue_spice_netlister.o cppsim_classes.o
+	g++ -o sue_spice_netlister sue_spice_netlister.o cppsim_classes.o -lm
+sue_spice_netlister.o:  sue_spice_netlister.cpp cppsim_classes.h
+	g++ -c sue_spice_netlister.cpp  
+cppsim_classes.o:  cppsim_classes.cpp cppsim_classes.h
+	g++ -c cppsim_classes.cpp  
+

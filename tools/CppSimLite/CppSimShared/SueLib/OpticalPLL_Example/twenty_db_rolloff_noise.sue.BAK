@@ -1,0 +1,20 @@
+proc SCHEMATIC_twenty_db_rolloff_noise {} {
+make output -name out -origin {660 -220}
+}
+
+proc ICON_twenty_db_rolloff_noise args {
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {n_off -100} {f_off 1e6}}
+icon_term -type output -origin {80 0} -name out
+icon_property -origin {-70 -50} -label {$name}
+icon_property -origin {-60 50} -label {n_off = $n_off dBc/Hz}
+  icon_property -origin {-50 110} -type user -name name -default x
+  icon_property -origin {-50 130} -type user -name n_off -default -100
+  icon_line -70 -40 80 -40 80 40 -70 40 -70 -40
+icon_property -origin {-60 30} -label 20_db_rolloff_noise
+icon_property -origin {-60 70} -label {f_off = $f_off Hz}
+  icon_property -origin {-50 150} -type user -name f_off -default 1e6
+icon_property -origin {70 0} -anchor e -label out
+
+}
+

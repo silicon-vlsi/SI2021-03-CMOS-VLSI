@@ -1,0 +1,38 @@
+proc SCHEMATIC_read_write_audio_file {} {
+make output -name out_valid -origin {1480 -2360}
+make output -name out0 -origin {1480 -2480}
+make output -name out1 -origin {1480 -2450}
+make output -name clk -origin {1480 -2400}
+make input -name in0 -origin {1360 -2480}
+make input -name in1 -origin {1360 -2450}
+}
+
+proc ICON_read_write_audio_file args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {num_i 0} {num_o 0}}
+icon_term -type output -origin {140 110} -name out_valid
+icon_term -type input -origin {-140 -30} -name in0
+icon_term -type output -origin {140 -30} -name out0
+icon_term -type output -origin {140 10} -name out1
+icon_term -type input -origin {-140 10} -name in1
+icon_term -type output -origin {140 70} -name clk
+icon_property -origin {-130 -30} -label in0
+icon_property -origin {130 -30} -anchor e -label out0
+icon_property -origin {-130 -130} -label {$name}
+icon_property -origin {-130 -110} -label read_write_audio_file
+  icon_line -140 -120 140 -120 140 130 -140 130 -140 -120
+icon_property -origin {-110 140} -label {num_i=$num_i}
+  icon_property -origin {-110 210} -type user -name name -default x
+  icon_property -origin {-110 230} -type user -name num_i -default 0
+icon_property -origin {-130 -60} -label {output_file:   audio_out_num_o.wav}
+icon_property -origin {-130 -80} -label {input_file:     audio_in_num_i.wav}
+icon_property -origin {130 110} -anchor e -label out_valid
+icon_property -origin {-110 160} -label {num_o=$num_o}
+  icon_property -origin {-110 250} -type user -name num_o -default 0
+icon_property -origin {-130 10} -label in1
+icon_property -origin {130 10} -anchor e -label out1
+icon_property -origin {130 70} -anchor e -label clk
+icon_property -origin {-130 50} -label {range of in and out signals is -1 to 1}
+icon_property -origin {-130 80} -label {in case input_file has only one
+channel, only out0 and in0 are valid}
+}
+

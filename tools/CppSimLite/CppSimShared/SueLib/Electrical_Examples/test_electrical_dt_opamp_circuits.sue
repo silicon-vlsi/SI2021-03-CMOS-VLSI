@@ -1,0 +1,111 @@
+proc SCHEMATIC_test_electrical_dt_opamp_circuits {} {
+make constant -name xi5 -origin {-740 930}
+make signal_source -name xi7 -stype 1 -freq 10e3 -origin {-600 950}
+make global -name gnd -origin {40 1000}
+make global -name gnd -origin {-100 1040}
+make name_net -name input_integ -origin {-260 930}
+make name_net -name output_integ -origin {330 950}
+make constant -name xi1 -origin {-500 710}
+make name_net -name ph1 -origin {-190 710}
+make name_net -name ph2 -origin {-40 730}
+make signal_source_two_phase -name xi0 -frequency 10e6 -origin {-360 730}
+make global -name gnd -origin {40 1700}
+make constant -name xi2 -origin {-1250 1630}
+make gain -name xi3 -gain 0.1 -origin {-900 1630}
+make global -name gnd -origin {280 1420}
+make electrical_switch -orient R90 -name s6 -origin {280 1340}
+make electrical_switch -name s5 -origin {-50 1270}
+make electrical_switch -name s4 -origin {380 1270}
+make electrical_switch -orient R90X -name s7 -origin {30 1340}
+make name_net -name ph1 -origin {-50 1240}
+make name_net -name ph1 -origin {380 1240}
+make name_net -name ph2 -origin {310 1340}
+make name_net -name ph2 -origin {0 1340}
+make name_net -name output_filt -origin {540 1650}
+make global -name gnd -origin {-300 1420}
+make name_net -name ph1 -origin {-630 1240}
+make name_net -name ph1 -origin {-200 1240}
+make name_net -name ph2 -origin {-270 1340}
+make name_net -name ph2 -origin {-580 1340}
+make electrical_switch -orient R90 -name s2 -origin {-300 1340}
+make electrical_switch -name s3 -origin {-630 1270}
+make electrical_switch -orient R90X -name s9 -origin {-550 1340}
+make name_net -name input_filt -origin {-770 1630}
+make capacitor -orient RXY -name C_1 -capacitance 1p -origin {-100 990}
+make capacitor -orient R90 -name C_2 -capacitance 1p -origin {150 810}
+make capacitor -orient R90 -name Ca -capacitance 10p -origin {150 1520}
+make capacitor -orient R270 -name C2 -capacitance 1.032p -origin {-430 1270}
+make capacitor -orient R270 -name C3 -capacitance 1.032p -origin {150 1270}
+make signal_source -name xi4 -stype 1 -freq 156e3 -origin {-1110 1650}
+make electrical_switch -name s8 -origin {-200 1270}
+make gain -name xi8 -gain 0.1 -origin {-390 930}
+make electrical_switch -name s1 -origin {-170 930}
+make electrical_switch -name s0 -origin {-20 930}
+make opamp_basic -name xi9 -dc_gain 60 -f_unity 10e6 -origin {150 950}
+make opamp_basic -name xi6 -dc_gain 60 -f_unity 10e6 -origin {140 1650}
+  make_wire 50 930 100 930
+  make_wire 190 810 260 810
+  make_wire 260 950 330 950
+  make_wire 260 950 230 950
+  make_wire 50 810 110 810
+  make_wire -470 930 -430 930
+  make_wire 40 970 100 970
+  make_wire 50 930 20 930
+  make_wire -100 930 -130 930
+  make_wire -100 930 -60 930
+  make_wire -340 930 -260 930
+  make_wire -260 930 -210 930
+  make_wire -170 710 -170 900
+  make_wire -190 710 -260 710
+  make_wire -190 710 -170 710
+  make_wire 50 1630 90 1630
+  make_wire 260 1650 220 1650
+  make_wire 50 1520 110 1520
+  make_wire -980 1630 -940 1630
+  make_wire 40 1670 40 1700
+  make_wire 40 1670 90 1670
+  make_wire -850 1630 -770 1630
+  make_wire 30 1380 30 1400
+  make_wire 30 1270 -10 1270
+  make_wire 460 1270 460 1650
+  make_wire 460 1650 260 1650
+  make_wire 460 1650 540 1650
+  make_wire 280 1380 280 1400
+  make_wire 280 1400 280 1420
+  make_wire -550 1380 -550 1400
+  make_wire -550 1270 -550 1300
+  make_wire -300 1380 -300 1400
+  make_wire -300 1400 -300 1420
+  make_wire -120 1630 50 1630
+  make_wire -120 1270 -160 1270
+  make_wire -120 1270 -90 1270
+  make_wire -700 1270 -700 1630
+  make_wire -700 1630 -770 1630
+  make_wire 280 1400 30 1400
+  make_wire 30 1270 30 1300
+  make_wire 280 1270 280 1300
+  make_wire -300 1400 -550 1400
+  make_wire -300 1270 -240 1270
+  make_wire -590 1270 -550 1270
+  make_wire -300 1270 -390 1270
+  make_wire 260 1520 190 1520
+  make_wire 280 1270 340 1270
+  make_wire -700 1270 -670 1270
+  make_wire 460 1270 420 1270
+  make_wire 280 1270 190 1270
+  make_wire -300 1270 -300 1300
+  make_wire -120 1270 -120 1630
+  make_wire 30 1270 110 1270
+  make_wire -470 1270 -550 1270
+  make_wire -100 930 -100 950
+  make_wire -100 1030 -100 1040
+  make_wire -20 730 -20 900
+  make_wire -260 730 -40 730
+  make_wire -40 730 -20 730
+  make_wire 40 970 40 1000
+  make_wire 50 810 50 930
+  make_wire 260 810 260 950
+  make_wire 260 1520 260 1650
+  make_wire 50 1520 50 1630
+}
+

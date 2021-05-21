@@ -1,0 +1,24 @@
+/////////////////////////////////////////////////////////////
+// CppSim Sim File: test.par
+// Cell: pll_transmitter
+// Library: 6976HW
+/////////////////////////////////////////////////////////////
+
+num_sim_steps: 1e6
+Ts: 1/9e9
+
+//  don't record this large number of signals for more than 100 microsecond
+//  -> this is long enough to generate eye diagrams, etc.
+
+output: test end_time=100e-6
+probe: clk up down ch_out vin la_out la_in xi13.filt_out isig qsig
+
+//  decimate input voltage of VCO in order to produce output spectrum
+//  with a long simulation (i.e., num_sim_steps:  100e6)
+//  and start recording after 5 microseconds to insure all transients
+//  have died away
+output: test_spectrum trigger=clk start_time=5e-6
+probe: vin_filt 
+
+global_param: mod_enable=1  symbol_rate=1e6  pll_bw=2e6
+alter:

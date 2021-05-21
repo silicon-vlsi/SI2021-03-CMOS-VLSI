@@ -1,0 +1,91 @@
+proc SCHEMATIC_sd_synth_electrical {} {
+make output -name out -origin {1450 50}
+make name_net -name div_val -origin {1050 420}
+make name_net -name sd_in -origin {560 480}
+make name_net -name div -origin {720 360}
+make name_net -name pfdout -origin {360 70}
+make name_net -name ref -origin {220 70}
+make constant -name xi0 -origin {10 90}
+make vco -name xi1 -freq 20e6 -kvco 1 -origin {120 90}
+make xorpfd -name xi12 -origin {290 100}
+make divider_ideal -orient RX -name xi7 -origin {930 390}
+make sd_modulator -name xi8 -order 2 -origin {730 500}
+make step_in -name xi9 -vend in_gl+delta_gl -vstart in_gl -tstep step_time_gl -origin {460 480}
+make output -name noiseout -origin {1450 130}
+make name_net -name vin -origin {1060 70}
+make output -name trig_sig -origin {1360 760}
+make output -name noiseout_filt -origin {1360 630}
+make constant -name xi4 -origin {1120 780}
+make vco -name xi14 -freq 200e6 -kvco 1 -origin {1260 780}
+make accum_and_dump -name xi5 -origin {1250 640}
+make global -name gnd -origin {650 170}
+make global -name gnd -origin {820 170}
+make global -name gnd -origin {920 260}
+make global -name gnd -origin {1020 260}
+make name_net -name pfdout -origin {390 -20}
+make vccs -name G0 -gain -1 -origin {730 90}
+make ch_pump -name xi2 -ival 1.5e-6 -origin {480 70}
+make add2 -orient RY -name xi6 -origin {620 70}
+make vco_with_1f_noise -name xi10 -fc 1.84e9 -kv 30e6 -foffset 10e6 -noise_at_foffset -146 -fcorner 10e3 -origin {1160 90}
+make resistor -name R0 -resistance 495k -origin {920 120}
+make capacitor -name C0 -capacitance 27.2p -origin {920 210}
+make capacitor -name C1 -capacitance 2.8p -origin {1020 170}
+make gated_charge_pump_noise -name xi11 -thermal_noise_pos 0.6e-12 -thermal_noise_neg 1.5e-12 -origin {610 -40}
+  make_wire 560 480 670 480
+  make_wire 720 360 880 360
+  make_wire 220 70 190 70
+  make_wire 220 70 250 70
+  make_wire 980 420 1050 420
+  make_wire 1050 420 1060 420
+  make_wire 980 360 1300 360
+  make_wire 230 360 620 360
+  make_wire 620 360 720 360
+  make_wire 230 130 230 360
+  make_wire 1060 420 1060 480
+  make_wire 1190 780 1160 780
+  make_wire 1330 630 1360 630
+  make_wire 1090 630 1170 630
+  make_wire 1420 580 1090 580
+  make_wire 500 480 560 480
+  make_wire 1090 580 1090 630
+  make_wire 1350 700 1150 700
+  make_wire 1150 700 1150 660
+  make_wire 1150 660 1170 660
+  make_wire 1350 760 1330 760
+  make_wire 1350 760 1360 760
+  make_wire 1350 700 1350 760
+  make_wire 650 150 650 170
+  make_wire 650 150 670 150
+  make_wire 820 150 820 170
+  make_wire 920 70 800 70
+  make_wire 800 150 820 150
+  make_wire 1020 70 920 70
+  make_wire 1020 210 1020 260
+  make_wire 1020 70 1020 130
+  make_wire 230 130 250 130
+  make_wire 790 480 1060 480
+  make_wire 1230 130 1420 130
+  make_wire 1450 130 1420 130
+  make_wire 1020 70 1060 70
+  make_wire 1060 70 1090 70
+  make_wire 920 250 920 260
+  make_wire 1230 50 1300 50
+  make_wire 1300 50 1450 50
+  make_wire 620 520 670 520
+  make_wire 390 70 360 70
+  make_wire 390 70 410 70
+  make_wire 560 70 590 70
+  make_wire 560 -20 390 -20
+  make_wire 360 70 330 70
+  make_wire 670 70 650 70
+  make_wire 620 360 620 520
+  make_wire 1420 130 1420 580
+  make_wire 1300 50 1300 360
+  make_wire 920 160 920 170
+  make_wire 920 70 920 80
+  make_wire 390 70 390 -20
+  make_wire 620 10 620 40
+  make_text -origin {1090 540} -text {Filter noiseout with accumulate and dump circuit
+ to avoid aliasing due to decimation by trig_sig}
+}
+

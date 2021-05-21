@@ -1,0 +1,29 @@
+proc SCHEMATIC_gain_w_limits {} {
+
+
+make input -name a -origin {260 -710}
+make output -name y -origin {350 -710}
+
+
+}
+
+proc ICON_gain_w_limits args {
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {gain {}} {max {}} {min {}} {offset {}}}
+icon_term -type input -origin {-40 0} -name a
+icon_term -type output -origin {50 0} -name y
+  icon_property -origin {-40 130} -type user -name name -default x
+  icon_property -origin {-40 150} -type user -name gain
+icon_property -origin {-30 0} -label a
+icon_property -origin {30 0} -anchor e -label y
+icon_property -origin {-20 40} -label {gain=$gain}
+  icon_line -40 -40 -40 40 50 0 -40 -40
+icon_property -origin {-20 -50} -label {$name}
+icon_property -origin {-20 60} -label {max=$max}
+icon_property -origin {-20 80} -label {min=$min}
+  icon_property -origin {-40 170} -type user -name max
+  icon_property -origin {-40 190} -type user -name min
+icon_property -origin {-20 100} -label {offset=$offset}
+  icon_property -origin {-40 210} -type user -name offset
+icon_property -origin {-30 -20} -label gain_w_limits
+}
+
