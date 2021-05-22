@@ -3,13 +3,13 @@ This github respository is for the Summer Internship Course conducted between Ma
 
 ## Announcements
 
-# References/Resources
+## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
 - [**Kang**] Leblebici, Y., Chul W. K., and Sung-Mo (Steve) Kang. "*CMOS Digital Integrated Circuits Analysis & Design*". 4th ed. McGraw-Hill Education, 2014
 - [**Weste**] Weste, Neil, and David Harris. "*CMOS VLSI Design: A Circuits and Systems Perspective*". Pearson Education, 2011
 
 
-# Table of Content
+## Table of Content
 - [NGSpice](#NGSpice)
     - [QuickStart Guide](#Quick-Start-Guide)
 - [CppSimLite](#CppSimLite)
@@ -18,32 +18,18 @@ This github respository is for the Summer Internship Course conducted between Ma
 - [Netgen](#Netgen)
 - [Technology](#Technology)
 
-# NGSpice
+## NGSpice
 [NGSpice] is a open source spice simulator for electric and electronic circuits. 
 - [NGSpice Reference Manual][NGSpiceMan]: Comple reference manual in HTML format.
 
-After cloning this repo, a precompiled version (compiled in 64-bit LXLE/Ubuntu) will be available in `<PATH-TO-REPO>/project2020/eda/ngspice-32`. Add the following environment variables in your `~/.bashrc`
+Precompiled ngspice v32 is installed in `/project2020/eda/ngspice-32`. Add the following environment variables in your `~/.bashrc`
+
 ```bash
-export  SPICE_LIB_DIR=$HOME/projects/project2020/eda/ngspice-32/glnxa64/share/ngspice
-export  SPICE_EXEC_DIR=$HOME/projects/project2020/eda/ngspice-32/glnxa64/bin
+export  SPICE_LIB_DIR=/project2020/eda/ngspice-32/glnxa64/share/ngspice
+export  SPICE_EXEC_DIR=/project2020/eda/ngspice-32/glnxa64/bin
 export  PATH=$PATH:$SPICE_EXEC_DIR
 ```
 There is a initialization script in `$SPICE_LIB_DIR/scripts/spinit`. You can overwrite any of the initilization by adding commands to a local `~/.spiceinit` .
-The directory stucture:
-```bash
-project2020/eda/ngspice-32
-├── doc
-│   └── ngspice-32-manual.pdf  (Complete Reference)
-├── examples                   (Lots of Spice examples)
-├── glnxa64
-│   ├── bin
-│   ├── include
-│   └── share
-│       ├── man
-│       └── ngspice
-│           └── scripts        (Scripts, including startup spinit)
-└── models                     (Spice models)
-```
 
 ### Quick Start Guide
 You can open a text editor create a *netlist* of the intended circuit for example of a voltage divider as shown below (say filename `divider.sp`):
@@ -78,15 +64,17 @@ The preferred method of running ngspice is in batch mode:
 ```bash
 ngspice -b -r filename.raw -o filename.log input.sp
 ```
-
 And to quit, simply type `quit`.
 
-# CppSimLite
-**CppSimLite** is stripped down version of **CppSim**, (http://cppsim.com) developed by Mike Perrott for mixed-signal system and circuit modeling. Although CppSim is a suite of tools for doing mixed-signal simulation, CppSimLite is only for using the schematic editor **Sue2** and it's accompanying toolboxes for Python and HSPC.
+### Using the Python Library
+[FIXME: Add relevant information]
 
-- **Directory Structure**
+## CppSimLite
+**CppSimLite** is stripped down version of **CppSim**, (http://cppsim.com) developed by Mike Perrott for mixed-signal system and circuit modeling. Although CppSim is a suite of tools for doing mixed-signal simulation, CppSimLite is a stripped down version for using the schematic editor **Sue2** and it's accompanying toolboxes for *Python* and *HSPC*.
+
+If you have cloned the git repo as explained before, you should have the following directory structure for the *CppSimLite*:
 ```bash
-CppSimLite
+~/SI2021-03-CMOS-VLSI/tools/CppSimLite
 ├── CHANGES.md				;Changes made to CppSim
 ├── cppsim_bashrc_file_example		;example .bashrc 
 ├── CppSimShared
@@ -110,12 +98,12 @@ CppSimLite
 - Setting the Environment Variables in `~/.bashrc`
 
 ```bash
-export CPPSIMHOME=$HOME/project2020/eda/CppSimLite
+export CPPSIMHOME=$HOME/SI2021-03-CMOS-VLSI/tools/CppSimLite
 export CPPSIMSHAREDHOME=$CPPSIMHOME/CppSimShared
 export EDITOR=/usr/bin/vim
 export PATH=$PATH:$CPPSIMSHAREDHOME/bin
 ```
-## Sue2
+### Sue2
 - Once the environment variables are set, Sue2 can be started by typing
 ```bash
 sue2
@@ -127,29 +115,28 @@ sue2
 - You can create a netlist by clicking *Tools -> Create a netlist (with top sub)* and give a directory to save (default: *$CPPSIMHOME/Netlist*) **NOTE** While saving for the option *File Type* choose *All ()* Another bug which creates two .sp extensions otherwise.
 - Now you can can write a Spice testbench and include and instatiate the above created netlist. There is alrady a example testbench in *$CPPSIMHOME/SimRuns/myLib/invX1/TB_invX1.sp*
 
-# Magic
+## Magic
 [Magic] is the most popular open-source Layout tool written in the 1980's at Berkeley by John Ousterhout (now famous for writing scripting languuage Tcl) and now maintained by Tim Edwards (opencircuitdesign.com/magic).\\
 
 **Setting Up the Environment Variables**
 **NOTE**: The below is path is an example. Just make sure it matches your particular path.
 ```bash
-export MAGIC_HOME=/home/user/projects/project2020/eda/magic-83
+export MAGIC_HOME=/project2020/eda/magic-83
 export CAD_ROOT=$MAGIC_HOME/lib
 export PATH=$PATH:$MAGIC_HOME/bin
 ```
 
-# Netgen
+## Netgen
 [Netgen] is a tool for comparing netlists, a process known as LVS, which stands for "Layout vs. Schematic". This is an important step in the integrated circuit design flow, ensuring that the geometry that has been laid out matches the expected circuit.
 Netgen is currently maintained by Tim Edwards (opencircuitdesign.com/netgen)
 **Setting Up the Environment Variables**
 **NOTE**: The below is path is an example. Just make sure it matches your particular path.
 ```bash
-export NETGEN_HOME=/home/user/projects/project2020/eda/netgen-15
+export NETGEN_HOME=/project2020/eda/netgen-15
 export PATH=$PATH:$NETGEN_HOME/bin
 ```
 
-# Technology
-## MOSIS Scalable CMOS ([SCMOS])
+## MOSIS Scalable CMOS Technology ([SCMOS])
 [SCMOS] is a *lambda-based* scalable design rules that can be interfaced to many CMOS fabrication process available at MOSIS. **NOTE** The scalable design rules does not interface with Fabs now because of lot unique process nuances.
 
 - The Spice model files are located at `<PATH-TO-REPO>/project2020/eda/ngspice-32/models/scn4m_subm`
