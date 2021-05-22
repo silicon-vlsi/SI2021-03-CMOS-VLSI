@@ -2,6 +2,7 @@
 This github respository is for the Summer Internship Course conducted between May 17 till June 11, 2021. The course is conducted and taught by Mr. Puneet Mittal from VLSI Expert Pvt Ltd, Prof. Santunu Sarangi and Prof. Saroj Rout from Silicon Institute of Technology, Bhubaneswar.
 
 ## Announcements
+- [21 May] : Use this [Link](https://us02web.zoom.us/meeting/register/tZAvcuyoqTgrHNwFF4Abu4TnOFCOn4WFVf1S) to register for Zoom sessions from May 24 till June 11, Mon-Fri: 10am-1pm, 2:3-5:30pm
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
