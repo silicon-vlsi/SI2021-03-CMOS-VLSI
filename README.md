@@ -3,8 +3,14 @@ This github respository is for the Summer Internship Course conducted between Ma
 ### Course Content
 - **Introduction Digital Design**: Digital VLSI Design FLow, MUX-based & Decoder-based circuits, Finite-State Machines (FSM), Flip-Flops (Setup/Hold) Time, Delays (Propagation/transition), Noise-margin, clock-gating and timing concepts.
 - **Introduction to CMOS VLSI Design**: VLSI Design flow: custom & semi-custom, Introduction to CMOS Processing.
-- **Review of Basic Circuit Theory**: Essential network theory: KCL/KVL, superposition
-- 
+- **Review of Basic Circuit Theory**: Essential network theory: KCL/KVL, superposition, circuit elements, node equation method, Thevenin/Norton theorem, dynamic circuit analysis (RC).
+- **Passive Integrated Circuit Devices**: Resistors, Capacitors. Introduction to Semiconductors. Diodes.
+- **MOS Device Physics**: Threshold voltage, Current-Voltage relation, Intrinsic and Parasitic capacitance. MOS modeling. Parameter extraction.
+- **Inverter Characteristics**: Static: Voltage Trandsfer Chracteristics (VTC), Noise Margin, Power & Area tradeoff. Dynamic: delays (propagation/transition), dynamic power.
+- **Layout**: Introduction to design rules. DRC/LVS, stick diagram & euler graph.
+- **Advanced topics**: standard cells, Liberty format (.LIB).
+- **Project**: 6T SRAM Cell in 0.5um SCMOS technology.
+- **Cloud-based EDA Platform**: Sue2 schematic editor, nspice simulator, Magic Layout editor, netgen LVS tool, CppSim Python Lib for ngspice.
 
 ## Announcements
 - [21 May] : Use this [Link](https://us02web.zoom.us/meeting/register/tZAvcuyoqTgrHNwFF4Abu4TnOFCOn4WFVf1S) to register for Zoom sessions from May 24 till June 11, Mon-Fri: 10am-1pm, 2:3-5:30pm
