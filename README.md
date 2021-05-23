@@ -7,6 +7,8 @@ This github respository is for the Summer Internship Course conducted between Ma
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
 - [**Kang**] Leblebici, Y., Chul W. K., and Sung-Mo (Steve) Kang. "*CMOS Digital Integrated Circuits Analysis & Design*". 4th ed. McGraw-Hill Education, 2014
+- [**Uyemura**] Uyemura, John P. "*CMOS Logic Circuit Design*". Springer, 2007
+- [**Baker**] Baker, R. Jacob. "*CMOS: Circuit Design, Layout, and Simulation*". John Wiley & Sons, 2008
 - [**Weste**] Weste, Neil, and David Harris. "*CMOS VLSI Design: A Circuits and Systems Perspective*". Pearson Education, 2011
 
 
