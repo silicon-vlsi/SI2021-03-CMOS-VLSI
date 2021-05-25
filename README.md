@@ -18,6 +18,7 @@ This github respository is for the Summer Internship Course conducted between Ma
 ## Session Activities
 - [May 17-21] Introduction to Digital Design by Puneet Mittal, VLSI Expert Pvt. Ltd.
 - [May 24] Introduction to CMOS VLSI Design Flow [[Video](https://www.youtube.com/watch?v=NVzHuigvpt4)]
+  - [Suggested Reading]: [Hodges] Chapter-1, [Kang] Chapter-1
 - [May 24] Introduction to CMOS PRocessing [[Video](https://www.youtube.com/watch?v=dauFDKM-Eu0)]
 - [May 25] Passive Integrated Circuit Devices. MOS Device-I: Threshold Voltage [[Video:Session-1](https://www.youtube.com/watch?v=3SCYAH57Ixw),[Video:Session-2](https://www.youtube.com/watch?v=OUZV9N0b3Lc)] 
 
