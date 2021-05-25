@@ -28,6 +28,7 @@ This github respository is for the Summer Internship Course conducted between Ma
 - [**Uyemura**] Uyemura, John P. "*CMOS Logic Circuit Design*". Springer, 2007
 - [**Baker**] Baker, R. Jacob. "*CMOS: Circuit Design, Layout, and Simulation*". John Wiley & Sons, 2008
 - [**Weste**] Weste, Neil, and David Harris. "*CMOS VLSI Design: A Circuits and Systems Perspective*". Pearson Education, 2011
+- Useful Design Parameters from [Hodges] [[Link](https://github.com/silicon-vlsi/SI2021-03-CMOS-VLSI/blob/main/docs/usefulParameters.pdf)]
 
 
 ## Table of Content
