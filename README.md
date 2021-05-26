@@ -18,10 +18,13 @@ This github respository is for the Summer Internship Course conducted between Ma
 ## Session Activities
 - [May 17-21] Introduction to Digital Design by Puneet Mittal, VLSI Expert Pvt. Ltd.
 - [May 24] Introduction to CMOS VLSI Design Flow [[Video](https://www.youtube.com/watch?v=NVzHuigvpt4)]
-  - [Suggested Reading]: [Hodges] Chapter-1, [Kang] Chapter-1
+  - [*Suggested Reading*]: [Hodges] Chapter-1, [Kang] Chapter-1
 - [May 24] Introduction to CMOS PRocessing [[Video](https://www.youtube.com/watch?v=dauFDKM-Eu0)]
-  - [Suggested Reading]: [Hodges] Section 3.1,3.2
-- [May 25] Passive Integrated Circuit Devices. MOS Device-I: Threshold Voltage [[Video:Session-1](https://www.youtube.com/watch?v=3SCYAH57Ixw),[Video:Session-2](https://www.youtube.com/watch?v=OUZV9N0b3Lc)] 
+  - [*Suggested Reading*]: [Hodges] Section 3.1,3.2
+  - [*Suggested Problems*]: [Hodges] Prob 3.11, 3.12
+- [May 25] Passive Integrated Circuit Devices. MOS Device-I: Threshold Voltage [[Video:Session-1](https://www.youtube.com/watch?v=3SCYAH57Ixw),[Video:Session-2](https://www.youtube.com/watch?v=OUZV9N0b3Lc)]
+  - [*Suggested Reading*]: [Hodges] Section 3.2.4,3.2.5
+  - [*Suggested Problems*]: [Hodges] Example 3.1, Prob 3.13, 3.14
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
