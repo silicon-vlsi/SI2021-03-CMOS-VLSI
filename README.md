@@ -26,7 +26,9 @@ This github respository is for the Summer Internship Course conducted between Ma
 - [May 25] Passive Integrated Circuit Devices. MOS Device-I: Threshold Voltage [[Video:Session-1](https://www.youtube.com/watch?v=3SCYAH57Ixw),[Video:Session-2](https://www.youtube.com/watch?v=OUZV9N0b3Lc)]
   - [*Suggested Reading*]: [Hodges] Section **3.2.4, 3.2.5**
   - [*Suggested Problems*]: [Hodges] Example **3.1**, Prob **3.13, 3.14**
-- [May 26] MOS Device-II: IV Characteristics and MOS Capacitance. Basic Circuits.
+- [May 26] MOS Device-II: IV Characteristics and MOS Capacitance. Basic Circuits. 
+- [May 25] Passive Integrated Circuit Devices. MOS Device-I: Threshold Voltage [[Video:Session-1](
+https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtube.com/watch?v=OzlsThjjUDA)]
   - [*Suggested Reading*]: [Hodges] Section **2.2.1, 2.2.2, 2.2.3, 2.2.7** [Kang]: Chapter **3** [Uyemura] Section **1.1, 1.2** (Excellent treatment on Vt) [Baker]: Section **6.1, 6.2, 6.3**
   - [*Suggested Problems*]: [Hodges] Example **2.1,2.2,2.3,2.4,2.5,2.11**, Prob. **2.1,2.4,2.5,2.7,2.8**
 
