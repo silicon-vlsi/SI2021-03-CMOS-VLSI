@@ -13,18 +13,19 @@ This github respository is for the Summer Internship Course conducted between Ma
 - **Cloud-based EDA Platform**: Sue2 schematic editor, nspice simulator, Magic Layout editor, netgen LVS tool, CppSim Python Lib for ngspice.
 
 ## Announcements
+- [26 May] : Probelem assignment 2 posted on vlsiexpert e-learning portal. For upload type questions, please upload your answer as a attachment (either pdf or png or JPEG etc).
 - [21 May] : Use this [Link](https://us02web.zoom.us/meeting/register/tZAvcuyoqTgrHNwFF4Abu4TnOFCOn4WFVf1S) to register for Zoom sessions from May 24 till June 11, Mon-Fri: 10am-1pm, 2:3-5:30pm
 
 ## Session Activities
 - [May 17-21] Introduction to Digital Design by Puneet Mittal, VLSI Expert Pvt. Ltd.
 - [May 24] Introduction to CMOS VLSI Design Flow [[Video](https://www.youtube.com/watch?v=NVzHuigvpt4)]
-  - [*Suggested Reading*]: [Hodges] Chapter-1, [Kang] Chapter-1
+  - [*Suggested Reading*]: [Hodges] Chapter-**1**, [Kang] Chapter-**1**
 - [May 24] Introduction to CMOS PRocessing [[Video](https://www.youtube.com/watch?v=dauFDKM-Eu0)]
-  - [*Suggested Reading*]: [Hodges] Section 3.1,3.2
-  - [*Suggested Problems*]: [Hodges] Prob 3.11, 3.12
+  - [*Suggested Reading*]: [Hodges] Section **3.1,3.2**
+  - [*Suggested Problems*]: [Hodges] Prob **3.11, 3.12**
 - [May 25] Passive Integrated Circuit Devices. MOS Device-I: Threshold Voltage [[Video:Session-1](https://www.youtube.com/watch?v=3SCYAH57Ixw),[Video:Session-2](https://www.youtube.com/watch?v=OUZV9N0b3Lc)]
-  - [*Suggested Reading*]: [Hodges] Section 3.2.4,3.2.5
-  - [*Suggested Problems*]: [Hodges] Example 3.1, Prob 3.13, 3.14
+  - [*Suggested Reading*]: [Hodges] Section **3.2.4, 3.2.5**
+  - [*Suggested Problems*]: [Hodges] Example **3.1**, Prob **3.13, 3.14**
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
