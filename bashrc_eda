@@ -1,0 +1,22 @@
+
+## Environment variables for NGSpice
+export  SPICE_LIB_DIR=/project2020/eda/ngspice-32/glnxa64/share/ngspice
+export  SPICE_EXEC_DIR=/project2020/eda/ngspice-32/glnxa64/bin
+export PATH=$PATH:$SPICE_EXEC_DIR
+
+## Environment variables for CppSimLite
+export CPPSIMHOME=$HOME/SI2021-03-CMOS-VLSI/tools/CppSimLite
+export CPPSIMSHAREDHOME=$CPPSIMHOME/CppSimShared
+### EDITOR is required to create or modify files from Sue2
+export EDITOR=/usr/bin/vim
+# Set the PATH for NGSpice and CppSimLite binaries
+export PATH=$PATH:$CPPSIMSHAREDHOME/bin:$SPICE_EXEC_DIR
+
+## ---- MAGIC ----
+export MAGIC_HOME=/project2020/eda/magic-83
+export CAD_ROOT=$MAGIC_HOME/lib
+export PATH=$PATH:$MAGIC_HOME/bin
+
+## --- NETGEN ----
+export NETGEN_HOME=/project2020/eda/netgen-15
+export PATH=$PATH:$NETGEN_HOME/bin
