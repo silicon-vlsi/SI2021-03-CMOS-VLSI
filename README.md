@@ -30,7 +30,7 @@ This github respository is for the **Summer Internship Course** conducted betwee
 https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtube.com/watch?v=OzlsThjjUDA)]
   - [*Suggested Reading*]: [Hodges] Section **2.2.1, 2.2.2, 2.2.3, 2.2.7** [Kang]: Chapter **3** [Uyemura] Section **1.1, 1.2** (Excellent treatment on Vt) [Baker]: Section **6.1, 6.2, 6.3**
   - [*Suggested Problems*]: [Hodges] Example **2.1,2.2,2.3,2.4,2.5,2.11**, Prob. **2.1,2.4,2.5,2.7,2.8**
-- [May 27] Modeling of MOS Device for Circuit Simulation.
+- [May 27] Modeling of MOS Device for Circuit Simulation.[Video:[Session-2 Lab Intro](https://www.youtube.com/watch?v=riMKnP0AaRI) | [Session-3]()]
   - [*Suggested Reading*]: [Hodges] Section **3.4, 3.5, 3.6, Appendix-A**, [NGSpice Manual](/tools/CppSimLite/CppSimShared/Doc/ngspice-32-manual.pdf)
   - [*Lab Assignment*] MOS Parameter extraction and MOS Level-1 Modeling [Link-to-PDK](docs/2021-0528-Assignment-MOS-SPICE.pdf)
 
@@ -59,6 +59,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 - [Technology](#Technology)
 
 ## Lab on Cloud
+[Lab Intro](https://www.youtube.com/watch?v=riMKnP0AaRI)
 
 **System Requirement**:
 - Desktop/Laptop with an internet connection.
