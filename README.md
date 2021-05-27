@@ -38,7 +38,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
   - [**Appendix-A**] Chia J. & Saleh R., "*A Brief Introduction to SPICE*" [[Link-to-PDF](tools/CppSimLite/CppSimShared/Doc/Hodges-BriefIntroToSPICE-AppA.pdf)]
-  -Useful Design Parameters from [Hodges] [[Link-to-PDF](docs/usefulParameters.pdf)]
+  - Useful Design Parameters from [Hodges] [[Link-to-PDF](docs/usefulParameters.pdf)]
 - [**Kang**] Leblebici, Y., Chul W. K., and Sung-Mo (Steve) Kang. "*CMOS Digital Integrated Circuits Analysis & Design*". 4th ed. McGraw-Hill Education, 2014
 - [**Uyemura**] Uyemura, John P. "*CMOS Logic Circuit Design*". Springer, 2007
 - [**Baker**] Baker, R. Jacob. "*CMOS: Circuit Design, Layout, and Simulation*". John Wiley & Sons, 2008
@@ -47,6 +47,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 
 
 ## Table of Content
+- [EDA on Cloud](#EDA on Cloud)
 - [NGSpice](#NGSpice)
     - [QuickStart Guide](#Quick-Start-Guide)
 - [CppSimLite](#CppSimLite)
@@ -55,9 +56,45 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 - [Netgen](#Netgen)
 - [Technology](#Technology)
 
+## Lab on Cloud
+
+**System Requirement**:
+- Desktop/Laptop with an internet connection.
+- An upto-date web browser, preferably **Chrome** or Chrome-based.
+- 
+**Onetime step to setup the account:**
+- Navigate to [this link](https://virtualcoach.jnaapti.io/)
+- Click on "*Forgot your password*" and follow instruction to reset password
+
+**Connecting and Starting the Virtual Linux Desktop**
+- Navigate to [this link](https://virtualcoach.jnaapti.io/)
+- Login into the dashboard and from the top-left corner dropdown menu click **Lab Instances**.
+- Start the instance by clicking the play button   
+- Once the instance is ready, click on the **desktop** icon  on the right.
+- A new tab should open up with “noVNC” title and a “connect” button underneath. Click it to launch the Linux desktop. (Ignore the error “No session for pid 83” and click ok)
+- Scroll to the bottom and click the start button on the lower left corner and start a Terminal by clicking “System Tools -> **LXTerminal**”  NOTE: You can choose UXTerm and XTerm as well.
+- That should bring up a terminal
+
+**Setting up the Lab Environment**
+- All our Labs and course resources are maintained at https://github.com/silicon-vlsi/SI2021-03-CMOS-VLSI
+- First you have to clone this *repository* to your home directory:
+  - ```git clone https://github.com/silicon-vlsi/SI2021-03-CMOS-VLSI```
+- After cloning the repository, you directory should look something like this:
+```
+SI2021-03-CMOS-VLSI/
+├── LICENSE
+├── README.md
+├── docs
+│   ├── 2021-0528-Assignment-MOS-SPICE.pdf
+│   └── usefulParameters.pdf
+└── tools
+    └── CppSimLite
+```
+- **IMPORTANT**: DO NOT WORK in this directory `SI2021-03-CMOS-VLSI` 
+
 ## NGSpice
 [NGSpice] is a open source spice simulator for electric and electronic circuits. 
-- [NGSpice Reference Manual][NGSpiceMan]: Comple reference manual in HTML format.
+- [NGSpice Reference Manual][NGSpiceMan]: Complete reference manual in HTML format.
 
 Precompiled ngspice v32 is installed in `/project2020/eda/ngspice-32`. Add the following environment variables in your `~/.bashrc`
 
