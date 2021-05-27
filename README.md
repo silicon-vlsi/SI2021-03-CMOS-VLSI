@@ -34,11 +34,12 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
+  -[**Appendix-A**] Chia J. & Saleh R., "*A Brief Introduction to SPICE*" [[Link-to-PDF]()]
 - [**Kang**] Leblebici, Y., Chul W. K., and Sung-Mo (Steve) Kang. "*CMOS Digital Integrated Circuits Analysis & Design*". 4th ed. McGraw-Hill Education, 2014
 - [**Uyemura**] Uyemura, John P. "*CMOS Logic Circuit Design*". Springer, 2007
 - [**Baker**] Baker, R. Jacob. "*CMOS: Circuit Design, Layout, and Simulation*". John Wiley & Sons, 2008
 - [**Weste**] Weste, Neil, and David Harris. "*CMOS VLSI Design: A Circuits and Systems Perspective*". Pearson Education, 2011
-- Useful Design Parameters from [Hodges] [[Link](https://github.com/silicon-vlsi/SI2021-03-CMOS-VLSI/blob/main/docs/usefulParameters.pdf)]
+- Useful Design Parameters from [Hodges] [[Link-to-PDF](docs/usefulParameters.pdf)]
 
 
 ## Table of Content
