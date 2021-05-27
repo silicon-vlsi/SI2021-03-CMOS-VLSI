@@ -117,6 +117,8 @@ export  PATH=$PATH:$SPICE_EXEC_DIR
 ```
 There is a initialization script in `$SPICE_LIB_DIR/scripts/spinit`. You can overwrite any of the initilization by adding commands to a local `~/.spiceinit` .
 
+The Spice model files are located at `/project2020/eda/ngspice-32/models/scn4m_subm/nom`
+
 ### Quick Start Guide
 You can open a text editor create a *netlist* of the intended circuit for example of a voltage divider as shown below (say filename `divider.sp`):
 ```spice
@@ -225,7 +227,7 @@ export PATH=$PATH:$NETGEN_HOME/bin
 ## MOSIS Scalable CMOS Technology ([SCMOS])
 [SCMOS] is a *lambda-based* scalable design rules that can be interfaced to many CMOS fabrication process available at MOSIS. **NOTE** The scalable design rules does not interface with Fabs now because of lot unique process nuances.
 
-- The Spice model files are located at `<PATH-TO-REPO>/project2020/eda/ngspice-32/models/scn4m_subm`
+- The Spice model files are located at `/project2020/eda/ngspice-32/models/scn4m_subm/nom`
 - Typical MOS parameters:
   - **NMOS**: tox=7.6nm, nch=1.7e17/cm^3, Vt0=0.49V, un(mobility)=445 cm^2/Vs
   - **PMOS**: tox=7.6nm, nch=1.7e17/cm^3, Vt0=-0.66V, up(mobility)=151 cm^2/Vs
