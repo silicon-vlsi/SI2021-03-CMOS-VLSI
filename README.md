@@ -34,7 +34,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
-  -[**Appendix-A**] Chia J. & Saleh R., "*A Brief Introduction to SPICE*" [[Link-to-PDF]()]
+  - [**Appendix-A**] Chia J. & Saleh R., "*A Brief Introduction to SPICE*" [[Link-to-PDF](tools/CppSimLite/CppSimShared/Doc/Hodges-BriefIntroToSPICE-AppA.pdf)]
 - [**Kang**] Leblebici, Y., Chul W. K., and Sung-Mo (Steve) Kang. "*CMOS Digital Integrated Circuits Analysis & Design*". 4th ed. McGraw-Hill Education, 2014
 - [**Uyemura**] Uyemura, John P. "*CMOS Logic Circuit Design*". Springer, 2007
 - [**Baker**] Baker, R. Jacob. "*CMOS: Circuit Design, Layout, and Simulation*". John Wiley & Sons, 2008
