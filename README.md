@@ -45,10 +45,11 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 - [**Weste**] Weste, Neil, and David Harris. "*CMOS VLSI Design: A Circuits and Systems Perspective*". Pearson Education, 2011
 - [NGSpice Reference Manual][NGSpiceMan]: Comple reference manual in HTML format
   - [MOSFET Models](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#magicparlabel-1356039)
+- Quick Start Guide: [[Linux](https://www.makeuseof.com/tag/a-quick-guide-to-get-started-with-the-linux-command-line/)] [[Vim](https://www.engadget.com/2012/07/10/vim-how-to/)]
 
 
 ## Table of Content
-- [EDA on Cloud](#EDA on Cloud)
+- [EDA on Cloud](#LabonCloud)
 - [NGSpice](#NGSpice)
     - [QuickStart Guide](#Quick-Start-Guide)
 - [CppSimLite](#CppSimLite)
@@ -62,13 +63,13 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 **System Requirement**:
 - Desktop/Laptop with an internet connection.
 - An upto-date web browser, preferably **Chrome** or Chrome-based.
-- 
+
 **Onetime step to setup the account:**
-- Navigate to [this link](https://virtualcoach.jnaapti.io/)
+- Navigate to https://virtualcoach.jnaapti.io/
 - Click on "*Forgot your password*" and follow instruction to reset password
 
 **Connecting and Starting the Virtual Linux Desktop**
-- Navigate to [this link](https://virtualcoach.jnaapti.io/)
+- Navigate to https://virtualcoach.jnaapti.io/
 - Login into the dashboard and from the top-left corner dropdown menu click **Lab Instances**.
 - Start the instance by clicking the play button   
 - Once the instance is ready, click on the **desktop** icon  on the right.
