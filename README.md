@@ -92,7 +92,16 @@ SI2021-03-CMOS-VLSI/
 └── tools
     └── CppSimLite
 ```
-- **IMPORTANT**: DO NOT WORK in this directory `SI2021-03-CMOS-VLSI` 
+- **IMPORTANT**: DO NOT WORK in this directory `SI2021-03-CMOS-VLSI`. Treat the content of this directory as READ-ONLY.
+- In order to get all the environment variables of the EDA tools, append your ```.bashrc``` with the following:
+```bash
+if [ -f $HOME/SI2021-03-CMOS-VLSI/bashrc_eda ]; then
+    . $HOME/SI2021-03-CMOS-VLSI/bashrc_eda
+else
+    echo "bashrc_eda DOES NOT EXIST"
+fi
+```
+- Next time you start a terminal, you can access all the tools.
 
 ## NGSpice
 [NGSpice] is a open source spice simulator for electric and electronic circuits. 
