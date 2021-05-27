@@ -1,5 +1,5 @@
 # SI/2021-03: Digital CMOS VLSI Design
-This github respository is for the Summer Internship Course conducted between May 17 till June 11, 2021. The course is conducted and taught by Mr. Puneet Mittal from VLSI Expert Pvt Ltd, Prof. Santunu Sarangi and Prof. Saroj Rout from Silicon Institute of Technology, Bhubaneswar.
+This github respository is for the **Summer Internship Course** conducted between May 17 till June 11, 2021. The course is conducted and taught by Mr. Puneet Mittal from VLSI Expert Pvt Ltd, Prof. Santunu Sarangi and Prof. Saroj Rout from Silicon Institute of Technology, Bhubaneswar.
 ### Course Content
 - **Introduction Digital Design**: Digital VLSI Design FLow, MUX-based & Decoder-based circuits, Finite-State Machines (FSM), Flip-Flops (Setup/Hold) Time, Delays (Propagation/transition), Noise-margin, clock-gating and timing concepts.
 - **Introduction to CMOS VLSI Design**: VLSI Design flow: custom & semi-custom, Introduction to CMOS Processing.
