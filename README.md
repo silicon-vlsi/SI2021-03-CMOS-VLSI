@@ -44,6 +44,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 - [**Baker**] Baker, R. Jacob. "*CMOS: Circuit Design, Layout, and Simulation*". John Wiley & Sons, 2008
 - [**Weste**] Weste, Neil, and David Harris. "*CMOS VLSI Design: A Circuits and Systems Perspective*". Pearson Education, 2011
 - [NGSpice Reference Manual][NGSpiceMan]: Comple reference manual in HTML format
+  - [MOSFET Models](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#magicparlabel-1356039)
 
 
 ## Table of Content
