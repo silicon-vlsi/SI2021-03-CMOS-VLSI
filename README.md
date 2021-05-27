@@ -32,20 +32,24 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
   - [*Suggested Problems*]: [Hodges] Example **2.1,2.2,2.3,2.4,2.5,2.11**, Prob. **2.1,2.4,2.5,2.7,2.8**
 - [May 27] Modeling of MOS Device for Circuit Simulation.
   - [*Suggested Reading*]: [Hodges] Section **3.4, 3.5, 3.6, Appendix-A**, [NGSpice Manual](/tools/CppSimLite/CppSimShared/Doc/ngspice-32-manual.pdf)
-  - [*Lab Assignment*] MOS Parameter extraction and MOS Level-1 Modeling [Link-to-PDK]()
+  - [*Lab Assignment*] MOS Parameter extraction and MOS Level-1 Modeling [Link-to-PDK](docs/2021-0528-Assignment-MOS-SPICE.pdf)
 
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
   - [**Appendix-A**] Chia J. & Saleh R., "*A Brief Introduction to SPICE*" [[Link-to-PDF](tools/CppSimLite/CppSimShared/Doc/Hodges-BriefIntroToSPICE-AppA.pdf)]
+  - Useful Design Parameters from [Hodges] [[Link-to-PDF](docs/usefulParameters.pdf)]
 - [**Kang**] Leblebici, Y., Chul W. K., and Sung-Mo (Steve) Kang. "*CMOS Digital Integrated Circuits Analysis & Design*". 4th ed. McGraw-Hill Education, 2014
 - [**Uyemura**] Uyemura, John P. "*CMOS Logic Circuit Design*". Springer, 2007
 - [**Baker**] Baker, R. Jacob. "*CMOS: Circuit Design, Layout, and Simulation*". John Wiley & Sons, 2008
 - [**Weste**] Weste, Neil, and David Harris. "*CMOS VLSI Design: A Circuits and Systems Perspective*". Pearson Education, 2011
-- Useful Design Parameters from [Hodges] [[Link-to-PDF](docs/usefulParameters.pdf)]
+- [NGSpice Reference Manual][NGSpiceMan]: Comple reference manual in HTML format
+  - [MOSFET Models](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#magicparlabel-1356039)
+- Quick Start Guide: [[Linux](https://www.makeuseof.com/tag/a-quick-guide-to-get-started-with-the-linux-command-line/)] [[Vim](https://www.engadget.com/2012/07/10/vim-how-to/)]
 
 
 ## Table of Content
+- [EDA on Cloud](#LabonCloud)
 - [NGSpice](#NGSpice)
     - [QuickStart Guide](#Quick-Start-Guide)
 - [CppSimLite](#CppSimLite)
@@ -54,9 +58,45 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 - [Netgen](#Netgen)
 - [Technology](#Technology)
 
+## Lab on Cloud
+
+**System Requirement**:
+- Desktop/Laptop with an internet connection.
+- An upto-date web browser, preferably **Chrome** or Chrome-based.
+
+**Onetime step to setup the account:**
+- Navigate to https://virtualcoach.jnaapti.io/
+- Click on "*Forgot your password*" and follow instruction to reset password
+
+**Connecting and Starting the Virtual Linux Desktop**
+- Navigate to https://virtualcoach.jnaapti.io/
+- Login into the dashboard and from the top-left corner dropdown menu click **Lab Instances**.
+- Start the instance by clicking the play button   
+- Once the instance is ready, click on the **desktop** icon  on the right.
+- A new tab should open up with “noVNC” title and a “connect” button underneath. Click it to launch the Linux desktop. (Ignore the error “No session for pid 83” and click ok)
+- Scroll to the bottom and click the start button on the lower left corner and start a Terminal by clicking “System Tools -> **LXTerminal**”  NOTE: You can choose UXTerm and XTerm as well.
+- That should bring up a terminal
+
+**Setting up the Lab Environment**
+- All our Labs and course resources are maintained at https://github.com/silicon-vlsi/SI2021-03-CMOS-VLSI
+- First you have to clone this *repository* to your home directory:
+  - ```git clone https://github.com/silicon-vlsi/SI2021-03-CMOS-VLSI```
+- After cloning the repository, you directory should look something like this:
+```
+SI2021-03-CMOS-VLSI/
+├── LICENSE
+├── README.md
+├── docs
+│   ├── 2021-0528-Assignment-MOS-SPICE.pdf
+│   └── usefulParameters.pdf
+└── tools
+    └── CppSimLite
+```
+- **IMPORTANT**: DO NOT WORK in this directory `SI2021-03-CMOS-VLSI` 
+
 ## NGSpice
 [NGSpice] is a open source spice simulator for electric and electronic circuits. 
-- [NGSpice Reference Manual][NGSpiceMan]: Comple reference manual in HTML format.
+- [NGSpice Reference Manual][NGSpiceMan]: Complete reference manual in HTML format.
 
 Precompiled ngspice v32 is installed in `/project2020/eda/ngspice-32`. Add the following environment variables in your `~/.bashrc`
 
