@@ -175,18 +175,22 @@ proc make_window {win} {
   #$win.mbar.doc.menu add command -label "Paper on Double-Interp Method" \
   #    -command "pdf_read Doc/paper.pdf"
   $win.mbar.doc.menu add separator
+  $win.mbar.doc.menu add command -label " Intro to SPICE " \
+      -command "pdf_read Doc/Hodges-BriefIntroToSPICE-AppA.pdf"
   $win.mbar.doc.menu add command -label "NGspice within CppSim Primer" \
       -command "pdf_read Doc/ngspice_cppsim_primer5.pdf"
   $win.mbar.doc.menu add command -label "Ngspice Manual" \
       -command "pdf_read Doc/ngspice-manual.pdf"
   $win.mbar.doc.menu add command -label "CppSim and Ngspice Data Modules for Python" \
       -command "pdf_read Doc/cppsimdata_for_python.pdf"
-  $win.mbar.doc.menu add command -label "Hspice Toolbox for Matlab/Octave" \
-      -command "pdf_read Doc/hspice_toolbox.pdf"
+#  $win.mbar.doc.menu add command -label "Hspice Toolbox for Matlab/Octave" \
+#      -command "pdf_read Doc/hspice_toolbox.pdf"
   $win.mbar.doc.menu add command -label "HSPC Manual" \
       -command "pdf_read Doc/hspc.pdf"
-  $win.mbar.doc.menu add command -label "BSIM4 Manual" \
-      -command "pdf_read Doc/BSIM464_Manual.pdf"
+  $win.mbar.doc.menu add command -label "BSIM3v3 Manual" \
+      -command "pdf_read Doc/BSIM3v3.pdf"
+#  $win.mbar.doc.menu add command -label "BSIM4 Manual" \
+#      -command "pdf_read Doc/BSIM464_Manual.pdf"
   $win.mbar.doc.menu add command -label "SCMOS Manual" \
       -command "pdf_read Doc/scmos.pdf"
   $win.mbar.doc.menu add separator
