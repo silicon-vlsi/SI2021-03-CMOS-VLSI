@@ -1,5 +1,5 @@
 # SI/2021-03: Digital CMOS VLSI Design
-This github respository is for the Summer Internship Course conducted between May 17 till June 11, 2021. The course is conducted and taught by Mr. Puneet Mittal from VLSI Expert Pvt Ltd, Prof. Santunu Sarangi and Prof. Saroj Rout from Silicon Institute of Technology, Bhubaneswar.
+This github respository is for the **Summer Internship Course** conducted between May 17 till June 11, 2021. The course is conducted and taught by Mr. Puneet Mittal from VLSI Expert Pvt Ltd, Prof. Santunu Sarangi and Prof. Saroj Rout from Silicon Institute of Technology, Bhubaneswar.
 ### Course Content
 - **Introduction Digital Design**: Digital VLSI Design FLow, MUX-based & Decoder-based circuits, Finite-State Machines (FSM), Flip-Flops (Setup/Hold) Time, Delays (Propagation/transition), Noise-margin, clock-gating and timing concepts.
 - **Introduction to CMOS VLSI Design**: VLSI Design flow: custom & semi-custom, Introduction to CMOS Processing.
@@ -30,7 +30,7 @@ This github respository is for the Summer Internship Course conducted between Ma
 https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtube.com/watch?v=OzlsThjjUDA)]
   - [*Suggested Reading*]: [Hodges] Section **2.2.1, 2.2.2, 2.2.3, 2.2.7** [Kang]: Chapter **3** [Uyemura] Section **1.1, 1.2** (Excellent treatment on Vt) [Baker]: Section **6.1, 6.2, 6.3**
   - [*Suggested Problems*]: [Hodges] Example **2.1,2.2,2.3,2.4,2.5,2.11**, Prob. **2.1,2.4,2.5,2.7,2.8**
-- [May 27] Modeling of MOS Device for Circuit Simulation.
+- [May 27] Modeling of MOS Device for Circuit Simulation.[Video:[Session-2 Lab Intro](https://www.youtube.com/watch?v=riMKnP0AaRI) | [Session-3]()]
   - [*Suggested Reading*]: [Hodges] Section **3.4, 3.5, 3.6, Appendix-A**, [NGSpice Manual](/tools/CppSimLite/CppSimShared/Doc/ngspice-32-manual.pdf)
   - [*Lab Assignment*] MOS Parameter extraction and MOS Level-1 Modeling [Link-to-PDK](docs/2021-0528-Assignment-MOS-SPICE.pdf)
 
@@ -59,6 +59,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtu
 - [Technology](#Technology)
 
 ## Lab on Cloud
+[Lab Intro](https://www.youtube.com/watch?v=riMKnP0AaRI)
 
 **System Requirement**:
 - Desktop/Laptop with an internet connection.
@@ -92,7 +93,16 @@ SI2021-03-CMOS-VLSI/
 └── tools
     └── CppSimLite
 ```
-- **IMPORTANT**: DO NOT WORK in this directory `SI2021-03-CMOS-VLSI` 
+- **IMPORTANT**: DO NOT WORK in this directory `SI2021-03-CMOS-VLSI`. Treat the content of this directory as READ-ONLY.
+- In order to get all the environment variables of the EDA tools, append your ```.bashrc``` with the following:
+```bash
+if [ -f $HOME/SI2021-03-CMOS-VLSI/bashrc_eda ]; then
+    . $HOME/SI2021-03-CMOS-VLSI/bashrc_eda
+else
+    echo "bashrc_eda DOES NOT EXIST"
+fi
+```
+- Next time you start a terminal, you can access all the tools.
 
 ## NGSpice
 [NGSpice] is a open source spice simulator for electric and electronic circuits. 
@@ -106,6 +116,8 @@ export  SPICE_EXEC_DIR=/project2020/eda/ngspice-32/glnxa64/bin
 export  PATH=$PATH:$SPICE_EXEC_DIR
 ```
 There is a initialization script in `$SPICE_LIB_DIR/scripts/spinit`. You can overwrite any of the initilization by adding commands to a local `~/.spiceinit` .
+
+The Spice model files are located at `/project2020/eda/ngspice-32/models/scn4m_subm/nom`
 
 ### Quick Start Guide
 You can open a text editor create a *netlist* of the intended circuit for example of a voltage divider as shown below (say filename `divider.sp`):
@@ -215,7 +227,7 @@ export PATH=$PATH:$NETGEN_HOME/bin
 ## MOSIS Scalable CMOS Technology ([SCMOS])
 [SCMOS] is a *lambda-based* scalable design rules that can be interfaced to many CMOS fabrication process available at MOSIS. **NOTE** The scalable design rules does not interface with Fabs now because of lot unique process nuances.
 
-- The Spice model files are located at `<PATH-TO-REPO>/project2020/eda/ngspice-32/models/scn4m_subm`
+- The Spice model files are located at `/project2020/eda/ngspice-32/models/scn4m_subm/nom`
 - Typical MOS parameters:
   - **NMOS**: tox=7.6nm, nch=1.7e17/cm^3, Vt0=0.49V, un(mobility)=445 cm^2/Vs
   - **PMOS**: tox=7.6nm, nch=1.7e17/cm^3, Vt0=-0.66V, up(mobility)=151 cm^2/Vs
