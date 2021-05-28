@@ -23,17 +23,17 @@ This github respository is for the **Summer Internship Course** conducted betwee
 - [May 24] Introduction to CMOS PRocessing [[Video](https://www.youtube.com/watch?v=dauFDKM-Eu0)]
   - [*Suggested Reading*]: [Hodges] Section **3.1,3.2**
   - [*Suggested Problems*]: [Hodges] Prob **3.11, 3.12**
-- [May 25] Passive Integrated Circuit Devices. MOS Device-I: Threshold Voltage [[Video:Session-1](https://www.youtube.com/watch?v=3SCYAH57Ixw),[Video:Session-2](https://www.youtube.com/watch?v=OUZV9N0b3Lc)]
+- [May 25] *Session-1*: Passive Integrated Circuit Devices. *Session-2*: MOS Device-I: Threshold Voltage [[Video:Session-1](https://www.youtube.com/watch?v=3SCYAH57Ixw) | [Video:Session-2](https://www.youtube.com/watch?v=OUZV9N0b3Lc)]
   - [*Suggested Reading*]: [Hodges] Section **3.2.4, 3.2.5**
   - [*Suggested Problems*]: [Hodges] Example **3.1**, Prob **3.13, 3.14**
-- [May 26] MOS Device-II: IV Characteristics and MOS Capacitance. Basic Circuits. [[Video:Session-1](
-https://www.youtube.com/watch?v=UUCB_dgFiwA),[Video:Session-2](https://www.youtube.com/watch?v=OzlsThjjUDA)]
+- [May 26] *Session-1*: MOS Device-II: IV Characteristics and MOS Capacitance. *Session-2*: Basic Circuits. [[Video:Session-1](
+https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.youtube.com/watch?v=OzlsThjjUDA)]
   - [*Suggested Reading*]: [Hodges] Section **2.2.1, 2.2.2, 2.2.3, 2.2.7** [Kang]: Chapter **3** [Uyemura] Section **1.1, 1.2** (Excellent treatment on Vt) [Baker]: Section **6.1, 6.2, 6.3**
   - [*Suggested Problems*]: [Hodges] Example **2.1,2.2,2.3,2.4,2.5,2.11**, Prob. **2.1,2.4,2.5,2.7,2.8**
-- [May 27] Modeling of MOS Device for Circuit Simulation. Parameter Extraction. MOS Problem discussion. [Video: [Session-1 MOS modeling](https://www.youtube.com/watch?v=mQEryii3McE) | [Session-2 Lab Intro](https://www.youtube.com/watch?v=riMKnP0AaRI) | [Session-3 ](https://www.youtube.com/watch?v=zFpJc6QFUc4)]
+- [May 27] *Session-1* Modeling of MOS Device for Circuit Simulation. *Session-2*: Introduction to Lab on Cloud. *Session-3*: Parameter Extraction. MOS Problem discussion. [Video: [Session-1](https://www.youtube.com/watch?v=mQEryii3McE) | [Session-2](https://www.youtube.com/watch?v=riMKnP0AaRI) | [Session-3](https://www.youtube.com/watch?v=zFpJc6QFUc4)]
   - [*Suggested Reading*]: [Hodges] Section **3.4, 3.5, 3.6, Appendix-A**, [NGSpice Manual](/tools/CppSimLite/CppSimShared/Doc/ngspice-32-manual.pdf)
   - [*Lab Assignment*] MOS Parameter extraction and MOS Level-1 Modeling [Link-to-PDK](docs/2021-0528-Assignment-MOS-SPICE.pdf)
-
+- [May 28] *Session-1*: Intorduction to Linux. *Session-2*: Lab-1 -- Parameter extraction. [Video: [Session-1](https://www.youtube.com/watch?v=ZGqEjvjWcqI) | [Session-2](https://www.youtube.com/watch?v=hVf8IAfiDyI)]
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
