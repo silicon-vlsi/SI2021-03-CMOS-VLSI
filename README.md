@@ -34,6 +34,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.you
   - [*Suggested Reading*]: [Hodges] Section **3.4, 3.5, 3.6, Appendix-A**, [NGSpice Manual](/tools/CppSimLite/CppSimShared/Doc/ngspice-32-manual.pdf)
   - [*Lab Assignment*] MOS Parameter extraction and MOS Level-1 Modeling [Link-to-PDK](docs/2021-0528-Assignment-MOS-SPICE.pdf)
 - [May 28] *Session-1*: Intorduction to Linux. *Session-2*: Lab-1 -- Parameter extraction. [Video: [Session-1](https://www.youtube.com/watch?v=ZGqEjvjWcqI) | [Session-2](https://www.youtube.com/watch?v=hVf8IAfiDyI)]
+- [May 31] *Session-1*: Solving problems related MOS Device. *Session-2*: Lab-2 Parameter extraction (contd.)
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
