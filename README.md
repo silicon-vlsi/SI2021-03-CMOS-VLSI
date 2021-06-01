@@ -40,7 +40,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.you
   - [*Suggested Problems*]: [Hodges] Problem **4.1,4.2,4.5,4.8,4.10,4.11**
 
 ## References/Resources
-- [**Hodges**] Hodges, David A., and David. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
+- [**Hodges**] Hodges, David A., et.al. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
   - [**Appendix-A**] Chia J. & Saleh R., "*A Brief Introduction to SPICE*" [[Link-to-PDF](tools/CppSimLite/CppSimShared/Doc/Hodges-BriefIntroToSPICE-AppA.pdf)]
   - Useful Design Parameters from [Hodges] [[Link-to-PDF](docs/usefulParameters.pdf)]
 - [**Kang**] Leblebici, Y., Chul W. K., and Sung-Mo (Steve) Kang. "*CMOS Digital Integrated Circuits Analysis & Design*". 4th ed. McGraw-Hill Education, 2014
