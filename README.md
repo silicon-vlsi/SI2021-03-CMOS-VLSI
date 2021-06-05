@@ -41,7 +41,8 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.you
 - [June 2] *Session-1*: Inverter Characteristics -- Dynamic. *Session-2*: Lab-4: Inverter Characterisitcs - Dynamic [Video: [Session-1](https://www.youtube.com/watch?v=jXyXVIjiYcU) | [Session-2](https://www.youtube.com/watch?v=nAUKbAKebjQ)], [[Notes](https://www.dropbox.com/s/tt8w5zbh7vesn1x/2021-0602-15VLSI7T-Module1-Lecture16-17-Inverter-switching.pdf)]
   - [*Suggested Reading*]: [Hodges] Section **6.1,6.2,6.3,6.4,6.5**  
   - [*Suggested Problems*]: [Hodges] Example **6.1,6.3,6.4,6.5,6.8**
-- [June 3] *Session-1* Parasitics and Interconnect effect on switching. *Session-2*: Lab-5: Parasitics [Video: [Session-1](https://www.youtube.com/watch?v=euWVJqATv2A) | [Session-2](https://www.youtube.com/watch?v=jmFchoahUFM)], [[Notes](https://www.dropbox.com/s/zu1fobf63x9vjhx/2021-0603-15VLSI7T-Module4-Lecture3-Interconnect-Parasitics.pdf)]
+- [June 3] *Session-1*: Parasitics and Interconnect effect on switching. *Session-2*: Lab-5: Parasitics [Video: [Session-1](https://www.youtube.com/watch?v=euWVJqATv2A) | [Session-2](https://www.youtube.com/watch?v=jmFchoahUFM)], [[Notes](https://www.dropbox.com/s/zu1fobf63x9vjhx/2021-0603-15VLSI7T-Module4-Lecture3-Interconnect-Parasitics.pdf)]
+- [June 4] *Session-1*: Energy and power calculation for inverters. *Session-2*: Inverter Layout using Magic.  [Videos: [Session-1](https://www.youtube.com/watch?v=oHBa8uv6xeU) | [Session-2](https://www.youtube.com/watch?v=y3ZpKECBKDg)]
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., et.al. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
