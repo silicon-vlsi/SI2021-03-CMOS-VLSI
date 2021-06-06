@@ -54,6 +54,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.you
 - [**Weste**] Weste, Neil, and David Harris. "*CMOS VLSI Design: A Circuits and Systems Perspective*". Pearson Education, 2011
 - [NGSpice Reference Manual][NGSpiceMan]: Comple reference manual in HTML format
   - [MOSFET Models](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#magicparlabel-1356039)
+- [**BSIM4v4.8.0**](http://ngspice.sourceforge.net/external-documents/models/BSIM480_Manual.pdf): MOSFET Model -- User's Manual
 - Quick Start Guide: [[Linux](https://www.makeuseof.com/tag/a-quick-guide-to-get-started-with-the-linux-command-line/)] [[Vim](https://www.engadget.com/2012/07/10/vim-how-to/)]
 
 
