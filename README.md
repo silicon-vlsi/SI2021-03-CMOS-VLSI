@@ -59,6 +59,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.you
 - [NGSpice Reference Manual][NGSpiceMan]: Comple reference manual in HTML format
   - [MOSFET Models](http://ngspice.sourceforge.net/docs/ngspice-html-manual/manual.xhtml#magicparlabel-1356039)
 - [**BSIM4v4.8.0**](http://ngspice.sourceforge.net/external-documents/models/BSIM480_Manual.pdf): MOSFET Model -- User's Manual
+- [**YouTube PLaylist-OpenSourceEDA**](https://www.youtube.com/playlist?list=PL7R2OODNugWFY2qeZ7qlVFNIkN8ABhuSO): Santunu Sarangi, Satabdi Panda and Pracheeta Mhapatra, "[15VLSI7T](https://github.com/silicon-vlsi/15VLSI7T):VLSI Design Course for 7th Sem AEI, 2020" -- Excellent set of detailed videos of Labs conducted for the course using ngspice, sue2, magic and netgen.
 - Quick Start Guide: [[Linux](https://www.makeuseof.com/tag/a-quick-guide-to-get-started-with-the-linux-command-line/)] [[Vim](https://www.engadget.com/2012/07/10/vim-how-to/)]
 
 
