@@ -7,6 +7,7 @@
 # a script that loads the command.
 
 set auto_index(SCHEMATIC_CMOS_inv_sue) [list source [file join $dir CMOS_inv_sue.sue]]
+set auto_index(SCHEMATIC_Lab9_inv) [list source [file join $dir Lab9_inv.sue]]
 set auto_index(SCHEMATIC_Lab9_inv_sue) [list source [file join $dir Lab9_inv_sue.sue]]
 set auto_index(SCHEMATIC_invX1) [list source [file join $dir invX1.sue]]
 set auto_index(SCHEMATIC_invX1_hspc) [list source [file join $dir invX1_hspc.sue]]
