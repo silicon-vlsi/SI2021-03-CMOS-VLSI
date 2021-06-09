@@ -44,9 +44,12 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.you
 - [June 3] *Session-1*: Parasitics and Interconnect effect on switching. *Session-2*: Lab-5 -- Parasitics [Video: [Session-1](https://www.youtube.com/watch?v=euWVJqATv2A) | [Session-2](https://www.youtube.com/watch?v=jmFchoahUFM)], [[Notes](https://www.dropbox.com/s/zu1fobf63x9vjhx/2021-0603-15VLSI7T-Module4-Lecture3-Interconnect-Parasitics.pdf)]
 - [June 4] *Session-1*: Energy and power calculation for inverters. *Session-2*: Lab-6 -- Inverter Layout using Magic.  [Videos: [Session-1](https://www.youtube.com/watch?v=oHBa8uv6xeU) | [Session-2](https://www.youtube.com/watch?v=y3ZpKECBKDg)]
 - [June 7] *Session-1*: Standard Cell Design. *Session-2*: Lab-7 -- Standard Cell Layout [Videos: [Session-1](https://www.youtube.com/watch?v=er_Kh8FgRmM) | [Session-1](https://www.youtube.com/watch?v=bOG1iROYqz8)]
-- [June 8] *Session-1*: MOS Device Equations: Refinement and additional effects. *Session-2*: Lab-8 -- Temperature effect on Vt and mobility. Python API for ngspice. [Videos: [Session-1](https://www.youtube.com/watch?v=KUFQLb0Japk) | [Session-1](https://www.youtube.com/watch?v=dnUg7rxwc5Q)]
+- [June 8] *Session-1*: MOS Device Equations: Short-channel, thin-oxide and additional effects. *Session-2*: Lab-8 -- Temperature effect on Vt and mobility. Python API for ngspice. [Videos: [Session-1](https://www.youtube.com/watch?v=KUFQLb0Japk) | [Session-1](https://www.youtube.com/watch?v=dnUg7rxwc5Q)]
   - [*Suggested Reading*]: [Hodges] Section **2.2.4, 2.2.6, 3.6.2, 3.6.3, 3.7.1, 3.7.2, 3.7.5**
   - [*Suggested Problems*]: [Hodges] Example **2.6, 2.7, 2.8**
+- [June 9] *Session-1*: Switching analysis: Buffer sizing, delay optimization and Logical Effort. *Session-2*: Lab-9 -- Using Sue2. [Videos: [Session-1](https://www.youtube.com/watch?v=r8hBxmIJaOE) | [Session-2](https://www.youtube.com/watch?v=QGNpkpn8_Bo) ]
+  - [*Suggested Reading*]: [Hodges] Section **6.1,6.2,6.3,6.4,6.5,6.6**
+  - [*Suggested Problems*]: [Hodges] Example **6.1,6.8,6.9,6.10,6.11**, Problem **6.4,6.6,6.9,6.10,6.11**
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., et.al. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
