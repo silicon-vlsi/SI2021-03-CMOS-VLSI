@@ -50,7 +50,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.you
 - [June 9] *Session-1*: Switching analysis: Buffer sizing, delay optimization and Logical Effort. *Session-2*: Lab-9 -- Using Sue2. [Videos: [Session-1](https://www.youtube.com/watch?v=r8hBxmIJaOE) | [Session-2](https://www.youtube.com/watch?v=QGNpkpn8_Bo) ]
   - [*Suggested Reading*]: [Hodges] Section **6.1,6.2,6.3,6.4,6.5,6.6**
   - [*Suggested Problems*]: [Hodges] Example **6.1,6.8,6.9,6.10,6.11**, Problem **6.4,6.6,6.9,6.10,6.11**
-- [June 10] *Session-1*: Sequential circuit design: Flip-Flops. *Session-2* Lab-10 -- [Videos: [Session-1](https://www.youtube.com/watch?v=o44Uu7FDTgs) | Session-2](https://www.youtube.com/watch?v=GUQ7sCSaFng)]
+- [June 10] *Session-1*: Sequential circuit design: Flip-Flops. *Session-2* Lab-10 -- [Videos: [Session-1](https://www.youtube.com/watch?v=o44Uu7FDTgs) | [Session-2](https://www.youtube.com/watch?v=GUQ7sCSaFng)]
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., et.al. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
