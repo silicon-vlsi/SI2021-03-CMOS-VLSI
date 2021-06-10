@@ -32,8 +32,7 @@ def vt_kp(v, Id, v1, v2, woverl):
     c = rtId1 - m*v1
     vt = -c/m
     ##Kp Calculation
-    #FIXME: calculate Kp
-    kp = 0.0 
+    kp = (m**2)/woverl 
 
     return vt,kp
 
@@ -47,11 +46,11 @@ v = data.evalsig('VOLTAGE')
 
 ## Calculate Vt
 ##FIXME Provide the v1,v2 and W/L 
-v1=0.0
-v2=0.0
-woverl=0.0
+v1=0.754
+v2=0.995
+woverl=5.0
 vt,kp = vt_kp(v, id1, v1, v2, woverl)
-print "Vt=%3.2f V,  Kp=%3.2f A/V^2" % (vt,kp)
+print "Vt=%3.3f V,  Kp=%3.2f uA/V^2" % (vt,kp*1e6)
 
 # Plot the figure
 fig = figure(1)
@@ -64,4 +63,5 @@ title('Vgs vs Ids')
 grid(True,which='both')
 #fig.show()
 
-#input("Press any key to quite")
+#input('Press any key to quit')
+
