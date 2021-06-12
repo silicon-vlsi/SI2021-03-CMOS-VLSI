@@ -24,4 +24,18 @@ Xi6 n1 n0 clk clkb TX_Gate
 
 *************** Module Inverter ***************
 .subckt Inverter input output
+m0 output input vdd vdd scmosp w='2.5u' l='0.4u' m='1'
+m1 output input gnd gnd scmosn w='1u' l='0.4u' m='1'
+.ENDS Inverter
 
+************* Module TX_Gate ****************
+.subckt TX_Gate input output ckb ck 
+m0 input ckb output vdd scmosp w='0.6u' l='0.4u' m='1'
+m1 input ck output gnd scmosn w='0.6u' l='0.4u' m='1'
+.ENDS TX_Gate
+
+.TRAN 5p 25n
+.CONTROL
+RUN
+PLOT v(D)+6 v(CK)+3 v(Q)
+.END
