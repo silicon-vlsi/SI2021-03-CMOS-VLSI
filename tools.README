@@ -1,0 +1,11 @@
+All the open source EDA tools are maintained in
+https://github.com/silicon-vlsi-org
+
+in following repositories:
+
+/eda-ngspice		: ngspice
+/eda-cppsimLite		: Sue2 schematic editor, Python Lib, etc.
+/eda-magic		: Magic Layout tools
+/eda-netgen		: Netgen LVS tool
+/eda-technology		: All technology files.
+
