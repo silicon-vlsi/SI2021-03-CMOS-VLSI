@@ -51,7 +51,7 @@ https://www.youtube.com/watch?v=UUCB_dgFiwA) | [Video:Session-2](https://www.you
   - [*Suggested Reading*]: [Hodges] Section **6.1,6.2,6.3,6.4,6.5,6.6**
   - [*Suggested Problems*]: [Hodges] Example **6.1,6.8,6.9,6.10,6.11**, Problem **6.4,6.6,6.9,6.10,6.11**
 - [June 10] *Session-1*: Sequential circuit design: Flip-Flops. *Session-2* Lab-10 -- [Videos: [Session-1](https://www.youtube.com/watch?v=o44Uu7FDTgs) | [Session-2](https://www.youtube.com/watch?v=GUQ7sCSaFng)]
-- [June 11] *Session-1*: Semicunductor Memory basics 6T-SRAM design : 6T-SRAM. -- [Videos: [Session-1](https://www.youtube.com/watch?v=MkMEq4zO9Pc)]]
+- [June 11] *Session-1*: Semiconductor Memory basics 6T-SRAM design : 6T-SRAM. -- [Videos: [Session-1](https://www.youtube.com/watch?v=MkMEq4zO9Pc)]]
 
 ## References/Resources
 - [**Hodges**] Hodges, David A., et.al. "*Analysis And Design Of Digital Integrated Circuits, In Deep Submicron Technology*" (Special Indian Edition, 3rd Ed). Tata McGraw-Hill Education, 2005.
