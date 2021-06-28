@@ -1,9 +1,0 @@
-find_sue_module_library:  find_sue_module_library.o sue2_common_code.o cppsim_classes.o
-	g++ -o find_sue_module_library find_sue_module_library.o sue2_common_code.o cppsim_classes.o -lm
-find_sue_module_library.o:  find_sue_module_library.cpp sue2_common_code.h cppsim_classes.h
-	g++ -c find_sue_module_library.cpp  
-sue2_common_code.o:  sue2_common_code.cpp sue2_common_code.h
-	g++ -c sue2_common_code.cpp  
-cppsim_classes.o:  cppsim_classes.cpp cppsim_classes.h
-	g++ -c cppsim_classes.cpp  
-

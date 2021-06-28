@@ -1,9 +1,0 @@
-import_cppsim_library:  import_cppsim_library.o sue2_common_code.o cppsim_classes.o
-	g++ -static -o import_cppsim_library import_cppsim_library.o sue2_common_code.o cppsim_classes.o -lm -mwindows
-import_cppsim_library.o:  import_cppsim_library.cpp sue2_common_code.h cppsim_classes.h
-	g++ -static -c import_cppsim_library.cpp  
-sue2_common_code.o:  sue2_common_code.cpp sue2_common_code.h
-	g++ -static -c sue2_common_code.cpp  
-cppsim_classes.o:  cppsim_classes.cpp cppsim_classes.h
-	g++ -static -c cppsim_classes.cpp  
-

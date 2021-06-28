@@ -1,7 +1,0 @@
-find_sue_module_library:  find_sue_module_library.o cppsim_classes.o
-	g++ -o find_sue_module_library find_sue_module_library.o cppsim_classes.o -lm
-find_sue_module_library.o:  find_sue_module_library.cpp cppsim_classes.h
-	g++ -c find_sue_module_library.cpp  
-cppsim_classes.o:  cppsim_classes.cpp cppsim_classes.h
-	g++ -c cppsim_classes.cpp  
-

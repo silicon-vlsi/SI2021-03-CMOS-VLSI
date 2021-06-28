@@ -1,6 +1,0 @@
-spice2cppnet:  spice2cppnet.o cppsim_classes.o
-	g++ -Os -fomit-frame-pointer -o spice2cppnet spice2cppnet.o cppsim_classes.o -lm
-spice2cppnet.o:  spice2cppnet.cpp cppsim_classes.h
-	g++ -Os -fomit-frame-pointer -c spice2cppnet.cpp  
-cppsim_classes.o:  cppsim_classes.cpp cppsim_classes.h
-	g++ -Os -fomit-frame-pointer -c cppsim_classes.cpp  

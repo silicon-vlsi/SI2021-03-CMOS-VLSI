@@ -1,5 +1,0 @@
-proc SCHEMATIC_cpp_internal_double_interp_to_bool_convert {} {
-make input -name in -origin {310 -40}
-make output -name out -origin {450 -40}
-}
-

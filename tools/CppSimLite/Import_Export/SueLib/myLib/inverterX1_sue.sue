@@ -1,5 +1,0 @@
-proc SCHEMATIC_inverterX1_sue {} {
-make scmosn4 -name M0 -origin {1360 280}
-make scmosp4 -name M1 -origin {1360 150}
-}
-

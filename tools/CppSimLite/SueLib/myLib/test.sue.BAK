@@ -1,5 +1,0 @@
-proc SCHEMATIC_test {} {
-make nmos -name M0 -origin {3190 460}
-make npn -name Q0 -origin {3190 590}
-}
-

@@ -1,9 +1,0 @@
-create_cppsim_code_template:  create_cppsim_code_template.o sue2_common_code.o cppsim_classes.o
-	g++ -static -o create_cppsim_code_template create_cppsim_code_template.o sue2_common_code.o cppsim_classes.o -lm
-create_cppsim_code_template.o:  create_cppsim_code_template.cpp sue2_common_code.h cppsim_classes.h
-	g++ -static -c create_cppsim_code_template.cpp  
-sue2_common_code.o:  sue2_common_code.cpp sue2_common_code.h
-	g++ -static -c sue2_common_code.cpp  
-cppsim_classes.o:  cppsim_classes.cpp cppsim_classes.h
-	g++ -static -c cppsim_classes.cpp  
-

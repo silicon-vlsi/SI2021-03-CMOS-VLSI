@@ -1,9 +1,0 @@
-check_dependencies_or_name_clashes:  check_dependencies_or_name_clashes.o sue2_common_code.o cppsim_classes.o
-	g++ -static -o check_dependencies_or_name_clashes check_dependencies_or_name_clashes.o sue2_common_code.o cppsim_classes.o -lm -mwindows
-check_dependencies_or_name_clashes.o:  check_dependencies_or_name_clashes.cpp sue2_common_code.h cppsim_classes.h
-	g++ -static -c check_dependencies_or_name_clashes.cpp  
-sue2_common_code.o:  sue2_common_code.cpp sue2_common_code.h
-	g++ -static -c sue2_common_code.cpp  
-cppsim_classes.o:  cppsim_classes.cpp cppsim_classes.h
-	g++ -static -c cppsim_classes.cpp  
-

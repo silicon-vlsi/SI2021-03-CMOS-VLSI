@@ -1,9 +1,0 @@
-proc ICON_flag args {
-  icon_setup $args {{origin {0 0}} {orient R0} {value {}} {format %d}}
-  icon_term -type inout -origin {0 0} -name flag
-  icon_property -origin {-60 30} -type user -name value
-  icon_line 0 0 0 -10 -20 -10 -20 -30 20 -30 20 -10 0 -10
-  icon_property -origin {0 -20} -anchor center -label {$value}
-  icon_property -origin {-60 50} -type user -name format -default %d
-}
-

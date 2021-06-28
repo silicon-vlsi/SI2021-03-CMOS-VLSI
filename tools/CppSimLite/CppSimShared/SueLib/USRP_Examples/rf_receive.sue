@@ -1,8 +1,0 @@
-proc SCHEMATIC_rf_receive {} {
-make output -orient RX -name rx_a -origin {640 410}
-make output -orient RX -name rx_b -origin {640 440}
-make usrp_rfrx -orient RX -name xi1 -vco_freq vco_freq -adc_gain adc_gain -sample_rate sample_rate -dco_freq dco_freq -offset_cancel_on offset_cancel_on -mixer_gain mixer_gain -origin {790 420}
-  make_wire 640 410 690 410
-  make_wire 640 440 690 440
-}
-
